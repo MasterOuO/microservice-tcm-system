@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>管理員介面</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- 自訂樣式 -->
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+  <!-- jQuery Timepicker CSS (以 CDN 為例) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+  <!-- 自訂 CSS：針對 timepicker 下拉選單字體動態調整 -->
+  <style>
+    /* 假設 timepicker 插件產生的下拉選單項目使用 .ui-timepicker-wrapper 和 .ui-timepicker-item */
+    .ui-timepicker-wrapper .ui-timepicker-item {
+      font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+      .ui-timepicker-wrapper .ui-timepicker-item {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 頂部 Navbar (小螢幕時顯示漢堡按鈕) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #07393C;">
+    <div class="container-fluid">
+      <!-- 漢堡按鈕 -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- 右側：使用者姓名 & 登出 -->
+      <div class="ms-auto text-white d-flex align-items-center">
+        <span class="w3-bar-item w3-right" style="margin-right: 10px">Hi, [[${userDetails.getFullname()}]]</span>
+        <a class="btn btn-outline-light btn-sm" th:href="@{/logout}" sec:authorize="isAuthenticated">登出</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- 側邊欄 -->
+      <div class="col-2 sidebar d-none d-lg-block">
+        <div class="sidebar-heading">行政人員管理系統</div>
+        <hr/>
+        <nav class="nav flex-column">
+          <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
+          <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
+          <a class="nav-link" th:href="@{/admin-page/createRole}">新增人員</a>
+          <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
+        </nav>
+      </div>
+
+      <!-- 主要內容：佔剩餘空間 -->
+      <div class="col">
+        <div class="container mt-4">
+          <h2 class="title">醫生排班</h2>
+
+          <!-- 表單 (POST 到後端) -->
+          <form id="scheduleForm" method="post">
+            <!-- 醫師下拉選單 -->
+            <div class="mb-3">
+              <label for="doctorSelect" class="form-label">選擇醫師：</label>
+              <select id="doctorSelect" name="doctorId" class="form-select">
+                <option value="">--請選擇醫師--</option>
+                <option th:each="doctor : ${doctors}"
+                        th:value="${doctor.id}"
+                        th:text="${doctor.fullname}">
+                </option>
+              </select>
+            </div>
+
+            <!-- 隱藏欄位：存放 JSON 排班資料 -->
+            <input type="hidden" name="scheduleJson" id="scheduleJson"/>
+
+            <!-- 排班表格：一週 7 天 × 早/午/晚 -->
+            <div class="table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width:120px;">星期</th>
+                    <th>早診<br><small>(開始 / 結束)</small></th>
+                    <th>午診<br><small>(開始 / 結束)</small></th>
+                    <th>晚診<br><small>(開始 / 結束)</small></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 用 Thymeleaf 迴圈 1~7 代表星期一至星期日 -->
+                  <tr th:each="day : ${#numbers.sequence(1,7)}">
+                    <td class="day-label">
+                      <th:block th:switch="${day}">
+                        <span th:case="1">星期一</span>
+                        <span th:case="2">星期二</span>
+                        <span th:case="3">星期三</span>
+                        <span th:case="4">星期四</span>
+                        <span th:case="5">星期五</span>
+                        <span th:case="6">星期六</span>
+                        <span th:case="7">星期日</span>
+                      </th:block>
+                    </td>
+                    
+                    <!-- 早診：改用 input 與 timepicker -->
+                    <td>
+                      <input type="text" class="form-control morningStart timepicker" placeholder="--開始時間--" th:attr="data-day=${day}" />
+                      <input type="text" class="form-control morningEnd timepicker mt-2 time" placeholder="--結束時間--" th:attr="data-day=${day}" />
+                      <button type="button" class="btn btn-secondary btn-sm clearBtn" data-target="morning" th:attr="data-day=${day}">清除</button>
+                    </td>
+                    
+                    <!-- 午診 -->
+                    <td>
+                      <input type="text" class="form-control afternoonStart timepicker" placeholder="--開始時間--" th:attr="data-day=${day}" />
+                      <input type="text" class="form-control afternoonEnd timepicker mt-2" placeholder="--結束時間--" th:attr="data-day=${day}" />
+                      <button type="button" class="btn btn-secondary btn-sm clearBtn" data-target="afternoon" th:attr="data-day=${day}">清除</button>
+                    </td>
+                    
+                    <!-- 晚診 -->
+                    <td>
+                      <input type="text" class="form-control eveningStart timepicker" placeholder="--開始時間--" th:attr="data-day=${day}" />
+                      <input type="text" class="form-control eveningEnd timepicker mt-2" placeholder="--結束時間--" th:attr="data-day=${day}" />
+                      <button type="button" class="btn btn-secondary btn-sm clearBtn" data-target="evening" th:attr="data-day=${day}">清除</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row">
+            	<div class="offset-sm-4 col-sm-4 d-grid">
+            		<button type="submit" class="btn btn-submit" style="margin-bottom:10px">提交</button>
+            	</div>
+            </div>         
+          </form>
+        </div>
+      </div>
+    </div> <!-- /row -->
+  </div> <!-- /container-fluid -->
+
+  <!-- 小螢幕專用: Offcanvas (漢堡選單) -->
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileOffcanvas" aria-labelledby="mobileOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mobileOffcanvasLabel">功能選單</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" th:href="@{/admin-page/createRole}">新增人員</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- jQuery Timepicker Plugin (以 CDN 為例) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+  <!-- 自訂腳本：初始化 timepicker 與動態更新結束時間 -->
+  <script>
+    $(document).ready(function(){
+      // -------------- 系統提示先選擇醫生 -------------
+	  $(".timepicker").on('click', function() {
+		if($("#doctorSelect").val() === null || $("#doctorSelect").val === "") {
+			alert("請先選擇醫生");
+			return;
+		} 
+
+      // ---------- 初始化「早診」 timepicker ----------
+      $('.morningStart').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15,
+        minTime: '8',
+        maxTime: '12:30pm',
+        dynamic: false,		//是否根據使用者輸入動態調整
+        dropdown: true, 	//啟用下拉選單顯示選項
+        scrollbar: true, 	//如選項過多則啟用滾動條
+      });
+      
+      $('.morningEnd').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15, 
+        minTime: '8',
+        maxTime: '12:30pm',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+      });
+   
+  
+      // ---------- 初始化「午診」 timepicker ----------
+      $('.afternoonStart').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15,
+        minTime: '12',
+        maxTime: '18:30pm',
+        dynamic: true,
+        dropdown: true,
+        scrollbar: true,
+      });
+      $('.afternoonEnd').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15,
+        minTime: '12',  // 初始值
+        maxTime: '18:30pm',
+        dynamic: true,
+        dropdown: true,
+        scrollbar: true,
+      });
+      $('.afternoonStart').on('changeTime', function(){
+        var startTime = $(this).val();
+        var day = $(this).attr('data-day');
+        $('.afternoonEnd[data-day="' + day + '"]').timepicker('option', 'minTime', startTime);
+      });
+	 });  
+      // ---------- 初始化「晚診」 timepicker ----------
+      $('.eveningStart').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15,
+        minTime: '18',
+        maxTime: '22:30pm',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+      });
+      $('.eveningEnd').timepicker({
+        timeFormat: 'H:mm a',
+        interval: 15,
+        minTime: '18',  // 初始值
+        maxTime: '22:30pm',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+      });
+      $('.eveningStart').on('changeTime', function(){
+        var startTime = $(this).val();
+        var day = $(this).attr('data-day');
+        $('.eveningEnd[data-day="' + day + '"]').timepicker('option', 'minTime', startTime);
+      });
+
+      
+      // ------------- 其他表單處理與按鈕事件 -------------
+      // (A) 監聽「選擇醫師」改變 → 回填資料
+      const doctorSelect = document.getElementById("doctorSelect");
+      doctorSelect.addEventListener("change", function(){
+        const doctorId = this.value;
+        if(!doctorId){
+        	fillSchedule({});
+        	return;
+        }
+        $.ajax({
+        	url: '/api/schedule?doctorId=' + doctorId,
+        	type: 'GET',
+        	dataType : 'json',
+        	success : function(response){
+        		if(response.success){
+        			let scheduleStr = response.schedule;
+        			if(scheduleStr.trim() !== ""){
+        				let scheduleObj = JSON.parse(scheduleStr);
+        				fillSchedule(scheduleObj);
+                 		//這邊要改alert(response.message);
+        			}else{
+        				fillSchedule({});
+        			}
+        		}else{
+        			console.log("後端回傳錯誤: " , response.message);
+        			fillSchedule({});
+        		}
+        	},
+        	error: function(xhr, status, error){
+        		console.error("AJAX錯誤: " , error);
+        		// console.log("HTTP狀態碼", xhr.status); xhr代表XMLHttpRequest物件，存取回應資訊
+        		// console.log("錯誤型態:", status); status為字串，描述此次請求狀態("timeout","abort" etc)
+        		// console.log("錯誤訊息:", error); error是錯誤訊息或物件，表示更細節的資訊(如server端拋出的message)
+        		fillSchedule({});
+        	}
+         });       
+       });
+      
+      // (B) 清除按鈕：.clearBtn
+      const clearBtns = document.querySelectorAll(".clearBtn");
+      clearBtns.forEach(btn => {
+        btn.addEventListener("click", function(){
+          const target = btn.getAttribute("data-target"); // morning/afternoon/evening
+          const day = btn.getAttribute("data-day");       // 1~7
+          document.querySelector(`.${target}Start[data-day='${day}']`).value = "";
+          document.querySelector(`.${target}End[data-day='${day}']`).value   = "";
+        });
+      });
+      
+      // (C) 表單送出前，將 7 天 × 3 診別組成 JSON → 塞進 #scheduleJson
+      const scheduleForm = document.getElementById("scheduleForm");
+      scheduleForm.addEventListener("submit", function(e){
+        e.preventDefault();
+        const scheduleData = {};
+        for(let d = 1; d <= 7; d++){
+          const morStart = document.querySelector(`.morningStart[data-day='${d}']`).value.trim();
+          const morEnd   = document.querySelector(`.morningEnd[data-day='${d}']`).value.trim();
+          const aftStart = document.querySelector(`.afternoonStart[data-day='${d}']`).value.trim();
+          const aftEnd   = document.querySelector(`.afternoonEnd[data-day='${d}']`).value.trim();
+          const eveStart = document.querySelector(`.eveningStart[data-day='${d}']`).value.trim();
+          const eveEnd   = document.querySelector(`.eveningEnd[data-day='${d}']`).value.trim();
+          
+          const morningArr   = (morStart && morEnd) ? [morStart, morEnd] : [];
+          const afternoonArr = (aftStart && aftEnd) ? [aftStart, aftEnd] : [];
+          const eveningArr   = (eveStart && eveEnd) ? [eveStart, eveEnd] : [];
+          
+          scheduleData[d] = [ morningArr, afternoonArr, eveningArr ];
+        }
+        const scheduleJsonStr = JSON.stringify(scheduleData);
+        document.getElementById("scheduleJson").value = scheduleJsonStr;
+        scheduleForm.submit();
+      });
+    });
+
+    /** 回填函式 */
+    function fillSchedule(scheduleData){
+      // 先清空全部
+      for(let d = 1; d <= 7; d++){
+        document.querySelector(`.morningStart[data-day='${d}']`).value = "";
+        document.querySelector(`.morningEnd[data-day='${d}']`).value   = "";
+        document.querySelector(`.afternoonStart[data-day='${d}']`).value = "";
+        document.querySelector(`.afternoonEnd[data-day='${d}']`).value   = "";
+        document.querySelector(`.eveningStart[data-day='${d}']`).value = "";
+        document.querySelector(`.eveningEnd[data-day='${d}']`).value   = "";
+      }
+   	  // 例如 scheduleData["1"] = [ ["08:45","10:45"], [], []]
+      // => shifts[0]=["08:45","10:45"] => morningStart, morningEnd
+      for(let day in scheduleData){
+        const shifts = scheduleData[day];
+        if(Array.isArray(shifts) && shifts.length === 3){
+          if(Array.isArray(shifts[0]) && shifts[0].length === 2){
+            document.querySelector(`.morningStart[data-day='${day}']`).value = shifts[0][0];
+            document.querySelector(`.morningEnd[data-day='${day}']`).value   = shifts[0][1];
+          }
+          if(Array.isArray(shifts[1]) && shifts[1].length === 2){
+            document.querySelector(`.afternoonStart[data-day='${day}']`).value = shifts[1][0];
+            document.querySelector(`.afternoonEnd[data-day='${day}']`).value   = shifts[1][1];
+          }
+          if(Array.isArray(shifts[2]) && shifts[2].length === 2){
+            document.querySelector(`.eveningStart[data-day='${day}']`).value = shifts[2][0];
+            document.querySelector(`.eveningEnd[data-day='${day}']`).value   = shifts[2][1];
+          }
+        }
+      }
+    }
+    
+  </script>
+</body>
+</html>

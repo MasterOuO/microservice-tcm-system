@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/* 1. 全域 (body, html) */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", PingFang, sans-serif;
+    font-size: 16px; 
+    line-height: 1.5; 
+    background-color: #D8F1EC; /* 淺綠背景 */
+    color: #052f31;           /* 深色字 */
+}
+
+/* 2. 主標題 (中醫辨證系統) */
+.title {
+    font-size: 2rem;    /* 例如 32px */
+    font-weight: 700;
+    color: #07393C;
+    text-align: center;
+    margin-top: 20px;   /* 與頁面頂部距離 */
+    margin-bottom: 10px;
+}
+
+/* 3. 區塊標題 (醫師 / 行政人員登入、病患預約掛號等) */
+.section-title {
+    font-size: 1.5rem;  /* 24px */
+    font-weight: 700;
+    color: #07393C;
+    margin-bottom: 1em;
+}
+
+/* 4. 區塊容器背景 (淡綠) */
+.login-section,
+.patient-section,
+.patient-search-section {
+    background-color: #EAF9F7;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* 5. 表單 Label */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* 6. 表單輸入框 */
+input[type="text"],
+input[type="password"],
+select.form-select,
+textarea {
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: inherit;
+    background-color: #F4FFFE;
+    color: #052f31; 
+    border: 1px solid #AADDD1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* placeholder 文字顏色 */
+::placeholder {
+    color: #8fa9a6;
+}
+
+/* 聚焦樣式 */
+input[type="text"]:focus,
+input[type="password"]:focus,
+select.form-select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #30A19A;
+    box-shadow: 0 0 5px rgba(48, 161, 154, 0.5);
+}
+
+/* 7. 按鈕 */
+.btn-submit {
+    background-color: #30A19A;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-submit:hover {
+    background-color: #27847e;
+}
+
+/* 8. 訊息提示 */
+.message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.message.alert-danger {
+    background-color: #ff8080;
+    color: #fff;
+}
+.message.alert-success {
+    background-color: #30A19A;
+    color: #fff;
+}
+
+/* 9. 針對小螢幕的微調 */
+@media (max-width: 576px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    .section-title {
+        font-size: 1.25rem;
+    }
+}

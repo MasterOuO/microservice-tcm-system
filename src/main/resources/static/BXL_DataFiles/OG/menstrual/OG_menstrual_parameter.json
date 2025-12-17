@@ -1,0 +1,11 @@
+{
+  "sd_size": 93,
+  "g_size": 4,
+  "G1_weight": 0.4,
+  "G2_weight": 0.4,
+  "G3_weight": 0.1,
+  "G4_weight": 0.1,
+  "G5_weight": 0.0,
+  "primary_weight": 1.0,
+  "secondary_weight": 0.0
+}

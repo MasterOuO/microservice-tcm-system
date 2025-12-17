@@ -1,0 +1,857 @@
+{
+  "1": {
+  	"name": "心氣虛",
+    "Syndrome_ID":"DE201",
+    
+    "Primary_Group_1": [463, 494],
+    "Primary_Group_2": [139, 183, 279],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [386, 323],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+  	"name": "心陽虛",
+    "Syndrome_ID":"DE202",
+    
+    "Primary_Group_1": [463, 494],
+    "Primary_Group_2": [555, 167],
+    "Primary_Group_3": [843, 841],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [495, 464, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [139, 279, 183],
+    "Secondary_Group_3": [829, 823],
+    "Secondary_Group_4": [813],
+    "Secondary_Group_5": [386, 323]
+  },
+  "3": {
+  	"name": "心陽暴脫",
+    "Syndrome_ID":"DE203",
+    
+    "Primary_Group_1": [463, 494],
+    "Primary_Group_2": [785],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [135, 137, 388, 106],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [279],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [813],
+    "Secondary_Group_5": [323, 327, 464]
+  },
+  "4": {
+  	"name": "心血虛",
+    "Syndrome_ID":"DE204",
+    
+    "Primary_Group_1": [463],
+    "Primary_Group_2": [348, 619, 435],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [140, 450, 104, 323, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "5": {
+  	"name": "心陰虛",
+    "Syndrome_ID":"DE205",
+    
+    "Primary_Group_1": [463],
+    "Primary_Group_2": [546, 164, 407, 72, 299],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [325],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [348, 619, 435],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [798],
+    "Secondary_Group_5": [140, 450]
+  },
+  "6": {
+  	"name": "肝血虛",
+    "Syndrome_ID":"DE206",
+    
+    "Primary_Group_1": [630, 272],
+    "Primary_Group_2": [348, 619, 435],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [558, 561, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "7": {
+  	"name": "肝陰虛",
+    "Syndrome_ID":"DE207",
+    
+    "Primary_Group_1": [630, 272],
+    "Primary_Group_2": [546, 164, 407, 72, 299],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [148, 498, 620, 325],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [348, 619],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [798],
+    "Secondary_Group_5": []
+  },
+  "8": {
+  	"name": "脾氣虛",
+    "Syndrome_ID":"DE208",
+    
+    "Primary_Group_1": [490, 511, 55],
+    "Primary_Group_2": [139, 183, 279],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [154, 194, 193, 326, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "9": {
+  	"name": "脾陽虛",
+    "Syndrome_ID":"DE209",
+    
+    "Primary_Group_1": [508],
+    "Primary_Group_2": [555, 167],
+    "Primary_Group_3": [843, 841],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [24, 323],
+    "Secondary_Group_1": [490, 511, 55],
+    "Secondary_Group_2": [139, 183],
+    "Secondary_Group_3": [823, 829],
+    "Secondary_Group_4": [813],
+    "Secondary_Group_5": [194]
+  },
+  "10": {
+  	"name": "脾氣陷",
+    "Syndrome_ID":"DE210",
+    
+    "Primary_Group_1": [490, 511, 55],
+    "Primary_Group_2": [747],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [348, 619, 17, 33],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [139, 183],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": [154, 326, 327]
+  },
+  "11": {
+  	"name": "脾不統血",
+    "Syndrome_ID":"DE211",
+    
+    "Primary_Group_1": [490, 511, 55],
+    "Primary_Group_2": [43, 16, 218, 308, 93],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [323],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [139, 183, 279],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [813],
+    "Secondary_Group_5": [154, 327]
+  },
+  "12": {
+  	"name": "肺氣虛",
+    "Syndrome_ID":"DE212",
+    
+    "Primary_Group_1": [290, 277],
+    "Primary_Group_2": [139, 183, 279],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [386, 323, 165, 413, 426, 149],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "13": {
+  	"name": "肺陰虛",
+    "Syndrome_ID":"DE213",
+    
+    "Primary_Group_1": [290],
+    "Primary_Group_2": [546, 164, 407, 72, 299],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [298, 428, 318, 401, 424, 421, 287, 325],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [823],
+    "Secondary_Group_4": [813, 798],
+    "Secondary_Group_5": []
+  },
+  "14": {
+  	"name": "腎氣不固",
+    "Syndrome_ID":"DE214",
+    
+    "Primary_Group_1": [234, 232, 604],
+    "Primary_Group_2": [139, 5, 446, 7, 26],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [4, 25, 10, 447, 473],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [798],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "15": {
+  	"name": "腎陽虛",
+    "Syndrome_ID":"DE215",
+    
+    "Primary_Group_1": [234, 232, 604, 534, 538],
+    "Primary_Group_2": [555, 167],
+    "Primary_Group_3": [843, 841],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [55, 33, 619, 194, 703, 229, 348, 323, 504, 328, 327, 998],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [139, 7, 26],
+    "Secondary_Group_3": [829, 823],
+    "Secondary_Group_4": [813],
+    "Secondary_Group_5": [25, 10, 447, 473]
+  },
+  "16": {
+  	"name": "腎不納氣",
+    "Syndrome_ID":"DE216",
+    
+    "Primary_Group_1": [234, 232, 604, 534, 538],
+    "Primary_Group_2": [139, 277, 288],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [149, 386, 555],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [798],
+    "Secondary_Group_5": []
+  },
+  "17": {
+  	"name": "腎陰虛",
+    "Syndrome_ID":"DE217",
+    
+    "Primary_Group_1": [234, 232, 604, 534, 538],
+    "Primary_Group_2": [546, 164, 407, 72, 299],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [450, 12, 24, 401, 213, 231, 602, 325, 447, 473],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [348, 619, 435],
+    "Secondary_Group_3": [823, 838],
+    "Secondary_Group_4": [798],
+    "Secondary_Group_5": [193, 361, 272]
+  },
+  "18": {
+  	"name": "腎精不足",
+    "Syndrome_ID":"DE218",
+    
+    "Primary_Group_1": [234, 232, 604, 534, 538],
+    "Primary_Group_2": [431],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [140, 137, 145, 193, 361, 85, 275, 272, 321],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "19": {
+  	"name": "肝氣鬱結",
+    "Syndrome_ID":"DE219",
+    
+    "Primary_Group_1": [498, 499],
+    "Primary_Group_2": [295, 132, 147],
+    "Primary_Group_3": [838, 823],
+    "Primary_Group_4": [809, 799],
+    "Primary_Group_5": [494, 1032, 459, 460],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "20": {
+  	"name": "肝陽上亢",
+    "Syndrome_ID":"DE220",
+    
+    "Primary_Group_1": [136, 148, 272],
+    "Primary_Group_2": [345, 346, 348, 619, 435, 450, 325],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [809, 799, 798],
+    "Primary_Group_5": [234, 232, 604, 534, 538, 618],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "21": {
+  	"name": "肝風內動",
+    "Syndrome_ID":"DE221",
+    
+    "Primary_Group_1": [272],
+    "Primary_Group_2": [561, 862, 975, 558, 557, 320, 356, 977, 1008, 80, 214, 572, 202],
+    "Primary_Group_3": [1024, 827, 823, 829],
+    "Primary_Group_4": [811, 809, 799, 795, 798],
+    "Primary_Group_5": [135, 280, 144, 193, 401, 323, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "22": {
+  	"name": "寒滯肝脈",
+    "Syndrome_ID":"DE222",
+    
+    "Primary_Group_1": [1028, 460, 459],
+    "Primary_Group_2": [167, 555],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [809, 815, 799],
+    "Primary_Group_5": [985, 505, 987, 983],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "23": {
+  	"name": "肝火上炎",
+    "Syndrome_ID":"DE223",
+    
+    "Primary_Group_1": [136, 148, 272, 498],
+    "Primary_Group_2": [325, 308, 468],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [809, 795, 799],
+    "Primary_Group_5": [450, 435, 348, 32, 54, 70, 618, 345],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "24": {
+  	"name": "寒邪客脾",
+    "Syndrome_ID":"DE224",
+    
+    "Primary_Group_1": [55, 508],
+    "Primary_Group_2": [555],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807],
+    "Primary_Group_5": [33, 520, 515],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "25": {
+  	"name": "濕邪客脾",
+    "Syndrome_ID":"DE225",
+    
+    "Primary_Group_1": [55, 490, 511, 508],
+    "Primary_Group_2": [556, 343],
+    "Primary_Group_3": [825, 832, 843, 823],
+    "Primary_Group_4": [813, 807, 814, 798],
+    "Primary_Group_5": [494, 33],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "26": {
+  	"name": "熱邪客脾",
+    "Syndrome_ID":"DE226",
+    
+    "Primary_Group_1": [55, 490],
+    "Primary_Group_2": [157],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [1003, 1002, 982, 326, 204, 12, 11, 483, 200, 33, 30, 521, 520],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "27": {
+  	"name": "痰濕阻肺",
+    "Syndrome_ID":"DE227",
+    
+    "Primary_Group_1": [290, 277],
+    "Primary_Group_2": [425],
+    "Primary_Group_3": [832, 823, 829],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [494, 411],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "28": {
+  	"name": "痰熱壅肺",
+    "Syndrome_ID":"DE228",
+    
+    "Primary_Group_1": [290, 277],
+    "Primary_Group_2": [160, 425, 280],
+    "Primary_Group_3": [832, 826, 827],
+    "Primary_Group_4": [806, 795],
+    "Primary_Group_5": [416, 427, 421, 495, 494],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "29": {
+  	"name": "寒邪客肺",
+    "Syndrome_ID":"DE229",
+    
+    "Primary_Group_1": [290, 277],
+    "Primary_Group_2": [167, 555],
+    "Primary_Group_3": [829, 823],
+    "Primary_Group_4": [807],
+    "Primary_Group_5": [411, 426],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "30": {
+  	"name": "熱邪壅肺",
+    "Syndrome_ID":"DE230",
+    
+    "Primary_Group_1": [290, 277],
+    "Primary_Group_2": [159, 75],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [416, 427, 421, 11, 32, 281, 54, 495],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "31": {
+  	"name": "小腸實熱",
+    "Syndrome_ID":"DE231",
+    
+    "Primary_Group_1": [21, 3],
+    "Primary_Group_2": [75, 13, 144],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [11, 16, 79],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "32": {
+  	"name": "膽郁痰擾",
+    "Syndrome_ID":"DE232",
+    
+    "Primary_Group_1": [499, 130, 131],
+    "Primary_Group_2": [520, 521, 70],
+    "Primary_Group_3": [832, 826],
+    "Primary_Group_4": [806, 809, 799],
+    "Primary_Group_5": [450, 348, 619, 144, 494],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "33": {
+  	"name": "肝膽濕熱",
+    "Syndrome_ID":"DE233",
+    
+    "Primary_Group_1": [498, 499],
+    "Primary_Group_2": [172, 1026],
+    "Primary_Group_3": [832, 826, 827],
+    "Primary_Group_4": [809, 795, 799],
+    "Primary_Group_5": [11, 24, 29, 511, 490, 982, 204, 70, 521, 985, 984, 978, 1030, 979, 986],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "34": {
+  	"name": "胃氣上逆",
+    "Syndrome_ID":"DE234",
+    
+    "Primary_Group_1": [520],
+    "Primary_Group_2": [522, 477],
+    "Primary_Group_3": [838, 832, 823],
+    "Primary_Group_4": [806, 809, 799],
+    "Primary_Group_5": [521],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "35": {
+  	"name": "食滯胃脘",
+    "Syndrome_ID":"DE235",
+    
+    "Primary_Group_1": [520, 484],
+    "Primary_Group_2": [522, 1031, 475],
+    "Primary_Group_3": [825, 832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [487, 32, 54, 40, 856],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "36": {
+  	"name": "胃陰虛",
+    "Syndrome_ID":"DE236",
+    
+    "Primary_Group_1": [484, 520],
+    "Primary_Group_2": [72, 299],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [798, 795],
+    "Primary_Group_5": [54, 32, 502, 477],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "37": {
+  	"name": "寒邪客胃",
+    "Syndrome_ID":"DE237",
+    
+    "Primary_Group_1": [520, 484],
+    "Primary_Group_2": [555, 999],
+    "Primary_Group_3": [843, 823, 829],
+    "Primary_Group_4": [809, 807, 799],
+    "Primary_Group_5": [73, 402, 64],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "38": {
+  	"name": "熱邪客胃",
+    "Syndrome_ID":"DE238",
+    
+    "Primary_Group_1": [520, 484],
+    "Primary_Group_2": [118, 482],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [806, 795],
+    "Primary_Group_5": [88, 94, 100, 93, 54, 32, 11, 24, 480, 71],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "39": {
+  	"name": "大腸陽虛",
+    "Syndrome_ID":"DE239",
+    
+    "Primary_Group_1": [33, 55, 508],
+    "Primary_Group_2": [167],
+    "Primary_Group_3": [823, 829, 843],
+    "Primary_Group_4": [813, 815, 810, 798],
+    "Primary_Group_5": [747, 31],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "40": {
+  	"name": "大腸濕熱",
+    "Syndrome_ID":"DE240",
+    
+    "Primary_Group_1": [29, 55, 508],
+    "Primary_Group_2": [75, 160, 1006],
+    "Primary_Group_3": [832, 826, 827],
+    "Primary_Group_4": [806, 795],
+    "Primary_Group_5": [11, 24, 40, 36, 42, 43, 45, 46],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "41": {
+  	"name": "大腸液虧",
+    "Syndrome_ID":"DE241",
+    
+    "Primary_Group_1": [32, 54, 29],
+    "Primary_Group_2": [72, 299, 401],
+    "Primary_Group_3": [831, 826, 827],
+    "Primary_Group_4": [801, 804, 798],
+    "Primary_Group_5": [348, 71],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "42": {
+  	"name": "大腸實熱",
+    "Syndrome_ID":"DE242",
+    
+    "Primary_Group_1": [32, 54, 508, 511],
+    "Primary_Group_2": [164, 368, 144],
+    "Primary_Group_3": [825, 1012, 831, 826, 1011, 1010],
+    "Primary_Group_4": [806, 809, 795, 815, 805],
+    "Primary_Group_5": [450, 135, 143, 150],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "43": {
+  	"name": "膀胱濕熱",
+    "Syndrome_ID":"DE243",
+    
+    "Primary_Group_1": [231, 454, 455],
+    "Primary_Group_2": [160, 13, 15],
+    "Primary_Group_3": [832, 826, 827],
+    "Primary_Group_4": [806, 795],
+    "Primary_Group_5": [11, 16, 3, 21, 7, 12, 24, 18, 17],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "44": {
+  	"name": "風襲肌表",
+    "Syndrome_ID":"DE244",
+    
+    "Primary_Group_1": [158, 290, 311, 306],
+    "Primary_Group_2": [165, 386, 345],
+    "Primary_Group_3": [838, 823],
+    "Primary_Group_4": [807, 814],
+    "Primary_Group_5": [200, 391, 396, 413, 426],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "45": {
+  	"name": "寒襲衛表",
+    "Syndrome_ID":"DE245",
+    
+    "Primary_Group_1": [158, 290, 277, 311, 306],
+    "Primary_Group_2": [167],
+    "Primary_Group_3": [838, 823],
+    "Primary_Group_4": [814, 799],
+    "Primary_Group_5": [564, 345, 354, 391, 396, 413, 426, 406],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "46": {
+  	"name": "濕襲肌表",
+    "Syndrome_ID":"DE246",
+    
+    "Primary_Group_1": [160, 200],
+    "Primary_Group_2": [556, 343],
+    "Primary_Group_3": [825, 832, 843, 823],
+    "Primary_Group_4": [813, 807, 814, 798],
+    "Primary_Group_5": [64, 564, 563, 139],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "47": {
+  	"name": "暑襲衛表",
+    "Syndrome_ID":"DE247",
+    
+    "Primary_Group_1": [290],
+    "Primary_Group_2": [160, 75, 386],
+    "Primary_Group_3": [838, 823],
+    "Primary_Group_4": [795, 814],
+    "Primary_Group_5": [144],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "48": {
+  	"name": "燥襲衛表",
+    "Syndrome_ID":"DE248",
+    
+    "Primary_Group_1": [160, 290],
+    "Primary_Group_2": [72, 309, 299, 108],
+    "Primary_Group_3": [838, 831],
+    "Primary_Group_4": [795, 814],
+    "Primary_Group_5": [167, 495, 54, 308, 401, 424, 428, 427, 421],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "49": {
+  	"name": "熱襲衛表",
+    "Syndrome_ID":"DE249",
+    
+    "Primary_Group_1": [290, 311, 306],
+    "Primary_Group_2": [160, 72, 75],
+    "Primary_Group_3": [845, 838, 826],
+    "Primary_Group_4": [795, 814],
+    "Primary_Group_5": [300, 392, 397, 416, 427],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "50": {
+  	"name": "風襲筋骨",
+    "Syndrome_ID":"DE250",
+    
+    "Primary_Group_1": [558, 753],
+    "Primary_Group_2": [80, 320],
+    "Primary_Group_3": [838, 823],
+    "Primary_Group_4": [807, 814],
+    "Primary_Group_5": [332, 356, 561, 557, 560, 564],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "51": {
+  	"name": "寒襲經絡",
+    "Syndrome_ID":"DE251",
+    
+    "Primary_Group_1": [558, 753],
+    "Primary_Group_2": [555],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807],
+    "Primary_Group_5": [564],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "52": {
+  	"name": "濕襲關節",
+    "Syndrome_ID":"DE252",
+    
+    "Primary_Group_1": [753],
+    "Primary_Group_2": [556],
+    "Primary_Group_3": [825, 832, 843, 823],
+    "Primary_Group_4": [813, 807, 814, 798],
+    "Primary_Group_5": [569],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "53": {
+  	"name": "痰火擾心",
+    "Syndrome_ID":"DE253",
+    
+    "Primary_Group_1": [144, 135, 143, 155, 150],
+    "Primary_Group_2": [325, 618, 160],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [450, 281, 32, 54],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "54": {
+  	"name": "痰迷心竅",
+    "Syndrome_ID":"DE254",
+    
+    "Primary_Group_1": [135, 150, 145, 147, 134, 137],
+    "Primary_Group_2": [280],
+    "Primary_Group_3": [832, 823],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [977, 66, 521, 483],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "55": {
+  	"name": "心火亢盛",
+    "Syndrome_ID":"DE255",
+    
+    "Primary_Group_1": [144, 143, 150],
+    "Primary_Group_2": [325, 308, 468, 75],
+    "Primary_Group_3": [845],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [450, 12, 54, 79, 1014],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "56": {
+  	"name": "心脈痺阻",
+    "Syndrome_ID":"DE256",
+    
+    "Primary_Group_1": [463, 494],
+    "Primary_Group_2": [555, 167],
+    "Primary_Group_3": [848, 847, 838, 823, 842, 829],
+    "Primary_Group_4": [801, 804, 799],
+    "Primary_Group_5": [589, 608, 222, 464, 495],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "57": {
+  	"name": "痰阻心脈",
+    "Syndrome_ID":"DE257",
+    
+    "Primary_Group_1": [463, 494],
+    "Primary_Group_2": [556, 425],
+    "Primary_Group_3": [823, 832],
+    "Primary_Group_4": [806, 815],
+    "Primary_Group_5": [589, 608, 222, 464, 495],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}
