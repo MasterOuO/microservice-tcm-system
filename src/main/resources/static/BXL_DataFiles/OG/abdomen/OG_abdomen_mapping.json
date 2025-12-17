@@ -1,0 +1,43 @@
+{
+  "1": {
+    "name": "氣滯",
+	"Primary_Group_1": [30532,30661,30553,30520,30509],
+	"Primary_Group_2": [30121,30205,30120],
+	"Primary_Group_3": [10301,10304],
+	"Primary_Group_4": [40003,40010,40017],
+	"Primary_Group_5": [10088,40052,40053],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+    "name": "血瘀",
+	"Primary_Group_1": [30336,10187,10025,30354,30520,30510,30517,30532,30416],
+	"Primary_Group_2": [40050],
+	"Primary_Group_3": [10287,10286,10279,10301,10293],
+	"Primary_Group_4": [40000,40003,40010,40014,40017,40021],
+	"Primary_Group_5": [10088,40056,40054,40055],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+    "name": "痰濕瘀結",
+	"Primary_Group_1": [30290,30070,30659,30661,30665,30498,10245],
+	"Primary_Group_2": [30203,30205,30114],
+	"Primary_Group_3": [10302,10309,10293,10279],
+	"Primary_Group_4": [40002,40000,40010,40011,40015],
+	"Primary_Group_5": [10088,40052,40055],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}
+
+

@@ -1,0 +1,1460 @@
+這個黨沒有使用 先測試而已
+	{
+	"1": {
+    "name": "肝陰虛",
+	"icd": "SF50",
+    "Primary_Group_1": [30203, 30224, 30168, 10027],
+    "Primary_Group_2": [30224],
+    "Primary_Group_3": [10276, 10301, 10299],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [10027,10311,30015,30203, 30168],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [40000],
+    "Secondary_Group_5": []
+    },
+    
+    "2": {
+    "name": "肝陽虛",
+	"icd": "SF51",
+    "Primary_Group_1": [30067, 30070],
+    "Primary_Group_2": [30151, 30166, 10161],
+    "Primary_Group_3": [10274, 10293],
+    "Primary_Group_4": [40010, 40004, 40011],
+    "Primary_Group_5": [30067],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "3": {
+    "name": "肝陽上亢",
+	"icd": "SF52",
+    "Primary_Group_1": [10013, 10011, 30154, 30342, 10160, 10027, 30435, 30443],
+    "Primary_Group_2": [30155, 30166, 10318, 30169, 30195, 30193, 30268, 30233, 30230, 30176],
+    "Primary_Group_3": [10276],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30150, 30151],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "4": {
+    "name": "肝氣虛 SF53",
+    "Primary_Group_1": [10012, 10015, 10021],
+    "Primary_Group_2": [10161, 10029, 10030, 20025, 10212, 10315],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30223, 30151, 30166],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "5": {
+    "name": "肝血虛 SF54",
+    "Primary_Group_1": [10161, 30173],
+    "Primary_Group_2": [30151, 30166, 10023, 10212],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30239, 30495, 30509, 30516],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    "6": {
+    "name": "肝鬱血瘀 SF55",
+    "Primary_Group_1": [30224],
+    "Primary_Group_2": [30223],
+    "Primary_Group_3": [10279, 10280, 10286],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30657],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "7": {
+    "name": "肝風內動 SF56",
+    "Primary_Group_1": [10043],
+    "Primary_Group_2": [30151],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [10062],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "8": {
+    "name": "肝氣鬱結 SF57",
+    "Primary_Group_1": [30224, 30223, 30342, 30336],
+    "Primary_Group_2": [10013],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40005, 40003],
+    "Primary_Group_5": [10313],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "9": {
+    "name": "肝火上炎 SF58",
+    "Primary_Group_1": [10013, 30176, 30001, 30337, 10318, 30169, 30186, 30284],
+    "Primary_Group_2": [10027, 30142, 10260, 10012, 10313],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40005, 40003],
+    "Primary_Group_5": [30443, 30151, 30342, 10160, 30150],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "10": {
+    "name": "肝熱動風 SF59",
+    "Primary_Group_1": [30337],
+    "Primary_Group_2": [10006, 10002, 10319],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30001, 30243],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "11": {
+    "name": "肝膽濕熱 SF5A",
+    "Primary_Group_1": [30224, 30223, 30281, 30646],
+    "Primary_Group_2": [30001, 30113, 30378],
+    "Primary_Group_3": [10276, 10296, 10309],
+    "Primary_Group_4": [40005, 40015],
+    "Primary_Group_5": [30356, 10159, 10182, 30342, 30282],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "12": {
+    "name": "肝經濕熱 SF5B",
+    "Primary_Group_1": [30296, 10234],
+    "Primary_Group_2": [30303, 30175, 30174],
+    "Primary_Group_3": [10276, 10296, 10309],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [30223, 30224],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "13": {
+    "name": "寒滯肝脈 SF5C",
+    "Primary_Group_1": [10261, 10239],
+    "Primary_Group_2": [30070, 30067, 30120, 30303, 30150],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30156, 30050],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "14": {
+    "name": "膽氣虛 SF5D",
+    "Primary_Group_1": [10017, 10314, 10019, 10022],
+    "Primary_Group_2": [30435, 30443],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40011],
+    "Primary_Group_5": [10014],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "15": {
+    "name": "膽鬱痰擾 SF5E",
+    "Primary_Group_1": [30223, 10014, 10015, 10245, 20043],
+    "Primary_Group_2": [30281, 30282, 30342, 30435, 10018],
+    "Primary_Group_3": [10309, 10293],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30443, 30151, 30166, 10012, 30203],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "16": {
+    "name": "膽熱證 SF5F",
+    "Primary_Group_1": [10012, 10011],
+    "Primary_Group_2": [30223, 30174, 30176, 30443],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [30342],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "17": {
+    "name": "膽寒證 SF5G",
+    "Primary_Group_1": [30067, 10022, 10014, 10015],
+    "Primary_Group_2": [30281, 30114, 30224, 30151, 30166, 30234],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40002],
+    "Primary_Group_5": [30070, 30443],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },  
+    
+    "18": {
+    "name": "肝腎陰虛證 SF5H",
+    "Primary_Group_1": [30324, 30443, 30435, 10027, 30004, 30092],
+    "Primary_Group_2": [10161, 30224, 30193, 30192, 30255, 30233, 30291, 30509],
+    "Primary_Group_3": [10276, 10301, 10299],
+    "Primary_Group_4": [40000, 40005],
+    "Primary_Group_5": [30021, 30645, 30151, 30166, 30176],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+
+    "19": {
+    "name": "肝脾不和證 SF5J",
+    "Primary_Group_1": [30356, 10022],
+    "Primary_Group_2": [30400, 30426],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40003, 40002],
+    "Primary_Group_5": [30224, 30223, 30114],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "20": {
+    "name": "肝胃不和證 SF5K",
+    "Primary_Group_1": [20004, 30282, 30348, 30281, 30313],
+    "Primary_Group_2": [30218, 30114, 30219, 30113],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40003, 40005],
+    "Primary_Group_5": [10018, 30356],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+
+    "21": {
+    "name": "肝火犯胃證 SF5L",
+    "Primary_Group_1": [30336, 30283],
+    "Primary_Group_2": [30219, 30224, 30404, 30378],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40003, 40005],
+    "Primary_Group_5": [30415, 30342],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "22": {
+    "name": "肝火犯肺證 SF5M",
+    "Primary_Group_1": [30288, 30287, 10247, 30284],
+    "Primary_Group_2": [30204, 30224, 10012],
+    "Primary_Group_3": [10276],
+    "Primary_Group_4": [40003, 40005],
+    "Primary_Group_5": [30015, 30342],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "23": {
+    "name": "心氣虛證 SF60",
+    "Primary_Group_1": [30207],
+    "Primary_Group_2": [10022, 20025],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40011, 40000],
+    "Primary_Group_5": [30090, 10023],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "24": {
+    "name": "心血虛證 SF61",
+    "Primary_Group_1": [30207, 30650],
+    "Primary_Group_2": [30151, 30435, 10028],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30324, 10144, 10025],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "25": {
+    "name": "心氣血兩虛證 SF62",
+    "Primary_Group_1": [30151, 30166, 30324, 30435],
+    "Primary_Group_2": [20025, 10023],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40010, 40000],
+    "Primary_Group_5": [10022, 30207],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "26": {
+    "name": "心脈痹阻證 SF63",
+    "Primary_Group_1": [30207, 30203],
+    "Primary_Group_2": [30245, 30247, 30210],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30206, 30204],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "27": {
+    "name": "心陰虛證 SF64",
+    "Primary_Group_1": [30207, 30002, 30337, 10027],
+    "Primary_Group_2": [30092, 10013, 10313],
+    "Primary_Group_3": [10276, 10301, 10293],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30443, 30151, 30324],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [40000],
+    "Secondary_Group_5": []
+    },
+    
+    "28": {
+    "name": "心氣陰兩虛證 SF65",
+    "Primary_Group_1": [30207, 20025, 10022],
+    "Primary_Group_2": [30166, 30443, 30435, 10027],
+    "Primary_Group_3": [10276, 10301],
+    "Primary_Group_4": [40005, 40011],
+    "Primary_Group_5": [30279, 30151],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "29": {
+    "name": "心陽虛證 SF66",
+    "Primary_Group_1": [30207, 30203, 20029],
+    "Primary_Group_2": [30067, 30070, 10028, 10138],
+    "Primary_Group_3": [10279],
+    "Primary_Group_4": [40000],
+    "Primary_Group_5": [10025, 20025],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [10293],
+    "Secondary_Group_4": [40011],
+    "Secondary_Group_5": []
+    },
+    
+    "30": {
+    "name": "心陽暴脫證 SF67",
+    "Primary_Group_1": [30207, 30653],
+    "Primary_Group_2": [20025, 10023],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40011],
+    "Primary_Group_5": [10006, 10005, 30089, 30068],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+  
+    "31": {
+    "name": "心火上炎證 SF68",
+    "Primary_Group_1": [30001],
+    "Primary_Group_2": [30337, 10013, 10313],
+    "Primary_Group_3": [10294],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30443, 10113, 10265],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    "32": {
+    "name": "熱擾心神證 SF69",
+    "Primary_Group_1": [30001, 10027],
+    "Primary_Group_2": [30207, 30443, 30337],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [10012, 30435, 10002],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "33": {
+    "name": "水氣凌心證 SF6A",
+    "Primary_Group_1": [10063, 30390, 30376],
+    "Primary_Group_2": [30207, 20025, 10022, 30440, 10025],
+    "Primary_Group_3": [10274, 10273, 10293, 10305],
+    "Primary_Group_4": [40010, 40011],
+    "Primary_Group_5": [30067, 10023],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "34": {
+    "name": "心神不寧證 SF6B",
+    "Primary_Group_1": [10012],
+    "Primary_Group_2": [30443, 30435],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30207],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "35": {
+    "name": "憂傷神氣證 SF6C",
+    "Primary_Group_1": [10022, 30443, 30435, 30356],
+    "Primary_Group_2": [30151, 30166, 30279],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [10312],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "36": {
+    "name": "小腸氣滯證 SF6D",
+    "Primary_Group_1": [30114, 30658],
+    "Primary_Group_2": [30660],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30644],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "37": {
+    "name": "小腸實熱證 SF6E",
+    "Primary_Group_1": [10013, 10313, 10265, 30203],
+    "Primary_Group_2": [30337, 30113, 30390, 30376],
+    "Primary_Group_3": [10296, 10276],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30383, 10113],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "38": {
+    "name": "小腸虛寒證 SF6F",
+    "Primary_Group_1": [30131, 30353, 30067],
+    "Primary_Group_2": [30404, 30415, 30113, 30369, 30416],
+    "Primary_Group_3": [10274, 10293, 10305],
+    "Primary_Group_4": [40010, 40000, 40011, 40004],
+    "Primary_Group_5": [40024],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "39": {
+    "name": "心肝血虛證 SF6G",
+    "Primary_Group_1": [30509, 10177, 30324],
+    "Primary_Group_2": [30443, 30435, 30207, 10161, 30165],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [10028, 10025],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "40": {
+    "name": "心膽氣虛證 SF6H",
+    "Primary_Group_1": [30207, 30443],
+    "Primary_Group_2": [30151, 30203],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [10014, 10015],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "41": {
+    "name": "心脾兩虛證 SF6J",
+    "Primary_Group_1": [30207, 30324, 30443, 30435],
+    "Primary_Group_2": [30416, 10022, 10028, 10025],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40010, 40000],
+    "Primary_Group_5": [30356, 30114],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "42": {
+    "name": "心肺氣虛證 SF6K",
+    "Primary_Group_1": [30207, 20020, 20046, 10246],
+    "Primary_Group_2": [30151, 10022, 30090],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30203, 20025],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "43": {
+    "name": "心腎不交證 SF6L",
+    "Primary_Group_1": [10014, 10015],
+    "Primary_Group_2": [30151, 30203],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30207, 30443],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "44": {
+    "name": "心腎陽虛證 SF6M",
+    "Primary_Group_1": [30369, 10090],
+    "Primary_Group_2": [30207, 30192, 30193, 30267, 30268],
+    "Primary_Group_3": [10293, 10309],
+    "Primary_Group_4": [40010, 40000, 40011],
+    "Primary_Group_5": [30070, 30067],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "45": {
+    "name": "脾氣虛證 SF70",
+    "Primary_Group_1": [30356, 30114, 30416],
+    "Primary_Group_2": [10022, 30279],
+    "Primary_Group_3": [10270, 10283],
+    "Primary_Group_4": [40011, 40000],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "46": {
+    "name": "脾氣下陷證 SF71",
+    "Primary_Group_1": [30416, 30400],
+    "Primary_Group_2": [30331, 30122, 30126],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "47": {
+    "name": "脾虛氣滯證 SF72",
+    "Primary_Group_1": [30113, 30658],
+    "Primary_Group_2": [30416, 30401],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30356, 30114],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "48": {
+    "name": "脾虛食積證 SF73",
+    "Primary_Group_1": [30405, 30416, 30400],
+    "Primary_Group_2": [30356, 30114, 30119],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [10274, 10293, 10309],
+    "Primary_Group_5": [20038, 30313],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "49": {
+    "name": "脾不統血證 SF74",
+    "Primary_Group_1": [10028],
+    "Primary_Group_2": [30418, 30383, 10170, 30142, 10133, 30440],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30279],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [40011],
+    "Secondary_Group_5": []
+    }, 
+    
+    "50": {
+    "name": "脾虛血虧證 SF75",
+    "Primary_Group_1": [30151, 10022],
+    "Primary_Group_2": [30498, 30495, 30509, 30114, 10025],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30356, 10028],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "51": {
+    "name": "脾陰虛證 SF76",
+    "Primary_Group_1": [30662, 10022, 10253],
+    "Primary_Group_2": [30415, 30404, 30400, 30002],
+    "Primary_Group_3": [10274, 10293],
+    "Primary_Group_4": [40000, 40005],
+    "Primary_Group_5": [10071, 10136],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "52": {
+    "name": "脾陽虛證 SF77",
+    "Primary_Group_1": [30067, 30048, 10063, 30405],
+    "Primary_Group_2": [30113, 30440, 10071, 30114],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30356, 10074],
+    "Secondary_Group_1": [30416],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "53": {
+    "name": "濕熱蘊脾證 SF78",
+    "Primary_Group_1": [30337, 30025, 10159, 10182, 30282, 30281],
+    "Primary_Group_2": [30114, 30661, 30656, 30416, 30378, 30377, 30405, 30401],
+    "Primary_Group_3": [10296, 10276, 10309],
+    "Primary_Group_4": [40011, 40004, 40008],
+    "Primary_Group_5": [30001, 30039],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "54": {
+    "name": "脾虛濕困證 SF79",
+    "Primary_Group_1": [30237, 30647],
+    "Primary_Group_2": [30154, 30416, 30114, 30405],
+    "Primary_Group_3": [10309, 10293, 10273, 10274],
+    "Primary_Group_4": [40011, 40004, 40008],
+    "Primary_Group_5": [30356, 10074],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "55": {
+    "name": "脾虛水氾證 SF7A",
+    "Primary_Group_1": [10022, 10028, 10025],
+    "Primary_Group_2": [30356, 30114, 30416],
+    "Primary_Group_3": [10274, 10273, 10293, 10309],
+    "Primary_Group_4": [40011, 40010, 40000],
+    "Primary_Group_5": [10037, 10063, 30117],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "56": {
+    "name": "寒濕困脾證 SF7B",
+    "Primary_Group_1": [10161, 30154, 30237, 10184, 30340],
+    "Primary_Group_2": [10311, 30282, 30405, 30416],
+    "Primary_Group_3": [10293, 10274, 10309],
+    "Primary_Group_4": [40004, 40011, 40008],
+    "Primary_Group_5": [10159, 10182, 30218, 30114],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "57": {
+    "name": "胃氣虛證 SF7C",
+    "Primary_Group_1": [],
+    "Primary_Group_2": [30114],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30356],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "58": {
+    "name": "胃氣上逆證 SF7D",
+    "Primary_Group_1": [20042],
+    "Primary_Group_2": [30313],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30281, 30348],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "59": {
+    "name": "胃陰虛證 SF7E",
+    "Primary_Group_1": [30400, 10316],
+    "Primary_Group_2": [30356, 30404, 20003, 30348],
+    "Primary_Group_3": [10276, 10301],
+    "Primary_Group_4": [40000],
+    "Primary_Group_5": [30336, 30137, 30415],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "60": {
+    "name": "胃熱證 SF7F",
+    "Primary_Group_1": [30281, 30219, 30313, 30652],
+    "Primary_Group_2": [30014, 30415, 30404, 30400],
+    "Primary_Group_3": [10276, 10302, 10309],
+    "Primary_Group_4": [40015, 40005, 40008],
+    "Primary_Group_5": [10127, 10133, 20032, 10131],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "61": {
+    "name": "濕阻腸道證明 SF7G",
+    "Primary_Group_1": [30113, 30114],
+    "Primary_Group_2": [30416, 30405, 30414],
+    "Primary_Group_3": [10293, 10309],
+    "Primary_Group_4": [40011, 40004, 40008],
+    "Primary_Group_5": [30423],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "62": {
+    "name": "寒邪犯胃證 SF7H",
+    "Primary_Group_1": [30219],
+    "Primary_Group_2": [10263, 30067],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30051, 30000, 30070],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "63": {
+    "name": "寒滯腸道證 SF7J",
+    "Primary_Group_1": [30219, 30113],
+    "Primary_Group_2": [30405, 30416],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [30067, 30051, 30048, 30039],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "64": {
+    "name": "思傷脾氣證 SF7K",
+    "Primary_Group_1": [10025, 30400],
+    "Primary_Group_2": [30205, 30223, 30119],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40003],
+    "Primary_Group_5": [20044, 30356],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "65": {
+    "name": "肺脾兩虛證 SF7L",
+    "Primary_Group_1": [20000, 10023, 30114],
+    "Primary_Group_2": [10246, 10239, 30416],
+    "Primary_Group_3": [10274, 10293, 10309],
+    "Primary_Group_4": [40010, 40000],
+    "Primary_Group_5": [20020, 20029, 30356],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "66": {
+    "name": "脾臟腎陽虛證 SF7M",
+    "Primary_Group_1": [10023, 30120, 10074],
+    "Primary_Group_2": [30405, 30416, 30369],
+    "Primary_Group_3": [10274, 10273],
+    "Primary_Group_4": [],
+    "Primary_Group_5": [30070, 30067, 30050],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "67": {
+    "name": "肺氣虛證 SF80",
+    "Primary_Group_1": [20029, 30034, 30649],
+    "Primary_Group_2": [30090, 10023, 10239, 10246],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40011, 40000],
+    "Primary_Group_5": [20025, 20046],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "68": {
+    "name": "肺陰虛證 SF81",
+    "Primary_Group_1": [30288, 30289, 20000, 10027],
+    "Primary_Group_2": [30092, 10247, 10253],
+    "Primary_Group_3": [10276],
+    "Primary_Group_4": [40005, 40000],
+    "Primary_Group_5": [30004, 30336, 30137],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "69": {
+    "name": "肺腎陰虛證 SF82",
+    "Primary_Group_1": [30192, 30291, 30507],
+    "Primary_Group_2": [10244, 30336, 30258, 30004],
+    "Primary_Group_3": [10276, 10293],
+    "Primary_Group_4": [40005, 40011],
+    "Primary_Group_5": [30137, 20000, 10027, 30092],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "70": {
+    "name": "肺氣陰兩虛證 SF83",
+    "Primary_Group_1": [20029, 30021],
+    "Primary_Group_2": [30288],
+    "Primary_Group_3": [],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [20000],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "71": {
+    "name": "肺陽虛證 SF84",
+    "Primary_Group_1": [20020, 20029],
+    "Primary_Group_2": [10246, 30090, 100223],
+    "Primary_Group_3": [10273, 10293, 10305],
+    "Primary_Group_4": [40010, 40011],
+    "Primary_Group_5": [30070, 30067],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "72": {
+    "name": "寒痰阻肺證 SF85",
+    "Primary_Group_1": [20020, 30203, 20041],
+    "Primary_Group_2": [30070, 30067],
+    "Primary_Group_3": [10274, 10293, 10309],
+    "Primary_Group_4": [40003, 40015],
+    "Primary_Group_5": [10245, 30648],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "73": {
+    "name": "痰濁阻肺證 SF86",
+    "Primary_Group_1": [20020, 20029],
+    "Primary_Group_2": [30203],
+    "Primary_Group_3": [10309, 10293],
+    "Primary_Group_4": [40015, 40003],
+    "Primary_Group_5": [10245, 10237],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "74": {
+    "name": "表寒肺熱證 SF87",
+    "Primary_Group_1": [10013, 10313, 30088],
+    "Primary_Group_2": [30033, 30337, 30203],
+    "Primary_Group_3": [10293, 10296],
+    "Primary_Group_4": [40008, 40005],
+    "Primary_Group_5": [30002, 20017],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "75": {
+    "name": "肺熱熾熱證 SF88",
+    "Primary_Group_1": [20020, 30001, 30345, 30337, 30204],
+    "Primary_Group_2": [30400, 30378, 30404, 30415],
+    "Primary_Group_3": [10296, 10276],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [10097, 30138, 10320, 20030],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "76": {
+    "name": "痰熱壅肺證 SF89",
+    "Primary_Group_1": [20020, 20029],
+    "Primary_Group_2": [30287, 30204],
+    "Primary_Group_3": [10309, 10296, 10276],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [10242, 10247, 10248],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "77": {
+    "name": "風熱犯肺證 SF8A",
+    "Primary_Group_1": [20020, 30001, 30336, 30138],
+    "Primary_Group_2": [30145, 10219, 10227],
+    "Primary_Group_3": [10296, 10276, 10301],
+    "Primary_Group_4": [40005, 40008],
+    "Primary_Group_5": [10242, 10247, 10223],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "78": {
+    "name": "肺熱移腸證 SF8B",
+    "Primary_Group_1": [20020, 20029],
+    "Primary_Group_2": [30114, 30404, 30415],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30001, 30337],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "79": {
+    "name": "風寒束肺證 SF8C",
+    "Primary_Group_1": [20020, 30145, 30001],
+    "Primary_Group_2": [30070, 10245, 30139, 30203],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40008, 40003],
+    "Primary_Group_5": [10222, 10226, 10239, 10246],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "80": {
+    "name": "燥邪犯肺證 SF8D",
+    "Primary_Group_1": [30070, 30204, 10244, 30289, 10247],
+    "Primary_Group_2": [30001, 30337],
+    "Primary_Group_3": [10301, 10303],
+    "Primary_Group_4": [40005, 40000],
+    "Primary_Group_5": [30336, 30143, 30137, 10136, 30288],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "81": {
+    "name": "肺燥腸閉證 SF8E",
+    "Primary_Group_1": [30337, 20020],
+    "Primary_Group_2": [30113],
+    "Primary_Group_3": [10296, 10303],
+    "Primary_Group_4": [40010, 40013],
+    "Primary_Group_5": [30404, 30415, 30114],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "82": {
+    "name": "大腸實熱證 SF8F",
+    "Primary_Group_1": [30113, 30114, 30377],
+    "Primary_Group_2": [30404, 30400],
+    "Primary_Group_3": [10303, 10296],
+    "Primary_Group_4": [40005, 40000],
+    "Primary_Group_5": [30415, 30418],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "83": {
+    "name": "大腸濕熱證 SF5G",
+    "Primary_Group_1": [30416, 30113, 30377, 30390],
+    "Primary_Group_2": [30337, 30001, 30017, 30114],
+    "Primary_Group_3": [10309, 10296],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [30414, 30403, 30418, 30419, 30422],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "84": {
+    "name": "大腸津虧證 SF5H",
+    "Primary_Group_1": [30137, 10253],
+    "Primary_Group_2": [30404],
+    "Primary_Group_3": [10276, 10296, 10303],
+    "Primary_Group_4": [40000, 40005],
+    "Primary_Group_5": [30415],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "85": {
+    "name": "大腸虛寒證 SF8J",
+    "Primary_Group_1": [30405, 30416, 30658],
+    "Primary_Group_2": [30113, 30400],
+    "Primary_Group_3": [10293, 10274, 10305],
+    "Primary_Group_4": [40002],
+    "Primary_Group_5": [30006, 30067],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "86": {
+    "name": "腎氣虛證 SF90",
+    "Primary_Group_1": [30151, 30455, 30176],
+    "Primary_Group_2": [30195, 30193, 30268],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40011],
+    "Primary_Group_5": [30324, 30192, 30318, 30659, 20029],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+  
+    "87": {
+    "name": "腎不納氣證 SF91",
+    "Primary_Group_1": [20045, 20017, 20044],
+    "Primary_Group_2": [30195, 30193, 30268, 30230, 30233],
+    "Primary_Group_3": [10274, 10293],
+    "Primary_Group_4": [40000, 40010],
+    "Primary_Group_5": [20047],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": [20029]
+    },
+    
+    "88": {
+    "name": "腎氣虛水氾證 SF92",
+    "Primary_Group_1": [30390],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10274, 10273, 10293, 10309],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [10076],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "89": {
+    "name": "腎陰虛證 SF93",
+    "Primary_Group_1": [30021, 30137, 30337, 30151, 30176],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10276],
+    "Primary_Group_4": [40005, 40011],
+    "Primary_Group_5": [10071, 30443, 10027, 30509, 30291],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [10301],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "90": {
+    "name": "腎陰陽兩虛證 SF94",
+    "Primary_Group_1": [30021, 30176, 30151, 30067],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40011, 40000],
+    "Primary_Group_5": [10012, 30092, 30291, 30090, 30166],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "91": {
+    "name": "腎虛髓虧證 SF95",
+    "Primary_Group_1": [30176, 30192],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10301, 10293],
+    "Primary_Group_4": [40000, 40011, 40010],
+    "Primary_Group_5": [10317, 30664, 30324, 10001, 30663, 30151],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "92": {
+    "name": "腎精虧虛證 SF96",
+    "Primary_Group_1": [30317],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10274, 10293],
+    "Primary_Group_4": [40000],
+    "Primary_Group_5": [30592, 30176, 10110, 30651, 30324, 10177, 10125],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "93": {
+    "name": "腎陽虛證 SF97",
+    "Primary_Group_1": [10022, 30455, 30067, 30070],
+    "Primary_Group_2": [30193, 30268, 30230, 30195, 30233],
+    "Primary_Group_3": [10274, 10305, 10273],
+    "Primary_Group_4": [40000],
+    "Primary_Group_5": [30318, 30592, 30315, 30320],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [10293],
+    "Secondary_Group_4": [40011],
+    "Secondary_Group_5": []
+    },
+    
+    "94": {
+    "name": "驚恐傷腎證 SF98",
+    "Primary_Group_1": [30315, 30371, 30402, 30291],
+    "Primary_Group_2": [30207],
+    "Primary_Group_3": [10301, 10293],
+    "Primary_Group_4": [40003, 40000],
+    "Primary_Group_5": [10014, 10021],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "95": {
+    "name": "胞宮血熱證 SF99",
+    "Primary_Group_1": [30510, 30515],
+    "Primary_Group_2": [30120],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40005],
+    "Primary_Group_5": [30486, 30492, 30494],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "96": {
+    "name": "痰液凝胞宮證 SF9A",
+    "Primary_Group_1": [30507, 10072],
+    "Primary_Group_2": [30592],
+    "Primary_Group_3": [10274, 10309],
+    "Primary_Group_4": [40015, 40011, 40004, 40008],
+    "Primary_Group_5": [30490],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "97": {
+    "name": "胞宮濕熱證 SF9B",
+    "Primary_Group_1": [30490, 30492],
+    "Primary_Group_2": [30296],
+    "Primary_Group_3": [10276, 10296, 10309],
+    "Primary_Group_4": [40015, 40005],
+    "Primary_Group_5": [30486, 30494],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "98": {
+    "name": "寒凝胞宮證 SF9C",
+    "Primary_Group_1": [30498, 30513],
+    "Primary_Group_2": [30050, 30120, 30539, 30541],
+    "Primary_Group_3": [10293],
+    "Primary_Group_4": [40010, 40003],
+    "Primary_Group_5": [30483, 30070, 30491, 30484],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "99": {
+    "name": "胞宮虛寒證 SF9D",
+    "Primary_Group_1": [30592, 30640, 10023, 30518, 30516],
+    "Primary_Group_2": [30120],
+    "Primary_Group_3": [10274, 10293],
+    "Primary_Group_4": [40011, 40010],
+    "Primary_Group_5": [30070, 30067, 40045, 40048, 30483, 30491],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "100": {
+    "name": "膀胱蓄血證 SF9E",
+    "Primary_Group_1": [30369],
+    "Primary_Group_2": [30121, 30120],
+    "Primary_Group_3": [10279, 10286],
+    "Primary_Group_4": [40003, 40000],
+    "Primary_Group_5": [30388],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "101": {
+    "name": "膀胱蘊熱證 SF9F",
+    "Primary_Group_1": [30001, 30337],
+    "Primary_Group_2": [30121],
+    "Primary_Group_3": [10276, 10296],
+    "Primary_Group_4": [40010, 40005],
+    "Primary_Group_5": [30379, 30388],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "102": {
+    "name": "膀胱濕熱證 SF9G",
+    "Primary_Group_1": [30382],
+    "Primary_Group_2": [30121],
+    "Primary_Group_3": [10309, 10296],
+    "Primary_Group_4": [40015],
+    "Primary_Group_5": [30388, 30373],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "103": {
+    "name": "膀胱蓄水證 SF9H",
+    "Primary_Group_1": [30369],
+    "Primary_Group_2": [30644],
+    "Primary_Group_3": [10274, 10273, 10293, 10309],
+    "Primary_Group_4": [40000, 40011],
+    "Primary_Group_5": [30128],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "104": {
+    "name": "膀胱虛寒證 SF9J",
+    "Primary_Group_1": [30070, 30067],
+    "Primary_Group_2": [30120],
+    "Primary_Group_3": [10274],
+    "Primary_Group_4": [40010, 40011],
+    "Primary_Group_5": [30391, 30376, 30050],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }
+    
+}

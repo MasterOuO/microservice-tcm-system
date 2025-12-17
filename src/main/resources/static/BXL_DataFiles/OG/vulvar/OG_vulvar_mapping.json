@@ -1,0 +1,54 @@
+{
+  "1": {
+    "name": "濕熱下注",
+	"Primary_Group_1": [30342,30344,10012,30443],
+	"Primary_Group_2": [30203,30674],
+	"Primary_Group_3": [10309,10296,10276],
+	"Primary_Group_4": [40003,40005,40015,40017],
+	"Primary_Group_5": [30670,30667,30661,30666,30665,30659],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+    "name": "肝腎陰虛",
+    "Primary_Group_1": [30090,30004,10012,30021,30336,30151,30354,30415],
+    "Primary_Group_2": [30193,30176,30268],
+    "Primary_Group_3": [10276,10301],
+    "Primary_Group_4": [40000,40005,40011],
+	"Primary_Group_5": [30670,30669,30675,30666,30661],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+    "name": "心肝鬱火",
+    "Primary_Group_1": [10012,30443],
+    "Primary_Group_2": [30203,30224],
+    "Primary_Group_3": [10309,10296,10276],
+    "Primary_Group_4": [40000,40003,40005,40017],
+    "Primary_Group_5": [30670],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "4": {
+    "name": "脾虛生濕",
+    "Primary_Group_1": [30416,30279,30275,10074,30416,20012,10028,10025,10023],
+    "Primary_Group_2": [30356,30114],
+    "Primary_Group_3": [10293,10274],
+    "Primary_Group_4": [40011],
+    "Primary_Group_5": [30670,30659,30661,30660],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}

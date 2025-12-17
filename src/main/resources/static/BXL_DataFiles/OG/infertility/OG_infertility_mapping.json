@@ -1,0 +1,80 @@
+{
+  "1": {
+    "name": "腎陽虛",
+	"Primary_Group_1": [30416,10025,30376,30233,30391,30067,30070,10022,30373],
+	"Primary_Group_2": [30193,30318,30268,30195],
+	"Primary_Group_3": [10274,10301,10293],
+	"Primary_Group_4": [40000,40004,40010],
+	"Primary_Group_5": [30592,30498,30509,30516,30495],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+    "name": "腎陰虛",
+    "Primary_Group_1": [30021,30165,30151,10012,10071,30435,30336,10027,30443],
+    "Primary_Group_2": [30193,30195,30233],
+    "Primary_Group_3": [10276,10301],
+    "Primary_Group_4": [40000,40005,40010,40017],
+	"Primary_Group_5": [30592,30509,30515,30497,30517,30498],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+    "name": "肝鬱",
+	"Primary_Group_1": [10018,10012,10011,10014,10022],
+	"Primary_Group_2": [30205,30223,30114,30203],
+	"Primary_Group_3": [10301,10293,10276],
+	"Primary_Group_4": [40000,40003,40017],
+	"Primary_Group_5": [30592,30507,30520,30509,30541],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "4": {
+	"name": "痰濕",
+	"Primary_Group_1": [10023,30151,10072,10022],
+	"Primary_Group_2": [30203],
+	"Primary_Group_3": [10309,10293,10276,10301],
+	"Primary_Group_4": [40000,40003,40015],
+	"Primary_Group_5": [30592,30495,30498,30661,30665,30509],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "5": {
+    "name": "血瘀",
+    "Primary_Group_1": [30151,10022],
+    "Primary_Group_2": [30193],
+    "Primary_Group_3": [10279,10293,10301],
+    "Primary_Group_4": [40014,40021,40000,40003,40017,40010],
+    "Primary_Group_5": [30592,30520,30532,30513,30498,30509],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "6": {
+    "name": "血虛",
+    "Primary_Group_1": [30234,30151,10028,10071,30416,30166],
+    "Primary_Group_2": [30207,30193],
+    "Primary_Group_3": [10293,10301],
+    "Primary_Group_4": [40000,40011],
+    "Primary_Group_5": [30592,30498,30516,30509],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}

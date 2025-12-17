@@ -1,0 +1,81 @@
+{
+  "1": {
+    "name": "脾虛",
+    "Primary_Group_1": [10023,10022,30067,10076,30416],
+    "Primary_Group_2": [30356],
+    "Primary_Group_3": [10274,10293,10309],
+    "Primary_Group_4": [40011,40010],
+    "Primary_Group_5": [30659,30660,30661,30662],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+    "name": "腎陽虛",
+    "Primary_Group_1": [30050,30070,30376,30391,30373,30456,30455,30416,30067,10022],
+    "Primary_Group_2": [30193],
+    "Primary_Group_3": [10274, 10293,10301],
+    "Primary_Group_4": [40004, 40010],
+    "Primary_Group_5": [30659,30660,30661,30663],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+    "name": "腎陰虛",
+    "Primary_Group_1": [30166,10012,30443,30435,30021,30336,30151],
+    "Primary_Group_2": [30669,30176,30193],
+    "Primary_Group_3": [10276,10299],
+    "Primary_Group_4": [40000, 40005],
+    "Primary_Group_5": [30659,30664,30665],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "4": {
+    "name": "濕熱",
+    "Primary_Group_1": [30510,30504,30378,30379,30416],
+    "Primary_Group_2": [30356,30120,30670],
+    "Primary_Group_3": [10276,10296,10309],
+    "Primary_Group_4": [40003, 40005, 40017, 40015],
+    "Primary_Group_5": [30659,30664,30666,30665,30661,30667],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "5": {
+	  "name": "熱邪",
+	  "Primary_Group_1": [30507,10011,10018,10012,30342,30336],
+	  "Primary_Group_2": [30205,30223],
+	  "Primary_Group_3": [10276,10296],
+	  "Primary_Group_4": [40005, 40003, 40017],
+	  "Primary_Group_5": [30664,30659,30666,30668,30665,30661,30663,30667],
+	  "Secondary_Group_1": [],
+	  "Secondary_Group_2": [],
+	  "Secondary_Group_3": [],
+	  "Secondary_Group_4": [],
+	  "Secondary_Group_5": []
+	},
+  "6": {
+    "name": "濕毒",
+    "Primary_Group_1": [30390,30415,10012],
+    "Primary_Group_2": [30670,30669],
+    "Primary_Group_3": [10276,10296],
+    "Primary_Group_4": [40005, 40015],
+    "Primary_Group_5": [30666,30659,30665,30661,30667],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+  
+}

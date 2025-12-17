@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>管理員介面</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+</head>
+
+<body>
+	<!-- 頂部 Navbar (小螢幕時會顯示漢堡按鈕) -->
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #07393C;">
+	  <div class="container-fluid">
+	    <!-- 漢堡按鈕 (在大螢幕也會顯示, 但可視需要 d-lg-none) -->
+	    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    
+	    
+	    <!-- 右側：使用者姓名 & 登出 -->
+	    <div class="ms-auto text-white d-flex align-items-center">
+	    	<span class="w3-bar-item w3-right" style="margin-right: 10px">Hi, [[${userDetails.getFullname()}]]</span>
+	     	<a class="btn btn-outline-light btn-sm" th:href="@{/logout}" sec:authorize="isAuthenticated">登出</a>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container-fluid">
+		  <div class="row">	    
+		    <!-- 側邊欄 -->
+		    <div class="col-2 sidebar d-none d-lg-block" >
+		      <div class="sidebar-heading">行政人員管理系統</div>
+		      <hr/>
+		      <nav class="nav flex-column">
+		        <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
+		        <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
+		        <a class="nav-link" th:href="@{/admin-page/create}">新增醫師</a>
+		        <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
+		      </nav>
+		    </div>
+		    
+		<!-- 主要內容: 佔剩餘空間 -->
+		<div class="col">
+		    <div class="container mt-4">
+		    	<h2 class="title">病患名單</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>選擇醫生</th>
+								<th>姓名</th>
+								<th>身分證</th>
+								<th>預約日期</th>
+								<th>預約時間</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="patient: ${patient}">
+								<td th:text="${patient.selectDoctor}"></td>
+								<td th:text="${patient.name}"></td>
+								<td th:text="${patient.identity}"></td>
+								<td th:text="${patient.appointment_date}"></td>
+								<td th:text="${patient.appointment_time}"></td>						
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container-fluid -->
+
+	<!-- 小螢幕專用: Offcanvas (漢堡選單) -->
+	<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileOffcanvas" aria-labelledby="mobileOffcanvasLabel">
+	  <div class="offcanvas-header">
+	    <h5 class="offcanvas-title" id="mobileOffcanvasLabel">功能選單</h5>
+	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	  </div>
+	  <div class="offcanvas-body">
+	    <ul class="nav flex-column">
+	      <li class="nav-item mb-2">
+	        <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
+	      </li>
+	      <li class="nav-item mb-2">
+	        <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
+	      </li>
+	      <li class="nav-item mb-2">
+	        <a class="nav-link" th:href="@{/admin-page/create}">新增醫師</a>
+	      </li>
+	      <li class="nav-item mb-2">
+	        <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+
+<!-- Bootstrap JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+></script>
+</body>
+</html> 

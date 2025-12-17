@@ -1,0 +1,1397 @@
+{
+  "1": {
+    "name": "月經先期-脾虛證",
+    "Syndrome_ID":"OG101",
+    
+    "Primary_Group_1": [639, 642, 663, 677],
+    "Primary_Group_2": [55, 139, 154, 279, 323, 326, 456, 490],
+    "Primary_Group_3": [823, 829, 838],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+    "name": "月經先期-腎氣不固證",
+    "Syndrome_ID":"OG102",
+    
+    "Primary_Group_1": [639, 642, 662, 677],
+    "Primary_Group_2": [26, 232, 534],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [798, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+    "name": "月經先期-陰虛血熱證",
+    "Syndrome_ID":"OG103",
+    
+    "Primary_Group_1": [639, 662, 678, 1155],
+    "Primary_Group_2": [72, 299, 325, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "4": {
+    "name": "月經先期-陽盛血熱證",
+    "Syndrome_ID":"OG104",
+    
+    "Primary_Group_1": [639, 663, 678, 1155],
+    "Primary_Group_2": [12, 24, 32, 54, 75, 144, 325],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "5": {
+    "name": "月經先期-肝鬱血熱證",
+    "Syndrome_ID":"OG105",
+    
+    "Primary_Group_1": [639, 654, 678, 1155],
+    "Primary_Group_2": [70, 144, 148, 299, 454, 455, 494, 496, 499, 702],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "6": {
+    "name": "月經先期-血瘀證",
+    "Syndrome_ID":"OG106",
+    
+    "Primary_Group_1": [636, 639, 654, 662, 1155],
+    "Primary_Group_2": [454, 455],
+    "Primary_Group_3": [848, 1276],
+    "Primary_Group_4": [799, 801, 804, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "7": {
+    "name": "月經後期-陰虛證",
+    "Syndrome_ID":"OG107",
+    
+    "Primary_Group_1": [652, 654, 662, 678, 1155],
+    "Primary_Group_2": [72, 144, 164, 213, 272, 299, 325, 348, 407, 450, 546],
+    "Primary_Group_3": [824, 827, 838],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "8": {
+    "name": "月經後期-血虛證",
+    "Syndrome_ID":"OG108",
+    
+    "Primary_Group_1": [642, 652, 662, 677],
+    "Primary_Group_2": [323, 326, 348, 450, 454, 463, 617],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "9": {
+    "name": "月經後期-陽虛證",
+    "Syndrome_ID":"OG109",
+    
+    "Primary_Group_1": [642, 652, 662, 677],
+    "Primary_Group_2": [10, 25, 231, 323, 453, 454, 602, 1268],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "10": {
+    "name": "月經後期-寒凝證",
+    "Syndrome_ID":"OG110",
+    
+    "Primary_Group_1": [652, 654, 662, 1155],
+    "Primary_Group_2": [168, 453, 454, 555, 903],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [799, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "11": {
+    "name": "月經後期-氣滯證",
+    "Syndrome_ID":"OG111",
+    
+    "Primary_Group_1": [652, 654, 662, 1155],
+    "Primary_Group_2": [147, 454, 455, 494, 496],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "12": {
+    "name": "月經後期-痰阻證",
+    "Syndrome_ID":"OG112",
+    
+    "Primary_Group_1": [642, 652, 662, 678],
+    "Primary_Group_2": [463, 483, 521, 1018],
+    "Primary_Group_3": [832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "13": {
+    "name": "月經前後無定期-腎氣虧虛證",
+    "Syndrome_ID":"OG113",
+    
+    "Primary_Group_1": [638, 642, 662, 677],
+    "Primary_Group_2": [7, 232, 272, 348],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "14": {
+    "name": "月經前後無定期-脾氣虛弱證",
+    "Syndrome_ID":"OG114",
+    
+    "Primary_Group_1": [638, 642, 663, 677],
+    "Primary_Group_2": [139, 490],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "15": {
+    "name": "月經前後無定期-肝鬱證",
+    "Syndrome_ID":"OG115",
+    
+    "Primary_Group_1": [636, 638, 654, 1155],
+    "Primary_Group_2": [132, 147, 454, 455, 494, 498, 499, 702],
+    "Primary_Group_3": [838],
+    "Primary_Group_4": [799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "16": {
+    "name": "月經過多-氣虛證",
+    "Syndrome_ID":"OG116",
+    
+    "Primary_Group_1": [642, 663, 677],
+    "Primary_Group_2": [139, 154, 279, 323, 456],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "17": {
+    "name": "月經過多-血熱證",
+    "Syndrome_ID":"OG117",
+    
+    "Primary_Group_1": [641, 663, 678],
+    "Primary_Group_2": [12, 24, 75, 144],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "18": {
+    "name": "月經過多-血瘀證",
+    "Syndrome_ID":"OG118",
+    
+    "Primary_Group_1": [644, 654, 663],
+    "Primary_Group_2": [454, 903],
+    "Primary_Group_3": [847, 1276],
+    "Primary_Group_4": [801, 804],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "19": {
+    "name": "月經過多-虛熱證",
+    "Syndrome_ID":"OG119",
+    
+    "Primary_Group_1": [639, 663, 678, 1155],
+    "Primary_Group_2": [72, 144, 164, 213, 272, 299, 325, 348, 407, 450],
+    "Primary_Group_3": [824],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "20": {
+    "name": "月經過少-腎虛證",
+    "Syndrome_ID":"OG120",
+    
+    "Primary_Group_1": [642, 662, 677],
+    "Primary_Group_2": [25, 232, 272, 348, 534],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [798, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "21": {
+    "name": "月經過少-血虛證",
+    "Syndrome_ID":"OG121",
+    
+    "Primary_Group_1": [642, 662, 677],
+    "Primary_Group_2": [326, 348, 463, 617, 998, 1001],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "22": {
+    "name": "月經過少-血寒證",
+    "Syndrome_ID":"OG122",
+    
+    "Primary_Group_1": [662, 1155],
+    "Primary_Group_2": [453, 454],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [799, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "23": {
+    "name": "月經過少-氣滯證",
+    "Syndrome_ID":"OG123",
+    
+    "Primary_Group_1": [644, 654, 662],
+    "Primary_Group_2": [454, 495, 496, 498, 499],
+    "Primary_Group_3": [823, 838, 1276],
+    "Primary_Group_4": [801, 804],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "24": {
+    "name": "月經過少-痰阻證",
+    "Syndrome_ID":"OG124",
+    
+    "Primary_Group_1": [642, 652, 662, 678],
+    "Primary_Group_2": [379, 425, 483, 496, 520, 521, 1018, 490],
+    "Primary_Group_3": [823, 832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "25": {
+    "name": "經期延長-氣虛證",
+    "Syndrome_ID":"OG125",
+    
+    "Primary_Group_1": [642, 668, 677],
+    "Primary_Group_2": [139],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [807, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "26": {
+    "name": "經期延長-陰虛血熱證",
+    "Syndrome_ID":"OG126",
+    
+    "Primary_Group_1": [641, 662, 668, 678],
+    "Primary_Group_2": [72, 164, 299, 325, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "27": {
+    "name": "經期延長-血瘀證",
+    "Syndrome_ID":"OG127",
+    
+    "Primary_Group_1": [654, 662, 668, 1155],
+    "Primary_Group_2": [454, 903],
+    "Primary_Group_3": [847, 1276],
+    "Primary_Group_4": [795, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "28": {
+    "name": "經期延長-濕熱蘊結證",
+    "Syndrome_ID":"OG128",
+    
+    "Primary_Group_1": [648, 662, 668, 1155],
+    "Primary_Group_2": [231, 374, 376, 379, 454, 455],
+    "Primary_Group_3": [826, 827, 832],
+    "Primary_Group_4": [795, 798, 813, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "29": {
+    "name": "經間期出血-腎陰虛證",
+    "Syndrome_ID":"OG129",
+    
+    "Primary_Group_1": [641, 1269],
+    "Primary_Group_2": [232, 348, 450],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "30": {
+    "name": "經間期出血-脾氣虛證",
+    "Syndrome_ID":"OG130",
+    
+    "Primary_Group_1": [662, 677, 1269],
+    "Primary_Group_2": [139, 154, 279, 455, 490],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [807, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "31": {
+    "name": "經間期出血-濕熱證",
+    "Syndrome_ID":"OG131",
+    
+    "Primary_Group_1": [678, 1269],
+    "Primary_Group_2": [379, 454],
+    "Primary_Group_3": [826, 827, 832],
+    "Primary_Group_4": [798, 799, 809, 813, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "32": {
+    "name": "經間期出血-血瘀證",
+    "Syndrome_ID":"OG132",
+    
+    "Primary_Group_1": [644, 654, 1269],
+    "Primary_Group_2": [454],
+    "Primary_Group_3": [1276],
+    "Primary_Group_4": [798, 799],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "33": {
+    "name": "經間期出血-腎陽偏虛證",
+    "Syndrome_ID":"OG133",
+    
+    "Primary_Group_1": [642, 1269],
+    "Primary_Group_2": [7, 55, 139, 232, 348, 563],
+    "Primary_Group_3": [823, 838, 842],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "34": {
+    "name": "崩漏-腎陰虛證",
+    "Syndrome_ID":"OG134",
+    
+    "Primary_Group_1": [635, 641, 663, 678],
+    "Primary_Group_2": [232, 272, 348, 534],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "35": {
+    "name": "崩漏-腎陽證",
+    "Syndrome_ID":"OG135",
+    
+    "Primary_Group_1": [635, 642, 663, 677],
+    "Primary_Group_2": [10, 25, 167, 232, 327, 555],
+    "Primary_Group_3": [823, 829, 838],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "36": {
+    "name": "崩漏-脾虛證",
+    "Syndrome_ID":"OG136",
+    
+    "Primary_Group_1": [635, 642, 663, 677],
+    "Primary_Group_2": [139, 279, 323, 326, 331, 555, 567],
+    "Primary_Group_3": [823, 829, 838],
+    "Primary_Group_4": [813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "37": {
+    "name": "崩漏-血熱-虛熱證",
+    "Syndrome_ID":"OG137",
+    
+    "Primary_Group_1": [635, 641, 663, 678],
+    "Primary_Group_2": [6, 12, 32, 144, 164],
+    "Primary_Group_3": [826, 838],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "38": {
+    "name": "崩漏-血熱-實熱證",
+    "Syndrome_ID":"OG138",
+    
+    "Primary_Group_1": [635, 641, 654, 663, 678],
+    "Primary_Group_2": [12, 32, 54, 75, 144, 160, 454, 459],
+    "Primary_Group_3": [826, 832],
+    "Primary_Group_4": [795, 805],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "39": {
+    "name": "崩漏-血瘀證",
+    "Syndrome_ID":"OG139",
+    
+    "Primary_Group_1": [635, 644, 654, 663],
+    "Primary_Group_2": [454],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [801, 804],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "40": {
+    "name": "閉經-腎氣虛證",
+    "Syndrome_ID":"OG140",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [7, 232, 272, 348, 534],
+    "Primary_Group_3": [823, 838, 842],
+    "Primary_Group_4": [798, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "41": {
+    "name": "閉經-陰虛血燥證",
+    "Syndrome_ID":"OG141",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [144, 325, 407, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "42": {
+    "name": "閉經-腎陽虛證",
+    "Syndrome_ID":"OG142",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [10, 25, 26, 55, 167, 231, 272, 327, 348, 555],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [813, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "43": {
+    "name": "閉經-脾虛證",
+    "Syndrome_ID":"OG143",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [55, 139, 326, 455, 483, 487, 490],
+    "Primary_Group_3": [823, 829, 832, 1051],
+    "Primary_Group_4": [807, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "44": {
+    "name": "閉經-肝腎不足證",
+    "Syndrome_ID":"OG144",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [232, 272, 348, 534],
+    "Primary_Group_3": [824, 842],
+    "Primary_Group_4": [798, 801, 804, 813, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "45": {
+    "name": "閉經-血虛證",
+    "Syndrome_ID":"OG145",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [326, 348, 435, 450, 463, 617, 998],
+    "Primary_Group_3": [824, 829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "46": {
+    "name": "閉經-氣血虛弱證",
+    "Syndrome_ID":"OG146",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [139, 193, 279, 341, 361, 463, 563, 617, 981, 490],
+    "Primary_Group_3": [823, 838],
+    "Primary_Group_4": [795, 807, 813, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "47": {
+    "name": "閉經-氣滯血瘀證",
+    "Syndrome_ID":"OG147",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [454, 455, 903],
+    "Primary_Group_3": [144, 147, 148, 496, 499],
+    "Primary_Group_4": [847],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "48": {
+    "name": "閉經-寒凝血瘀證",
+    "Syndrome_ID":"OG148",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [167, 323, 324, 453, 454, 555, 903],
+    "Primary_Group_3": [823, 847],
+    "Primary_Group_4": [799, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "49": {
+    "name": "閉經-痰濕阻滯證",
+    "Syndrome_ID":"OG149",
+    
+    "Primary_Group_1": [658],
+    "Primary_Group_2": [139, 331, 379, 494, 1018, 1270],
+    "Primary_Group_3": [829, 832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "50": {
+    "name": "痛經-肝腎虛損證",
+    "Syndrome_ID":"OG150",
+    
+    "Primary_Group_1": [662, 677],
+    "Primary_Group_2": [232, 272, 348, 454],
+    "Primary_Group_3": [838],
+    "Primary_Group_4": [798, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "51": {
+    "name": "痛經-氣血虛弱證",
+    "Syndrome_ID":"OG151",
+    
+    "Primary_Group_1": [642, 662, 677],
+    "Primary_Group_2": [139, 454, 563, 1271],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [798, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "52": {
+    "name": "痛經-氣滯血瘀證",
+    "Syndrome_ID":"OG152",
+    
+    "Primary_Group_1": [636, 654, 1155],
+    "Primary_Group_2": [454, 455, 496, 499, 702, 903],
+    "Primary_Group_3": [847, 1276],
+    "Primary_Group_4": [799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "53": {
+    "name": "痛經-寒濕凝滯證",
+    "Syndrome_ID":"OG153",
+    
+    "Primary_Group_1": [644, 654, 662],
+    "Primary_Group_2": [167, 198, 453, 454, 903],
+    "Primary_Group_3": [823],
+    "Primary_Group_4": [799, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "54": {
+    "name": "痛經-濕熱下注證",
+    "Syndrome_ID":"OG154",
+    
+    "Primary_Group_1": [654, 678, 1155],
+    "Primary_Group_2": [12, 24, 158, 231, 374, 376, 454, 903],
+    "Primary_Group_3": [826, 827, 832],
+    "Primary_Group_4": [795, 798, 813, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "55": {
+    "name": "痛經-陽虛內寒證",
+    "Syndrome_ID":"OG155",
+    
+    "Primary_Group_1": [642, 662],
+    "Primary_Group_2": [10, 25, 232, 453, 454, 534, 1271],
+    "Primary_Group_3": [823, 833],
+    "Primary_Group_4": [815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "56": {
+    "name": "經行發熱-肝腎陰虛證",
+    "Syndrome_ID":"OG156",
+    
+    "Primary_Group_1": [641, 662],
+    "Primary_Group_2": [144, 160, 325, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "57": {
+    "name": "經行發熱-肝鬱證",
+    "Syndrome_ID":"OG157",
+    
+    "Primary_Group_1": [1155],
+    "Primary_Group_2": [70, 144, 148, 160, 299, 348, 459, 460, 496, 499, 619, 702],
+    "Primary_Group_3": [827, 832],
+    "Primary_Group_4": [795, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "58": {
+    "name": "經行發熱-瘀熱內阻證",
+    "Syndrome_ID":"OG158",
+    
+    "Primary_Group_1": [654, 1155],
+    "Primary_Group_2": [160, 454],
+    "Primary_Group_3": [847, 1276],
+    "Primary_Group_4": [799, 809, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "59": {
+    "name": "經行發熱-血熱內盛證",
+    "Syndrome_ID":"OG159",
+    
+    "Primary_Group_1": [639, 663],
+    "Primary_Group_2": [12, 72, 105, 144, 148, 160, 325],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "60": {
+    "name": "經行發熱-氣血虛弱證",
+    "Syndrome_ID":"OG160",
+    
+    "Primary_Group_1": [642, 663, 677],
+    "Primary_Group_2": [139, 154, 160, 279, 386, 563],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "61": {
+    "name": "經行頭痛-血虛證",
+    "Syndrome_ID":"OG161",
+    
+    "Primary_Group_1": [662],
+    "Primary_Group_2": [139, 345, 348, 450, 463, 563],
+    "Primary_Group_3": [838, 842],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "62": {
+    "name": "經行頭痛-陰虛陽亢證",
+    "Syndrome_ID":"OG162",
+    
+    "Primary_Group_1": [641, 662],
+    "Primary_Group_2": [70, 144, 148, 232, 299, 345, 348, 534, 546, 619],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "63": {
+    "name": "經行頭痛-血瘀證",
+    "Syndrome_ID":"OG163",
+    
+    "Primary_Group_1": [654, 1155],
+    "Primary_Group_2": [345, 454, 494, 496],
+    "Primary_Group_3": [848, 1276],
+    "Primary_Group_4": [799, 801, 804, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "64": {
+    "name": "經行頭痛-肝火證",
+    "Syndrome_ID":"OG164",
+    
+    "Primary_Group_1": [641, 663],
+    "Primary_Group_2": [70, 144, 148, 299, 345, 348, 619],
+    "Primary_Group_3": [826, 827, 838],
+    "Primary_Group_4": [795, 798, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "65": {
+    "name": "經行頭痛-痰濕中阻證",
+    "Syndrome_ID":"OG165",
+    
+    "Primary_Group_1": [642, 662],
+    "Primary_Group_2": [323, 345, 348, 379, 381, 494, 521, 619, 1018],
+    "Primary_Group_3": [823, 829, 832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "66": {
+    "name": "經行吐衄-肺腎陰虛證",
+    "Syndrome_ID":"OG166",
+    
+    "Primary_Group_1": [641, 662],
+    "Primary_Group_2": [75, 164, 272, 299, 308, 325, 348, 468, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "67": {
+    "name": "經行吐衄-肝經鬱火證",
+    "Syndrome_ID":"OG167",
+    
+    "Primary_Group_1": [641, 663],
+    "Primary_Group_2": [12, 70, 144, 148, 299, 308, 341, 468, 498, 499],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "68": {
+    "name": "經行吐衄-胃熱熾盛證",
+    "Syndrome_ID":"OG168",
+    
+    "Primary_Group_1": [641, 663],
+    "Primary_Group_2": [72, 93, 299, 308, 468],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 805],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "69": {
+    "name": "經行泄瀉-脾虛證",
+    "Syndrome_ID":"OG169",
+    
+    "Primary_Group_1": [642, 663, 677],
+    "Primary_Group_2": [33, 55, 139, 331, 563],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [798, 807, 813, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "70": {
+    "name": "經行泄瀉-腎虛證",
+    "Syndrome_ID":"OG170",
+    
+    "Primary_Group_1": [642, 677],
+    "Primary_Group_2": [33, 55, 167, 232, 272, 341, 534, 555],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "71": {
+    "name": "經行乳脹-肝氣鬱結證",
+    "Syndrome_ID":"OG171",
+    
+    "Primary_Group_1": [636, 1155],
+    "Primary_Group_2": [144, 148, 454, 455, 494, 499, 702],
+    "Primary_Group_3": [838, 848],
+    "Primary_Group_4": [799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "72": {
+    "name": "經行乳脹-肝腎陰虛證",
+    "Syndrome_ID":"OG172",
+    
+    "Primary_Group_1": [639, 662],
+    "Primary_Group_2": [72, 139, 144, 232, 299, 534, 546, 620, 633, 702],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [795, 798, 799],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "73": {
+    "name": "經行乳脹-胃虛痰滯證",
+    "Syndrome_ID":"OG173",
+    
+    "Primary_Group_1": [642, 662],
+    "Primary_Group_2": [379, 381, 425, 494, 702, 1270, 490],
+    "Primary_Group_3": [823, 829, 832],
+    "Primary_Group_4": [806, 807],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "74": {
+    "name": "經行情志異常-心血不足證",
+    "Syndrome_ID":"OG174",
+    
+    "Primary_Group_1": [642, 662],
+    "Primary_Group_2": [137, 141, 463],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "75": {
+    "name": "經行情志異常-肝氣鬱結證",
+    "Syndrome_ID":"OG175",
+    
+    "Primary_Group_1": [663],
+    "Primary_Group_2": [70, 144, 148, 496, 499, 490],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "76": {
+    "name": "經行情志異常-痰火上擾證",
+    "Syndrome_ID":"OG176",
+    
+    "Primary_Group_1": [662, 678, 1155],
+    "Primary_Group_2": [143, 144, 155, 437, 494, 490],
+    "Primary_Group_3": [826, 827, 832],
+    "Primary_Group_4": [795, 799, 806, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "77": {
+    "name": "斷經前後諸證-腎陰虛證",
+    "Syndrome_ID":"OG177",
+    
+    "Primary_Group_1": [662],
+    "Primary_Group_2": [144, 160, 200, 232, 272, 348, 386, 435, 450, 534, 546],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "78": {
+    "name": "斷經前後諸證-腎陽虛證",
+    "Syndrome_ID":"OG178",
+    
+    "Primary_Group_1": [663],
+    "Primary_Group_2": [5, 7, 167, 232, 534, 555],
+    "Primary_Group_3": [842],
+    "Primary_Group_4": [798, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "79": {
+    "name": "經斷復來-氣虛證",
+    "Syndrome_ID":"OG179",
+    
+    "Primary_Group_1": [642, 663, 670, 677],
+    "Primary_Group_2": [139, 154, 279, 323, 456, 563],
+    "Primary_Group_3": [823, 838, 842],
+    "Primary_Group_4": [807, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "80": {
+    "name": "經斷復來-陰虛證",
+    "Syndrome_ID":"OG180",
+    
+    "Primary_Group_1": [641, 662, 670],
+    "Primary_Group_2": [54, 72, 144, 200, 299, 325, 437, 546],
+    "Primary_Group_3": [824, 827],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "81": {
+    "name": "經斷復來-血熱證",
+    "Syndrome_ID":"OG181",
+    
+    "Primary_Group_1": [670, 678, 1155],
+    "Primary_Group_2": [24, 32, 54, 70, 72, 374, 376, 379],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [799, 806, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "82": {
+    "name": "經斷復來-血瘀證",
+    "Syndrome_ID":"OG182",
+    
+    "Primary_Group_1": [654, 670, 1155],
+    "Primary_Group_2": [454, 903],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [799, 801, 804, 809, 811],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "83": {
+    "name": "經行口糜-胃熱薰蒸證",
+    "Syndrome_ID":"OG183",
+    
+    "Primary_Group_1": [663, 1155],
+    "Primary_Group_2": [12, 32, 54, 71, 72, 1273],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "84": {
+    "name": "經行口糜-陰虛火旺證",
+    "Syndrome_ID":"OG184",
+    
+    "Primary_Group_1": [641, 662],
+    "Primary_Group_2": [12, 24, 72, 130, 144, 299, 546, 845, 1273],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "85": {
+    "name": "經行身痛-血虛證",
+    "Syndrome_ID":"OG185",
+    
+    "Primary_Group_1": [642, 662, 677],
+    "Primary_Group_2": [139, 327, 563, 564, 1274],
+    "Primary_Group_3": [842],
+    "Primary_Group_4": [798, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "86": {
+    "name": "經行身痛-血瘀證",
+    "Syndrome_ID":"OG186",
+    
+    "Primary_Group_1": [652, 654, 662],
+    "Primary_Group_2": [231, 454, 563, 568, 602, 753, 1274],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [801, 804, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "87": {
+    "name": "經行風疹塊-血虛證",
+    "Syndrome_ID":"OG187",
+    
+    "Primary_Group_1": [652, 662],
+    "Primary_Group_2": [189, 205, 327, 1275],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [795, 798],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "88": {
+    "name": "經行風疹塊-風熱證",
+    "Syndrome_ID":"OG188",
+    
+    "Primary_Group_1": [639, 663],
+    "Primary_Group_2": [12, 32, 54, 72, 188, 189, 200],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "89": {
+    "name": "經行浮腫-氣滯血瘀證",
+    "Syndrome_ID":"OG189",
+    
+    "Primary_Group_1": [652, 654, 1155],
+    "Primary_Group_2": [132, 454, 483, 487, 494, 496, 499, 563, 567],
+    "Primary_Group_3": [847],
+    "Primary_Group_4": [799, 801, 804, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "90": {
+    "name": "經行浮腫-脾腎陽虛證",
+    "Syndrome_ID":"OG190",
+    
+    "Primary_Group_1": [642, 652, 662],
+    "Primary_Group_2": [24, 55, 139, 331, 455, 483, 555, 490],
+    "Primary_Group_3": [823, 829],
+    "Primary_Group_4": [807, 813, 815],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "91": {
+    "name": "經行眩暈-血虛證",
+    "Syndrome_ID":"OG191",
+    
+    "Primary_Group_1": [642, 652, 662, 677],
+    "Primary_Group_2": [139, 326, 327, 348, 450, 463, 563, 619, 998],
+    "Primary_Group_3": [829, 838],
+    "Primary_Group_4": [798, 813],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "92": {
+    "name": "經行眩暈-陰虛陽亢證",
+    "Syndrome_ID":"OG192",
+    
+    "Primary_Group_1": [641, 662],
+    "Primary_Group_2": [72, 144, 148, 272, 299, 348, 619],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [795, 798, 799, 809],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "93": {
+    "name": "經行眩暈-脾虛挾痰證",
+    "Syndrome_ID":"OG193",
+    
+    "Primary_Group_1": [642, 662],
+    "Primary_Group_2": [55, 343, 348, 379, 494, 520, 490],
+    "Primary_Group_3": [823, 832],
+    "Primary_Group_4": [798, 806, 813, 814],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}

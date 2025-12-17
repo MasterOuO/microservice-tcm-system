@@ -1,0 +1,1560 @@
+{
+	"1": {
+    "name": "肝陰虛",
+	"icd": "SF50",
+    "Primary_Group_1": ["頭暈", "目眩", "手足心熱", "潮熱"],
+    "Primary_Group_2": ["脅痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度薄", "舌苔形體部分剝落"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["目乾", "面色紅", "眼花", "脅灼熱", "胸悶"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": ["脈寬度細"],
+    "Secondary_Group_5": []
+    },
+    
+    "2": {
+    "name": "肝陽虛",
+	"icd": "SF51",
+    "Primary_Group_1": ["四肢冷", "畏寒喜溫"],
+    "Primary_Group_2": ["脅脹", "脅痛"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈部位沉", "脈速度慢", "脈力度弱"],
+    "Primary_Group_5": ["情緒憂鬱", "情緒心驚", "頭暈", "目暗", "目眩"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "3": {
+    "name": "肝陽上亢",
+	"icd": "SF52",
+    "Primary_Group_1": ["頭暈", "頭痛", "頭脹", "頭重", "目腫脹", "目痛", "面色紅", "難眠", "多夢"],
+    "Primary_Group_2": ["情緒急躁", "情緒憤怒", "耳鳴"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["腰酸", "膝酸", "腰無力", "下肢酸", "下肢無力"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "4": {
+    "name": "肝氣虛",
+	"icd": "SF53",
+    "Primary_Group_1": ["呼吸微弱", "情緒煩躁"],
+    "Primary_Group_2": ["脅脹"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["情緒心驚", "情緒恐懼", "面色青", "面色紫", "指甲色白", "指甲色暗", "頭暈", "目暗", "目眩"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "5": {
+    "name": "肝血虛",
+	"icd": "SF54",
+    "Primary_Group_1": ["頭暈", "目眩"],
+    "Primary_Group_2": ["脅脹", "脅痛"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["四肢麻木", "月經閉經", "月經量少", "月經色淡紅", "面色白", "目暗", "夜間目暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    "6": {
+    "name": "肝鬱血瘀",
+	"icd": "SF55",
+    "Primary_Group_1": [],
+    "Primary_Group_2": ["脅脹", "脅痛"],
+    "Primary_Group_3": ["舌體顏色紫色", "舌體顏色黑色", "舌體形體紫斑"],
+    "Primary_Group_4": ["脈緊度緊", "脈利度澀"],
+    "Primary_Group_5": ["脅肋痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "7": {
+    "name": "肝風內動",
+	"icd": "SF56",
+    "Primary_Group_1": ["肉顫", "四肢抽搐"],
+    "Primary_Group_2": ["耳鳴"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["頭暈"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "8": {
+    "name": "肝氣鬱結",
+	"icd": "SF57",
+    "Primary_Group_1": ["口苦", "口乾"],
+    "Primary_Group_2": ["脅痛", "脅脹"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快", "脈緊度緊"],
+    "Primary_Group_5": ["情緒煩亂", "情緒急躁", "脅灼熱"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "9": {
+    "name": "肝火上炎",
+    "icd": "SF58",
+	"Primary_Group_1": ["面色紅", "鼻衄", "吐血", "咳血"],
+    "Primary_Group_2": ["耳鳴"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快", "脈緊度緊"],
+    "Primary_Group_5": ["發熱", "口渴", "口苦", "頭暈", "頭痛", "難眠", "目紅", "目腫脹", "目痛", "情緒煩躁", "情緒急躁", "情緒煩亂", "耳聾"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "10": {
+    "name": "肝熱動風",
+	"icd": "SF59",
+    "Primary_Group_1": ["口渴", "意識昏迷", "意識譫妄"],
+    "Primary_Group_2": ["脅痛", "脅脹"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["發熱", "四肢痙攣", "角弓反張"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "11": {
+    "name": "肝膽濕熱",
+	"icd": "SF5A",
+    "Primary_Group_1": ["發熱"],
+    "Primary_Group_2": ["脅痛", "脅脹"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈速度快", "脈利度滑"],
+    "Primary_Group_5": ["食欲低落", "目黃", "皮膚色黃", "口苦", "噁心", "腹痛", "嘔吐", "厭油膩", "小便色黃"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "12": {
+    "name": "肝經濕熱",
+	"icd": "SF5B",
+    "Primary_Group_1": ["耳脹", "耳痛"],
+    "Primary_Group_2": ["脅脹", "脅痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["外陰癢", "耳內流膿", "陰部痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "13": {
+    "name": "寒滯肝脈",
+	"icd": "SF5C",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷", "吐涎", "痰色清"],
+    "Primary_Group_2": ["脅脹", "脅痛"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["陰部痛", "小腹冷", "小腹痛", "頭頂痛", "頭痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "14": {
+    "name": "膽氣虛",
+	"icd": "SF5D",
+    "Primary_Group_1": ["情緒神疲"],
+    "Primary_Group_2": ["情緒心慌"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": ["情緒多疑", "情緒憂鬱", "情緒悲傷", "多夢", "難眠"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "15": {
+    "name": "膽鬱痰擾",
+	"icd": "SF5E",
+    "Primary_Group_1": ["嘔吐", "噁心", "口苦"],
+    "Primary_Group_2": ["情緒心慌", "情緒心驚", "脅脹"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["情緒煩躁", "多夢", "難眠", "胸悶", "嘆息", "頭暈", "目眩", "痰量多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "16": {
+    "name": "膽熱證",
+	"icd": "SF5F",
+    "Primary_Group_1": ["情緒煩躁", "情緒憤怒"],
+    "Primary_Group_2": ["脅脹", "耳鳴"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["口苦", "耳痛", "難眠"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "17": {
+    "name": "膽寒證",
+	"icd": "SF5G",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷", "情緒神疲", "腹脹"],
+    "Primary_Group_2": ["脅痛", "情緒心慌", "情緒心驚"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": ["難眠", "四肢無力", "頭暈", "目眩", "嘔吐"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },  
+    
+    "18": {
+    "name": "肝腎陰虛證",
+	"icd": "SF5H",
+    "Primary_Group_1": ["頭暈", "意識健忘", "難眠", "多夢", "面色紅", "潮熱", "盜汗"],
+    "Primary_Group_2": ["耳鳴", "脅痛", "腰酸", "腰痛", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度薄", "舌苔形體部分剝落"],
+    "Primary_Group_4": ["脈寬度細", "脈速度快"],
+    "Primary_Group_5": ["手足心熱", "五心煩熱", "遺精", "月經量少", "目暗", "目眩", "腹痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+
+    "19": {
+    "name": "肝脾不和證",
+	"icd": "SF5J",
+    "Primary_Group_1": ["食欲低落", "情緒神疲"],
+    "Primary_Group_2": ["脅痛", "脅脹", "腹脹"],
+    "Primary_Group_3": ["舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈緊度緊", "脈力度弱"],
+    "Primary_Group_5": ["大便不暢", "腹痛大便後減輕"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "20": {
+    "name": "肝胃不和證",
+	"icd": "SF5K",
+    "Primary_Group_1": ["情緒憂鬱"],
+    "Primary_Group_2": ["胃痛", "腹痛"],
+    "Primary_Group_3": ["舌苔厚度薄", "舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["食欲低落", "噯氣", "噁心", "呃逆", "嘔吐", "泛酸", "胃脹", "腹脹"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+
+    "21": {
+    "name": "肝火犯胃證",
+	"icd": "SF5L",
+    "Primary_Group_1": ["口乾", "口苦"],
+    "Primary_Group_2": ["胃痛", "脅痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈緊度緊", "脈速度快"],
+    "Primary_Group_5": ["吐苦水", "大便質硬", "大便次少", "小便色清"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "22": {
+    "name": "肝火犯肺證",
+	"icd": "SF5M",
+    "Primary_Group_1": ["口苦", "情緒煩躁"],
+    "Primary_Group_2": ["胸痛", "脅痛"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈緊度緊", "脈速度快"],
+    "Primary_Group_5": ["咳時無痰", "咳痰", "咳血", "痰質濃", "脅灼熱"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "23": {
+    "name": "心氣虛證",
+	"icd": "SF60",
+    "Primary_Group_1": ["呼吸微弱", "情緒神疲"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱", "脈寬度細"],
+    "Primary_Group_5": ["自汗", "面色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "24": {
+    "name": "心血虛證",
+	"icd": "SF61",
+    "Primary_Group_1": ["頭暈", "多夢"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["夢中驚慌", "意識健忘", "面色黃", "面色暗", "唇色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "25": {
+    "name": "心氣血兩虛證",
+	"icd": "SF62",
+    "Primary_Group_1": ["呼吸微弱", "情緒神疲", "頭暈", "多夢", "目眩"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈部位沉", "脈寬度細"],
+    "Primary_Group_5": ["意識健忘", "面色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+
+    "26": {
+    "name": "心脈痹阻證",
+	"icd": "SF63",
+    "Primary_Group_1": ["心痛", "胸痛"],
+    "Primary_Group_2": ["心悸", "胸悶"],
+    "Primary_Group_3": ["舌體顏色深紅色", "舌體顏色紫色", "舌苔厚度薄", "舌苔顏色白", "舌體顏色淡紅色", "舌體顏色淡白色"],
+    "Primary_Group_4": ["脈利度澀", "脈幅異常", "脈緊度緊"],
+    "Primary_Group_5": ["肩痛", "臂痛", "背痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "27": {
+    "name": "心陰虛證",
+	"icd": "SF64",
+    "Primary_Group_1": ["情緒急躁", "情緒煩亂", "低熱", "盜汗", "口渴", "頭暈"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度薄", "舌苔顏色白"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["難眠", "面色紅", "意識健忘"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": ["脈寬度細"],
+    "Secondary_Group_5": []
+    },
+    
+    "28": {
+    "name": "心氣陰兩虛證",
+	"icd": "SF65",
+    "Primary_Group_1": ["全身無力", "呼吸微弱", "情緒神疲", "頭暈", "目眩", "多夢"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度薄"],
+    "Primary_Group_4": ["脈速度快", "脈力度弱"],
+    "Primary_Group_5": ["面色紅", "難眠"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "29": {
+    "name": "心陽虛證",
+	"icd": "SF66",
+    "Primary_Group_1": ["呼吸微弱", "呼吸急促", "畏寒喜溫", "四肢冷"],
+    "Primary_Group_2": ["心悸", "胸悶"],
+    "Primary_Group_3": ["舌體顏色紫色"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["面色暗", "面色黃", "唇暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": ["舌苔顏色白"],
+    "Secondary_Group_4": ["脈力度弱"],
+    "Secondary_Group_5": []
+    },
+    
+    "30": {
+    "name": "心陽暴脫證",
+	"icd": "SF67",
+    "Primary_Group_1": ["呼吸微弱", "四肢厥冷", "皮膚冰冷"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色紫色"],
+    "Primary_Group_4": ["脈力度弱", "脈寬度細"],
+    "Primary_Group_5": ["意識昏迷", "意識恍惚", "冷汗", "面色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+  
+    "31": {
+    "name": "心火上炎證",
+	"icd": "SF68",
+    "Primary_Group_1": ["發熱", "口渴"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌尖顏色紅"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["難眠", "口瘡", "舌瘡", "情緒急躁", "情緒煩亂"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    "32": {
+    "name": "熱擾心神證",
+	"icd": "SF69",
+    "Primary_Group_1": ["發熱", "面色紅", "難眠", "多夢", "口渴"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["情緒煩躁", "意識譫妄"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "33": {
+    "name": "水氣凌心證",
+	"icd": "SF6A",
+    "Primary_Group_1": ["呼吸微弱", "情緒神疲", "嗜睡", "四肢冷"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌形狀胖大", "舌苔顏色白", "舌苔濕度滑"],
+    "Primary_Group_4": ["脈部位沉", "脈力度弱", "脈寬度細"],
+    "Primary_Group_5": ["四肢浮腫", "小便量少", "小便色清", "面色白", "面色暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "34": {
+    "name": "心神不寧證",
+	"icd": "SF6B",
+    "Primary_Group_1": ["難眠", "多夢"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["情緒煩躁"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "35": {
+    "name": "憂傷神氣證",
+	"icd": "SF6C",
+    "Primary_Group_1": ["情緒神疲", "難眠", "多夢", "頭暈", "目眩"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈緊度弦"],
+    "Primary_Group_5": ["情緒低落", "食欲低落", "全身無力"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "36": {
+    "name": "小腸氣滯證",
+	"icd": "SF6D",
+    "Primary_Group_1": ["腸鳴"],
+    "Primary_Group_2": ["腹脹"],
+    "Primary_Group_3": ["舌苔顏色白", "舌苔濕度滑"],
+    "Primary_Group_4": ["脈部位沉", "脈緊度緊"],
+    "Primary_Group_5": ["下腹痛", "陰囊腫"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "37": {
+    "name": "小腸實熱證",
+	"icd": "SF6E",
+    "Primary_Group_1": ["情緒急躁", "情緒煩亂", "口渴", "小便量少"],
+    "Primary_Group_2": ["胸悶", "腹痛"],
+    "Primary_Group_3": ["舌苔顏色黃", "舌體顏色紅色"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["小便色棕", "小便挾血", "口瘡", "舌瘡"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "38": {
+    "name": "小腸虛寒證",
+	"icd": "SF6F",
+    "Primary_Group_1": ["渴喜熱飲", "四肢冷"],
+    "Primary_Group_2": ["腹痛"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白", "舌苔濕度滑"],
+    "Primary_Group_4": ["脈部位沉", "脈力度弱", "脈速度快"],
+    "Primary_Group_5": ["腹痛按壓時減輕", "腹痛溫暖時減輕", "大便次少", "大便質硬", "大便質稀", "小便不暢"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "39": {
+    "name": "心肝血虛證",
+	"icd": "SF6G",
+    "Primary_Group_1": ["目花", "難眠", "多夢"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["面色黃", "面色暗", "意識健忘", "月經量少", "鬚髮脫落", "目暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "40": {
+    "name": "心膽氣虛證",
+	"icd": "SF6H",
+    "Primary_Group_1": ["頭暈", "難眠"],
+    "Primary_Group_2": ["心悸", "胸悶"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊", "脈寬度細"],
+    "Primary_Group_5": ["情緒心慌", "情緒心驚"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "41": {
+    "name": "心脾兩虛證",
+	"icd": "SF6J",
+    "Primary_Group_1": ["情緒神疲", "意識健忘", "難眠", "多夢"],
+    "Primary_Group_2": ["大便質稀", "心悸", "腹脹", "食欲低落"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈部位沉", "脈寬度細"],
+    "Primary_Group_5": ["面色黃", "面色暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "42": {
+    "name": "心肺氣虛證",
+	"icd": "SF6K",
+    "Primary_Group_1": ["頭暈", "呼吸微弱", "情緒神疲"],
+    "Primary_Group_2": ["心悸", "胸悶", "咳嗽"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["痰質稀", "語音低微", "自汗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "43": {
+    "name": "心腎不交證",
+	"icd": "SF6L",
+    "Primary_Group_1": ["情緒煩亂", "難眠", "耳鳴", "頭暈"],
+    "Primary_Group_2": ["心悸", "腰酸", "膝酸", "腰無力"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈寬度細", "脈速度快"],
+    "Primary_Group_5": ["遺精", "大便質硬", "小便色黃", "大便次少"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "44": {
+    "name": "心腎陽虛證",
+	"icd": "SF6M",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷"],
+    "Primary_Group_2": ["心悸", "腰痛", "腰酸", "膝痛", "膝酸"],
+    "Primary_Group_3": ["舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈部位沉", "脈力度弱"],
+    "Primary_Group_5": ["小便不暢", "腿浮腫"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "45": {
+    "name": "脾氣虛證",
+	"icd": "SF70",
+    "Primary_Group_1": ["情緒神疲", "全身無力"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌形狀齒痕", "舌體形體齒痕"],
+    "Primary_Group_4": ["脈力度弱", "脈部位沉"],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "46": {
+    "name": "脾氣下陷證",
+	"icd": "SF71",
+    "Primary_Group_1": ["脫肛"],
+    "Primary_Group_2": ["大便質稀"],
+    "Primary_Group_3": ["舌苔顏色白", "舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": ["小腹墜脹", "少腹墜脹", "大便不盡"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "47": {
+    "name": "脾虛氣滯證",
+	"icd": "SF72",
+    "Primary_Group_1": ["腹痛", "腸鳴"],
+    "Primary_Group_2": ["大便質稀", "食欲低落", "腹脹"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔厚度薄", "舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊", "脈速度快"],
+    "Primary_Group_5": ["大便不盡", "嗜睡"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "48": {
+    "name": "脾虛食積證",
+	"icd": "SF73",
+    "Primary_Group_1": ["大便次多", "上腹痛", "大便不暢"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": ["噯氣味臭", "泛酸"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "49": {
+    "name": "脾不統血證",
+	"icd": "SF74",
+    "Primary_Group_1": ["大便挾血", "小便挾血", "瘀血", "鼻衄", "牙齦出血", "全身無力"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": [],
+    "Primary_Group_5": ["面色黃", "嗜睡"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": ["脈力度弱"],
+    "Secondary_Group_5": []
+    }, 
+    
+    "50": {
+    "name": "脾虛血虧證",
+	"icd": "SF75",
+    "Primary_Group_1": ["頭暈", "情緒神疲"],
+    "Primary_Group_2": ["食欲低落", "腹脹"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["面色黃", "面色暗", "月經後期", "月經閉經", "月經量少"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "51": {
+    "name": "脾陰虛證",
+	"icd": "SF76",
+    "Primary_Group_1": ["頭暈", "唇乾", "涎量少", "低熱"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈寬度細", "脈速度快"],
+    "Primary_Group_5": ["飢不欲食", "全身消瘦", "情緒神疲", "大便質硬", "大便次少", "大便不暢"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "52": {
+    "name": "脾陽虛證",
+	"icd": "SF77",
+    "Primary_Group_1": ["四肢冷"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌苔顏色白", "舌體顏色淡白色", "舌苔濕度滑", "舌形狀胖大"],
+    "Primary_Group_4": ["脈力度弱", "脈部位沉"],
+    "Primary_Group_5": ["腹冷", "腹痛", "全身浮腫", "四肢浮腫", "大便次多", "嗜睡", "全身消瘦"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "53": {
+    "name": "濕熱蘊脾證",
+	"icd": "SF78",
+    "Primary_Group_1": ["嘔吐", "噁心", "皮膚色黃", "目黃", "口渴"],
+    "Primary_Group_2": ["腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌苔顏色黃", "舌體顏色紅色", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈力度弱", "脈速度慢", "脈部位浮"],
+    "Primary_Group_5": ["身熱不揚", "發熱", "惡寒", "食欲不佳", "肢體乏力", "大便次多", "大便不盡", "小便色黃", "小便色棕"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "54": {
+    "name": "脾虛濕困證",
+	"icd": "SF79",
+    "Primary_Group_1": ["全身浮腫", "味覺減退"],
+    "Primary_Group_2": ["食欲低落", "大便質稀", "腹脹"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色白", "舌形狀胖大", "舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱", "脈速度慢", "脈部位浮"],
+    "Primary_Group_5": ["四肢重", "頭重", "大便次多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "55": {
+    "name": "脾虛水氾證",
+	"icd": "SF7A",
+    "Primary_Group_1": ["情緒神疲", "面色黃", "面色暗"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌形狀胖大", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈力度弱", "脈部位沉", "脈寬度細"],
+    "Primary_Group_5": ["面浮腫", "四肢浮腫", "腹積水"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "56": {
+    "name": "寒濕困脾證",
+	"icd": "SF7B",
+    "Primary_Group_1": ["口腔黏稠", "口淡", "噁心", "頭重", "四肢重"],
+    "Primary_Group_2": ["腹脹", "大便質稀", "大便次多"],
+    "Primary_Group_3": ["舌苔顏色白", "舌體顏色淡白色", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈速度慢", "脈力度弱", "脈部位浮"],
+    "Primary_Group_5": ["目黃", "皮膚色黃", "胃脹", "皮膚色暗", "目暗"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "57": {
+    "name": "胃氣虛證",
+	"icd": "SF7C",
+    "Primary_Group_1": [],
+    "Primary_Group_2": ["腹脹", "食欲低落"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "58": {
+    "name": "胃氣上逆證",
+	"icd": "SF7D",
+    "Primary_Group_1": ["嗝氣", "呃逆"],
+    "Primary_Group_2": ["嘔吐"],
+    "Primary_Group_3": ["舌苔厚度薄", "舌苔質地黏膩", "舌苔顏色白"],
+    "Primary_Group_4": ["脈利度滑", "脈長度長", "脈緊度緊"],
+    "Primary_Group_5": ["泛酸"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "59": {
+    "name": "胃陰虛證",
+	"icd": "SF7E",
+    "Primary_Group_1": ["口乾", "喉乾"],
+    "Primary_Group_2": ["食欲低落"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度薄"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["呃逆", "乾嘔", "大便不暢", "大便次少", "大便質硬", "涎量少"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "60": {
+    "name": "胃熱證",
+	"icd": "SF7F",
+    "Primary_Group_1": ["胃痛", "泛酸", "消化迅速"],
+    "Primary_Group_2": ["嘔吐"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔厚度厚", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快", "脈部位浮"],
+    "Primary_Group_5": ["牙齦腫", "牙齦出血", "口臭", "牙齦色紅", "胃灼熱", "大便不暢", "大便次多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "61": {
+    "name": "濕阻腸道證明",
+	"icd": "SF7G",
+    "Primary_Group_1": ["腹痛"],
+    "Primary_Group_2": ["大便質稀", "腹脹"],
+    "Primary_Group_3": ["舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈力度弱", "脈速度慢", "脈部位浮"],
+    "Primary_Group_5": ["大便挾黏液", "大便次多", "大便味臭"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "62": {
+    "name": "寒邪犯胃證",
+	"icd": "SF7H",
+    "Primary_Group_1": ["四肢冷", "胃冷", "胃痛"],
+    "Primary_Group_2": ["食欲低落", "腹脹", "大便質稀"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["吐清水", "喜暖", "畏寒喜溫"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "63": {
+    "name": "寒滯腸道證",
+	"icd": "SF7GJ",
+    "Primary_Group_1": ["胃痛", "胃冷", "四肢冷"],
+    "Primary_Group_2": ["大便質稀"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["四肢冷", "腹痛", "腹冷", "惡寒", "大便次多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "64": {
+    "name": "思傷脾氣證",
+	"icd": "SF7K",
+    "Primary_Group_1": ["面色暗", "大便不暢"],
+    "Primary_Group_2": ["食欲低落"],
+    "Primary_Group_3": ["舌形狀胖大"],
+    "Primary_Group_4": ["脈緊度緊"],
+    "Primary_Group_5": ["太息", "胸脹", "脅脹", "上腹痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "65": {
+    "name": "肺脾兩虛證",
+	"icd": "SF7L",
+    "Primary_Group_1": ["聲啞", "面色白"],
+    "Primary_Group_2": ["腹脹", "食欲低落", "大便質稀", "咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈力度弱", "脈寬度細"],
+    "Primary_Group_5": [],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "66": {
+    "name": "脾臟腎陽虛證",
+	"icd": "SF7M",
+    "Primary_Group_1": ["四肢冷", "畏寒喜溫"],
+    "Primary_Group_2": ["大便質稀"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌形狀胖大"],
+    "Primary_Group_4": ["脈部位沉", "脈寬度細"],
+    "Primary_Group_5": ["面色白", "全身浮腫", "小腹冷", "小腹痛", "大便次多", "小便不暢"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "67": {
+    "name": "肺氣虛證",
+	"icd": "SF80",
+    "Primary_Group_1": ["呼吸微弱"],
+    "Primary_Group_2": ["呼吸急促", "咳嗽"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱", "脈寬度細"],
+    "Primary_Group_5": ["痰色清", "痰質稀", "自汗", "惡風", "面色白", "語音低微", "咳嗽無力"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "68": {
+    "name": "肺陰虛證",
+	"icd": "SF81",
+    "Primary_Group_1": ["潮熱", "盜汗", "口乾", "喉乾"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈速度快", "脈寬度細"],
+    "Primary_Group_5": ["咳時無痰", "痰難咳出", "痰質濃", "聲啞", "面色紅", "涎量少"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "69": {
+    "name": "肺腎陰虛證",
+	"icd": "SF82",
+    "Primary_Group_1": ["口乾", "喉乾", "潮熱", "盜汗"],
+    "Primary_Group_2": ["腰痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈速度快", "脈力度弱"],
+    "Primary_Group_5": ["痰量少", "聲啞", "小腿無力", "面色紅", "遺精", "月經先後不定期"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "70": {
+    "name": "肺氣陰兩虛證",
+	"icd": "SF83",
+    "Primary_Group_1": ["手足心熱"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["聲啞", "咳時無痰"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "71": {
+    "name": "肺陽虛證",
+	"icd": "SF84",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌形狀胖大", "舌苔顏色白", "舌苔濕度滑"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["痰質稀", "自汗", "面色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "72": {
+    "name": "寒痰阻肺證",
+	"icd": "SF85",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷"],
+    "Primary_Group_2": ["咳嗽", "胸悶"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈緊度緊", "脈利度滑"],
+    "Primary_Group_5": ["痰量多", "咳嗽有痰", "咳喘"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "73": {
+    "name": "痰濁阻肺證",
+	"icd": "SF86",
+    "Primary_Group_1": ["痰量多"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促", "胸悶"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色白"],
+    "Primary_Group_4": ["脈利度滑", "脈緊度緊"],
+    "Primary_Group_5": ["痰色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "74": {
+    "name": "表寒肺熱證",
+	"icd": "SF87",
+    "Primary_Group_1": ["情緒急躁", "情緒煩亂"],
+    "Primary_Group_2": ["胸悶"],
+    "Primary_Group_3": ["舌苔顏色白", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈部位浮", "脈速度快"],
+    "Primary_Group_5": ["低熱", "咳喘", "畏風", "少汗", "口渴"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "75": {
+    "name": "肺熱熾熱證",
+	"icd": "SF88",
+    "Primary_Group_1": ["發熱", "口熱", "口渴"],
+    "Primary_Group_2": ["咳嗽"],
+    "Primary_Group_3": ["舌苔顏色黃", "舌體顏色紅色"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["喉腫", "喉痛", "鼻孔張大", "呼吸聲大", "胸痛", "大便不暢", "大便次少", "大便質硬", "小便色黃"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "76": {
+    "name": "痰熱壅肺證",
+	"icd": "SF89",
+    "Primary_Group_1": ["咳痰"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色黃", "舌體顏色紅色"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["痰色黃", "痰質濃", "痰挾血", "胸痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "77": {
+    "name": "風熱犯肺證",
+	"icd": "SF8A",
+    "Primary_Group_1": ["發熱", "口乾", "喉痛"],
+    "Primary_Group_2": ["咳嗽"],
+    "Primary_Group_3": ["舌苔顏色黃", "舌體顏色紅色", "舌苔厚度薄"],
+    "Primary_Group_4": ["脈速度快", "脈部位浮"],
+    "Primary_Group_5": ["痰色黃", "痰質濃", "涕色黃", "涕質濃", "鼻塞", "鼻流涕"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "78": {
+    "name": "肺熱移腸證",
+	"icd": "SF8B",
+    "Primary_Group_1": ["發熱", "口渴"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["腹脹", "大便次少", "大便質硬"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "79": {
+    "name": "風寒束肺證",
+	"icd": "SF8C",
+    "Primary_Group_1": ["畏寒喜溫", "鼻塞", "發熱"],
+    "Primary_Group_2": ["咳嗽", "胸悶"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈部位浮", "脈緊度緊"],
+    "Primary_Group_5": ["涕色清", "涕質稀", "痰色清", "痰質稀", "痰量多", "喉癢"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "80": {
+    "name": "燥邪犯肺證",
+	"icd": "SF8D",
+    "Primary_Group_1": ["畏寒喜溫", "口渴", "發熱", "痰量少", "痰難咳出"],
+    "Primary_Group_2": ["咳嗽", "呼吸急促"],
+    "Primary_Group_3": ["舌苔厚度薄", "舌苔濕度乾"],
+    "Primary_Group_4": ["脈速度快", "脈寬度細"],
+    "Primary_Group_5": ["口乾", "鼻乾", "喉乾", "唇乾", "咳時無痰", "痰質濃", "胸痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "81": {
+    "name": "肺燥腸閉證",
+	"icd": "SF8E",
+    "Primary_Group_1": ["口渴"],
+    "Primary_Group_2": ["腹痛", "咳嗽", "腹脹"],
+    "Primary_Group_3": ["舌苔顏色黃", "舌苔濕度乾"],
+    "Primary_Group_4": ["脈部位沉", "脈力度強"],
+    "Primary_Group_5": ["大便次少", "大便質硬"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "82": {
+    "name": "大腸實熱證",
+	"icd": "SF8F",
+    "Primary_Group_1": ["大便不暢"],
+    "Primary_Group_2": ["腹痛", "腹脹"],
+    "Primary_Group_3": ["舌苔濕度乾", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快", "脈力度強"],
+    "Primary_Group_5": ["大便質硬", "大便挾血", "大便次少", "小便色棕"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "83": {
+    "name": "大腸濕熱證",
+	"icd": "SF8G",
+    "Primary_Group_1": ["口渴", "發熱", "肛門灼熱"],
+    "Primary_Group_2": ["腹痛", "腹脹"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["大便味臭", "大便急迫", "大便挾血", "大便挾膿", "大便挾黏凍", "大便質稀", "小便量少", "小便色棕"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "84": {
+    "name": "大腸津虧證",
+	"icd": "SF8H",
+    "Primary_Group_1": ["喉乾", "涎量少"],
+    "Primary_Group_2": ["腹脹", "腹痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃", "舌苔濕度乾"],
+    "Primary_Group_4": ["脈寬度細", "脈速度快"],
+    "Primary_Group_5": ["大便質硬", "大便次少"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "85": {
+    "name": "大腸虛寒證",
+	"icd": "SF8J",
+    "Primary_Group_1": ["四肢冷"],
+    "Primary_Group_2": ["腹痛"],
+    "Primary_Group_3": ["舌苔顏色白", "舌體顏色淡白色", "舌苔濕度滑"],
+    "Primary_Group_4": ["脈緊度散", "脈部位沉"],
+    "Primary_Group_5": ["惡熱", "腸鳴", "大便不暢", "大便次多", "大便質稀"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "86": {
+    "name": "腎氣虛證",
+	"icd": "SF90",
+    "Primary_Group_1": ["頭暈", "夜時小便次多", "耳鳴"],
+    "Primary_Group_2": ["腰無力", "腰酸", "膝酸"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈力度弱"],
+    "Primary_Group_5": ["意識健忘", "腰痛", "性欲低落", "腹部麻木", "呼吸急促"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+  
+    "87": {
+    "name": "腎不納氣證",
+	"icd": "SF91",
+    "Primary_Group_1": ["聲音微弱", "咳喘", "太息"],
+    "Primary_Group_2": ["腰無力", "腰酸", "膝酸", "下肢酸", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈寬度細", "脈部位沉"],
+    "Primary_Group_5": ["吸少呼多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": ["呼吸急促"]
+    },
+    
+    "88": {
+    "name": "腎氣虛水氾證",
+	"icd": "SF92",
+    "Primary_Group_1": ["小便量少"],
+    "Primary_Group_2": ["腰酸", "膝酸", "下肢酸", "腰無力", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌形狀胖大", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["下肢浮腫"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "89": {
+    "name": "腎陰虛證",
+	"icd": "SF93",
+    "Primary_Group_1": ["手足心熱", "喉乾", "口渴", "頭暈", "耳鳴"],
+    "Primary_Group_2": ["腰酸", "膝酸", "下肢酸", "腰無力", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色紅色"],
+    "Primary_Group_4": ["脈速度快", "脈力度弱"],
+    "Primary_Group_5": ["全身消瘦", "難眠", "面色紅", "月經量少", "遺精"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": ["舌苔厚度薄"],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "90": {
+    "name": "腎陰陽兩虛證",
+	"icd": "SF94",
+    "Primary_Group_1": ["手足心熱", "耳鳴", "頭暈", "四肢冷"],
+    "Primary_Group_2": ["腰酸", "膝酸", "腰無力", "下肢酸", "下肢無力"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈力度弱", "脈寬度細"],
+    "Primary_Group_5": ["情緒煩躁", "盜汗", "遺精", "自汗", "目眩"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "91": {
+    "name": "腎虛髓虧證",
+	"icd": "SF95",
+    "Primary_Group_1": ["耳鳴", "腰痛"],
+    "Primary_Group_2": ["腰酸", "膝酸", "下肢酸", "腰無力", "下肢無力"],
+    "Primary_Group_3": ["舌苔厚度薄", "舌苔顏色白"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱", "脈部位沉"],
+    "Primary_Group_5": ["生長速度慢", "骨質疏鬆", "意識健忘", "意識痴呆", "骨折難癒合", "頭暈"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "92": {
+    "name": "腎精虧虛證",
+	"icd": "SF96",
+    "Primary_Group_1": ["精子量少"],
+    "Primary_Group_2": ["腰酸", "膝酸", "下肢酸", "腰無力", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["妊娠不孕", "耳鳴", "囟門遲閉", "成人早衰", "意識健忘", "鬚髮脫落", "牙齒動搖"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "93": {
+    "name": "腎陽虛證",
+	"icd": "SF97",
+    "Primary_Group_1": ["情緒神疲", "夜時小便次多", "四肢冷", "畏寒喜溫"],
+    "Primary_Group_2": ["腰酸", "膝酸", "下肢酸", "腰無力", "下肢無力"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔濕度滑", "舌形狀胖大"],
+    "Primary_Group_4": ["脈寬度細"],
+    "Primary_Group_5": ["性欲低落", "妊娠不孕", "陽痿", "早洩"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": ["舌苔顏色白"],
+    "Secondary_Group_4": ["脈力度弱"],
+    "Secondary_Group_5": []
+    },
+    
+    "94": {
+    "name": "驚恐傷腎證",
+	"icd": "SF98",
+    "Primary_Group_1": ["陽痿", "小便失禁", "大便失禁", "遺精"],
+    "Primary_Group_2": ["心悸"],
+    "Primary_Group_3": ["舌苔厚度薄", "舌苔顏色白"],
+    "Primary_Group_4": ["脈緊度弦", "脈寬度細"],
+    "Primary_Group_5": ["情緒心慌", "情緒恐懼"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "95": {
+    "name": "胞宮血熱證",
+	"icd": "SF99",
+    "Primary_Group_1": ["月經量多", "月經色紅"],
+    "Primary_Group_2": ["小腹痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈速度快"],
+    "Primary_Group_5": ["白帶色黃", "白帶質濃", "白帶味臭"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "96": {
+    "name": "痰液凝胞宮證",
+	"icd": "SF9A",
+    "Primary_Group_1": ["月經先後不定期", "全身肥胖"],
+    "Primary_Group_2": ["妊娠不孕"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈利度滑", "脈力度弱", "脈速度慢", "脈部位浮"],
+    "Primary_Group_5": ["白帶量多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "97": {
+    "name": "胞宮濕熱證",
+	"icd": "SF9B",
+    "Primary_Group_1": ["白帶量多", "白帶質濃"],
+    "Primary_Group_2": ["外陰癢"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈利度滑", "脈速度快"],
+    "Primary_Group_5": ["白帶色黃", "白帶味臭"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "98": {
+    "name": "寒凝胞宮證",
+	"icd": "SF9C",
+    "Primary_Group_1": ["月經後期", "月經色紫"],
+    "Primary_Group_2": ["小腹冷", "小腹痛", "月經腰痛", "月經腹痛"],
+    "Primary_Group_3": ["舌苔顏色白"],
+    "Primary_Group_4": ["脈部位沉", "脈緊度緊"],
+    "Primary_Group_5": ["畏寒喜溫", "白帶色清", "白帶質稀", "白帶色白"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "99": {
+    "name": "胞宮虛寒證",
+	"icd": "SF9D",
+    "Primary_Group_1": ["妊娠不孕", "經常性流產", "面色白", "月經質稀", "月經色淡紅"],
+    "Primary_Group_2": ["小腹痛"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色白"],
+    "Primary_Group_4": ["脈力度弱", "脈部位沉"],
+    "Primary_Group_5": ["畏寒喜溫", "四肢冷", "喜溫按壓時加重","喜溫按壓時加輕", "白帶色清", "白帶質稀"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "100": {
+    "name": "膀胱蓄血證",
+	"icd": "SF9E",
+    "Primary_Group_1": ["小便不暢"],
+    "Primary_Group_2": ["小腹脹", "小腹痛"],
+    "Primary_Group_3": ["舌體顏色紫色", "舌體形體紫斑"],
+    "Primary_Group_4": ["脈緊度緊", "脈寬度細"],
+    "Primary_Group_5": ["小便疼痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "101": {
+    "name": "膀胱蘊熱證",
+	"icd": "SF9F",
+    "Primary_Group_1": ["發熱", "口渴"],
+    "Primary_Group_2": ["小腹脹"],
+    "Primary_Group_3": ["舌體顏色紅色", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈部位沉", "脈速度快"],
+    "Primary_Group_5": ["小便灼熱", "小便疼痛"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+   
+    "102": {
+    "name": "膀胱濕熱證",
+	"icd": "SF9G",
+    "Primary_Group_1": ["小便急迫"],
+    "Primary_Group_2": ["小腹脹"],
+    "Primary_Group_3": ["舌苔質地黏膩", "舌苔顏色黃"],
+    "Primary_Group_4": ["脈利度滑"],
+    "Primary_Group_5": ["小便疼痛", "小便次多"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    },
+    
+    "103": {
+    "name": "膀胱蓄水證",
+	"icd": "SF9H",
+    "Primary_Group_1": ["小便不暢"],
+    "Primary_Group_2": ["下腹痛"],
+    "Primary_Group_3": ["舌體顏色淡白色", "舌形狀胖大", "舌苔顏色白", "舌苔質地黏膩"],
+    "Primary_Group_4": ["脈寬度細", "脈力度弱"],
+    "Primary_Group_5": ["下腹墜脹"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }, 
+    
+    "104": {
+    "name": "膀胱虛寒證",
+	"icd": "SF9J",
+    "Primary_Group_1": ["畏寒喜溫", "四肢冷"],
+    "Primary_Group_2": ["小腹痛"],
+    "Primary_Group_3": ["舌體顏色淡白色"],
+    "Primary_Group_4": ["脈部位沉", "脈力度弱"],
+    "Primary_Group_5": ["小便量多", "小便色清", "小腹冷"],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+    }
+    
+}

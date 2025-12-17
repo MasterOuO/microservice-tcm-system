@@ -1,0 +1,197 @@
+{
+  "1": {
+  	"name": "心血虛",
+    "Syndrome_ID":"PS201",
+    
+    "Primary_Group_1": [463],
+    "Primary_Group_2": [348, 619, 435, 437, 1524],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [140, 450, 104, 323, 327],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "2": {
+  	"name": "心陰虛",
+    "Syndrome_ID":"PS202",
+    
+    "Primary_Group_1": [463],
+    "Primary_Group_2": [348, 619, 435, 546, 164, 407, 72, 299, 144, 1524],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [798, 795],
+    "Primary_Group_5": [140, 450, 325],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "3": {
+  	"name": "胃陰虛",
+    "Syndrome_ID":"PS203",
+    
+    "Primary_Group_1": [484, 520, 450, 449],
+    "Primary_Group_2": [72, 299],
+    "Primary_Group_3": [827, 838],
+    "Primary_Group_4": [798, 795],
+    "Primary_Group_5": [54, 32, 502, 477],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "4": {
+  	"name": "肝血虛",
+    "Syndrome_ID":"PS204",
+    
+    "Primary_Group_1": [630, 272],
+    "Primary_Group_2": [348, 619, 435, 144, 1523, 1524],
+    "Primary_Group_3": [829],
+    "Primary_Group_4": [798],
+    "Primary_Group_5": [558, 561, 327, 658, 662, 642, 450],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "5": {
+  	"name": "腎陰虛",
+    "Syndrome_ID":"PS205",
+    
+    "Primary_Group_1": [234, 232, 604, 534, 538],
+    "Primary_Group_2": [348, 619, 435, 546, 164, 407, 72, 299, 144],
+    "Primary_Group_3": [827, 823, 838],
+    "Primary_Group_4": [798, 795],
+    "Primary_Group_5": [193, 361, 272, 450, 12, 24, 401, 213, 231, 602, 325, 447, 473, 658, 662],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "6": {
+  	"name": "心火亢盛",
+    "Syndrome_ID":"PS206",
+    
+    "Primary_Group_1": [144, 143, 150],
+    "Primary_Group_2": [325, 308, 468, 75],
+    "Primary_Group_3": [845],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [450, 12, 54, 79, 1014],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "7": {
+  	"name": "痰火擾心",
+    "Syndrome_ID":"PS207",
+    
+    "Primary_Group_1": [144, 135, 143, 155, 150],
+    "Primary_Group_2": [325, 618, 160],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [795],
+    "Primary_Group_5": [450, 281, 32, 54],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "8": {
+  	"name": "大腸實熱",
+    "Syndrome_ID":"PS208",
+    
+    "Primary_Group_1": [32, 54, 508, 511],
+    "Primary_Group_2": [164, 368, 144],
+    "Primary_Group_3": [825, 1012, 831, 826, 1011, 1010],
+    "Primary_Group_4": [806, 809, 795, 815, 805],
+    "Primary_Group_5": [450, 135, 143, 150],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "9": {
+  	"name": "胃氣上逆",
+    "Syndrome_ID":"PS209",
+    
+    "Primary_Group_1": [520],
+    "Primary_Group_2": [522, 477, 450, 449],
+    "Primary_Group_3": [838, 832, 823],
+    "Primary_Group_4": [806, 809, 799],
+    "Primary_Group_5": [521],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "10": {
+  	"name": "食滯胃脘",
+    "Syndrome_ID":"PS210",
+    
+    "Primary_Group_1": [520, 484],
+    "Primary_Group_2": [522, 1031, 475, 450, 449],
+    "Primary_Group_3": [825, 832],
+    "Primary_Group_4": [806],
+    "Primary_Group_5": [487, 32, 54, 40, 856],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "11": {
+  	"name": "肝火上炎",
+    "Syndrome_ID":"PS211",
+    
+    "Primary_Group_1": [136, 148, 272, 498, 144],
+    "Primary_Group_2": [325, 308, 468],
+    "Primary_Group_3": [826, 827],
+    "Primary_Group_4": [809, 795, 799],
+    "Primary_Group_5": [450, 435, 348, 32, 54, 70, 618, 345, 1525, 1523],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "12": {
+  	"name": "肝陽上亢",
+    "Syndrome_ID":"PS212",
+    
+    "Primary_Group_1": [136, 148, 272],
+    "Primary_Group_2": [345, 346, 348, 619, 435, 450, 325],
+    "Primary_Group_3": [827],
+    "Primary_Group_4": [809, 799, 798],
+    "Primary_Group_5": [234, 232, 604, 534, 538, 618],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  },
+  "13": {
+  	"name": "膽郁痰擾",
+    "Syndrome_ID":"PS213",
+    
+    "Primary_Group_1": [499, 130, 131],
+    "Primary_Group_2": [520, 521, 70],
+    "Primary_Group_3": [832, 826],
+    "Primary_Group_4": [806, 809, 799],
+    "Primary_Group_5": [450, 348, 619, 144, 494, 435],
+    "Secondary_Group_1": [],
+    "Secondary_Group_2": [],
+    "Secondary_Group_3": [],
+    "Secondary_Group_4": [],
+    "Secondary_Group_5": []
+  }
+}
