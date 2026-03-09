@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.json.simple.parser.ParseException;
-import org.springframework.stereotype.Service;
+
 
 import com.tcmdiff.SpringTcmDiff.models.SymptomSet;
 import com.tcmdiff.SpringTcmDiff.models.Syndrome;
@@ -17,11 +17,12 @@ import com.tcmdiff.SpringTcmDiff.models.SyndromeSet;
 
 
 
+
 public class Suggester {
 	 private SyndromeSet syndromeSet;
 
-	    public Suggester(String syndrome_Data_path) throws IOException, ParseException {
-	        this.syndromeSet = new SyndromeSet(syndrome_Data_path);
+	    public Suggester(SyndromeSet syndromeSet) throws IOException, ParseException {
+	    	this.syndromeSet = syndromeSet;
 	    }
 
 	    
@@ -35,12 +36,12 @@ public class Suggester {
 	        Map<String, Syndrome> syndromeMap = new HashMap<>();
 	        
 	        for (Syndrome syndrome : this.syndromeSet) {
-	            syndromeMap.put(syndrome.get_name(), syndrome);
+	            syndromeMap.put(syndrome.getName(), syndrome);
 	        }
 	        for (String name_i : SyndromesName) {
 	            Syndrome syndrome_i = syndromeMap.get(name_i);
-	            SymptomSet pset[]=syndrome_i.get_prim_sympt_sets();
-	            SymptomSet sset[]=syndrome_i.get_sec_sympt_sets();
+	            SymptomSet pset[]=syndrome_i.getPrimSymptSets();
+	            SymptomSet sset[]=syndrome_i.getSecSymptSets();
 	            for(int i=0;i<5;i++) {
 	                addSymptomsIfNotExists(pset[i], inputSymptomsSet, result_G1,10000,20000);
 	                addSymptomsIfNotExists(pset[i], inputSymptomsSet, result_G2,20000,30000);

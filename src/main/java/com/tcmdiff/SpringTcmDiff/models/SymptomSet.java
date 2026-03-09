@@ -14,9 +14,12 @@ public class SymptomSet extends ArrayList<Integer> {
         super();
     }
 	
+	
     public SymptomSet(List<Integer> elements) {
         super(elements);
     }
+    
+    
     /**
      * Make the intersection of the symptom set and the patient symptom set
      * @param Input_Symptoms_set patient symptom set
@@ -26,6 +29,15 @@ public class SymptomSet extends ArrayList<Integer> {
     	SymptomSet i = new SymptomSet(input_Symptoms_set);
     	i.retainAll(this);  //會只剩下跟this相關的元素
     	return i;
+    }
+    
+    @Override
+    public boolean add(Integer symptomId) {
+        // 不改set 家這個限制
+        if (this.contains(symptomId)) {
+            return false;
+        }
+        return super.add(symptomId);
     }
 }
 
