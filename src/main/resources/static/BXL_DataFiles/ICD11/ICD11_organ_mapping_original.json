@@ -898,7 +898,7 @@
     },
     
     "61": {
-    "name": "濕阻腸道明",
+    "name": "濕阻腸道",
 	"icd": "SF7G",
     "Primary_Group_1": ["腹痛"],
     "Primary_Group_2": ["大便質稀", "腹脹"],
