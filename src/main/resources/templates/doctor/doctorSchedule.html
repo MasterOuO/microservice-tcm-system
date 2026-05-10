@@ -28,33 +28,13 @@
 
 <body>
   <!-- 頂部 Navbar (小螢幕時顯示漢堡按鈕) -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #07393C;">
-    <div class="container-fluid">
-      <!-- 漢堡按鈕 -->
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- 右側：使用者姓名 & 登出 -->
-      <div class="ms-auto text-white d-flex align-items-center">
-        <span class="w3-bar-item w3-right" style="margin-right: 10px">Hi, [[${userDetails.getFullname()}]]</span>
-        <a class="btn btn-outline-light btn-sm" th:href="@{/logout}" sec:authorize="isAuthenticated">登出</a>
-      </div>
-    </div>
-  </nav>
+  <th:block th:replace="~{fragments/navbar :: topbar(${userDetails})}"></th:block>
+
 
   <div class="container-fluid">
     <div class="row">
       <!-- 側邊欄 -->
-      <div class="col-2 sidebar d-none d-lg-block">
-        <div class="sidebar-heading">行政人員管理系統</div>
-        <hr/>
-        <nav class="nav flex-column">
-          <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
-          <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
-          <a class="nav-link" th:href="@{/admin-page/createRole}">新增人員</a>
-          <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
-        </nav>
-      </div>
+      <th:block th:replace="~{fragments/sidebar :: sidebarCol(${base})}"></th:block>
 
       <!-- 主要內容：佔剩餘空間 -->
       <div class="col">
@@ -140,29 +120,7 @@
     </div> <!-- /row -->
   </div> <!-- /container-fluid -->
 
-  <!-- 小螢幕專用: Offcanvas (漢堡選單) -->
-  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileOffcanvas" aria-labelledby="mobileOffcanvasLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="mobileOffcanvasLabel">功能選單</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2">
-          <a class="nav-link" th:href="@{/admin-page}">人員列表</a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link" th:href="@{/admin-page/schedule}">醫師排班</a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link" th:href="@{/admin-page/createRole}">新增人員</a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link" th:href="@{/all_Patient}">病患查詢</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+	<th:block th:replace="~{fragments/sidebar :: offcanvas(${base})}"></th:block>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

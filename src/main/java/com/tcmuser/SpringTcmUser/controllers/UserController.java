@@ -112,7 +112,7 @@ public class UserController {
 		
 		model.addAttribute("opts", opts);
 		System.out.println("opt:" + opts);
-		model.addAttribute("diff_url", "http://localhost:8070/diff/compute");	
+		model.addAttribute("diff_url", "http://localhost:8080/api/diff/load-diff/compute");	
 		model.addAttribute("patients",patients);
 		return "doctor/doctor_page";
 	}

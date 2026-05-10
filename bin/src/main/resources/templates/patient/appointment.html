@@ -9,7 +9,7 @@
     <!-- jQuery UI CSS (Datepicker) -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
     <!-- 連結到你的 CSS -->
-    <link rel="stylesheet" th:href="@{../css/styles.css}">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
     <style>
 	  .greenDay{
 	  	background-color: #b0e6b0;
@@ -33,7 +33,7 @@
             <div class="col-md-8">
                 <div class="patient-section shadow-sm p-4 rounded">
                     <h3 class="section-title">病患預約掛號</h3>
-                    <form th:action="@{/createPatient}" method="post" role="form" th:object="${patientDto}">
+                    <form th:action="@{createPatient}" method="post" role="form" th:object="${patientDto}">
                         <div class="mb-3">
                             <label for="select_doctor" class="form-label">選擇醫生</label>
                             <select class="form-select" id="doctorSelect">
@@ -80,7 +80,7 @@
 
                 <div class="patient-search-section shadow-sm p-4 rounded">
                     <h3 class="section-title">病患預約查詢</h3>
-                    <form th:action="@{/getPatient}" method="post" role="form" th:object="${patientDto}">
+                    <form th:action="@{getPatient}" method="post" role="form" th:object="${patientDto}">
                         <div class="mb-3">
                             <label for="identity">身分證字號</label>
                             <input class="form-control" th:field="*{identity}" type="text">

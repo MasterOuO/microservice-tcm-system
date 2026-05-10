@@ -1,44 +1,74 @@
 @charset "UTF-8";
 
+/* 側邊欄區塊：只管外觀，不干涉版面定位（交給 col-2） */
+.sidebar {
+  background-color: #EAF9F7;
+  border-right: 1px solid #AADDD1;
 
-    /* 側邊欄區塊 */
-    .sidebar {
-      background-color: #EAF9F7; 
-      min-height: 100vh;
-      padding: 20px;
-      border-right: 1px solid #AADDD1;
-    }
-    .sidebar-heading {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #07393C;
-      margin-bottom: 0.5rem;
-    }
-    .sidebar hr {
-      margin: 0.5rem 0 1rem 0;
-      border-top: 1px solid #8fa9a6;
-    }
-    /* --- 關鍵：Nav Link 的字體樣式 --- */
-    .sidebar .nav-link {
-      /* 顏色與底色 */
-      color: #052f31;
-      background-color: transparent;
-      /* 字型與大小 */
-      font-size: 1.5rem;    /* 比默認稍微大一點 */
-      font-weight: 600;      /* 半粗體 */
-      letter-spacing: 0.5px; /* 拉開字母間距，增添設計感 */
-      margin-bottom: 8px;    /* 選單項目間距 */
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-    .sidebar .nav-link:hover {
-      background-color: #D8F1EC;  /* 淺綠，與頁面整體色系呼應 */
-      color: #052f31;
-      text-decoration: none;
-    }
-    /* 讓目前所在的頁面連結可做高亮 (若你有active邏輯) */
-    .sidebar .nav-link.active {
-      background-color: #C8E7E2;
-      color: #052f31;
-    }
+  /* 避免 100vh 把整個 row 撐爆：扣掉 navbar 高度 */
+  min-height: calc(100vh - 56px);
+
+  /* padding 不要太大，避免 col-2 太窄擠爆 */
+  padding: 12px;
+
+  /* 讓 sidebar 自己捲動，不去影響右邊內容 */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* 避免長字/過大字體把 layout 撐壞 */
+  word-break: break-word;
+}
+
+/* 標題 */
+.sidebar-heading {
+  font-size: 1.25rem; /* 原本 1.5rem 太大，col-2 容易擠爆 */
+  font-weight: 700;
+  color: #07393C;
+  margin-bottom: 0.5rem;
+}
+
+/* 分隔線 */
+.sidebar hr {
+  margin: 0.5rem 0 1rem 0;
+  border-top: 1px solid #8fa9a6;
+}
+
+/* Nav Link */
+.sidebar .nav-link {
+  color: #052f31;
+  background-color: transparent;
+
+  /* 原本 1.5rem 在 col-2 太大：改成更穩的大小 */
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  /* 避免文字太長溢出 */
+  white-space: normal;
+}
+
+/* hover */
+.sidebar .nav-link:hover {
+  background-color: #D8F1EC;
+  color: #052f31;
+  text-decoration: none;
+}
+
+/* active */
+.sidebar .nav-link.active {
+  background-color: #C8E7E2;
+  color: #052f31;
+}
+
+/* 大螢幕時 sidebar 可以稍微緊一點 */
+@media (min-width: 992px) {
+  .sidebar {
+    padding: 16px;
+  }
+}
