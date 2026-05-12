@@ -32,7 +32,7 @@ public class DiffController {
 	// ============================ 選擇主訴 執行這邊辯證計算結果 ============================
 	@PostMapping("/diff/compute")
 	@ResponseBody
-	@CrossOrigin(origins = "http://localhost:8090")
+	@CrossOrigin(origins = "http://localhost:8080")
 	public Map<String, Object> computeDiff(
 			@RequestParam("opt") String opt,
 			@RequestParam("symptoms") String inputSymptom,
@@ -91,7 +91,7 @@ public class DiffController {
 	}
 	*/
 	@PostMapping("/save-diff")
-    @CrossOrigin(origins = "http://localhost:8090")
+    @CrossOrigin(origins = "http://localhost:8080")
     public Map<String, Object> updateDiff(
             @RequestParam Long id, 
             @RequestParam String name, 
@@ -143,7 +143,7 @@ public class DiffController {
 	
 	
 	@GetMapping("/load-diff")
-    @CrossOrigin(origins = "http://localhost:8090")
+    @CrossOrigin(origins = "http://localhost:8080")
     public Map<String, Object> getLatestDiff(@RequestParam String identity) {
         Map<String, Object> response = new HashMap<>();
         
