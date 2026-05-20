@@ -1,14 +1,5 @@
 package com.tcmdiff.SpringTcmDiff.models;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 public class Parameter {
@@ -19,8 +10,26 @@ public class Parameter {
 	//次症權重
 	private double secondaryWeight;
 	
- 
+	// 傳遞資料的建構子
+    public Parameter(double[] groupWeights, double primaryWeight, double secondaryWeight) {
+        this.groupWeights = groupWeights;
+        this.primaryWeight = primaryWeight;
+        this.secondaryWeight = secondaryWeight;
+    }
+    
+	public double[] getGroupWeights(){
+		return this.groupWeights;
+	}
+
+	public double getPrimWeight(){
+		return this.primaryWeight;
+	}
+
+	public double getSecWeight(){
+		return this.secondaryWeight;
+	}
 	
+	/*  職權拆給repo
 	public Parameter(String FilePath) throws IOException, ParseException {
 	    groupWeights=new double[5];
 	    JSONParser parser = new JSONParser();
@@ -46,17 +55,5 @@ public class Parameter {
         this.primaryWeight = ((Double) jsonObject.get("primary_weight")).doubleValue();
         this.secondaryWeight = ((Double) jsonObject.get("secondary_weight")).doubleValue();      
 	}
-
-	public double[] get_group_weights(){
-		return this.groupWeights;
-	}
-
-	public double get_prim_weight(){
-		return this.primaryWeight;
-	}
-
-	public double get_sec_weight(){
-		return this.secondaryWeight;
-	}
-
+	*/
 }

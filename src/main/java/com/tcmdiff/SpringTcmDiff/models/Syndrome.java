@@ -19,19 +19,19 @@ public class Syndrome {
 
 	}
 
-	public Integer get_id() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public String get_name() {
+	public String getName() {
 		return this.name;
 	}
 	
-	public SymptomSet[] get_prim_sympt_sets() {
+	public SymptomSet[] getPrimSymptSets() {
         return this.primarySymptomSets;
     }
 
-    public SymptomSet[] get_sec_sympt_sets() {
+    public SymptomSet[] getSecSymptSets() {
         return this.secondarySymptomSets;
     }
 }

@@ -3,21 +3,28 @@ package com.tcmdiff.SpringTcmDiff.configuration;
 import java.io.File;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.tcmdiff.SpringTcmDiff.repository.ParameterRepo;
+import com.tcmdiff.SpringTcmDiff.repository.SyndromeSetRepo;
 import com.tcmdiff.SpringTcmDiff.service.DiffService;
 
 @Configuration
 public class DiffServiceConfig {
 	
-	
+	@Autowired 
+	private SyndromeSetRepo syndromeRepo;
+    @Autowired 
+    private ParameterRepo parameterRepo;
+    
 	//處理路徑 在application
 	@Value("${tcm.data.root-path}")
     private String rootPath;
 	
-	//初始化diffservice的配置
+	//初始化diffservice的配置 如何建立與設定物件
 	@Bean
     public DiffService diffService() {
 
@@ -56,7 +63,7 @@ public class DiffServiceConfig {
 			
 			
 			String sstPath = getAbsolutePath("BXL_DataFiles/BXL_SST.json");
-			DiffService diffService =  new DiffService(dataPathMap, parameterPathMap, sstPath);
+			DiffService diffService =  new DiffService(dataPathMap, parameterPathMap, sstPath, syndromeRepo, parameterRepo);
 			System.out.println("------ 辨證 JSON 載入完成! --------");
 			return diffService;
 		}catch(Exception e){

@@ -18,8 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
 import com.tcmdiff.SpringTcmDiff.models.SymptomSet;
-import com.tcmdiff.SpringTcmDiff.repository.DiffResultRepository;
-import com.tcmdiff.SpringTcmDiff.repository.StandardSymptomsTableRepository;
+import com.tcmdiff.SpringTcmDiff.repository.DiffResultRepo;
+import com.tcmdiff.SpringTcmDiff.repository.ParameterRepo;
+import com.tcmdiff.SpringTcmDiff.repository.StdSymptomsTableRepo;
+import com.tcmdiff.SpringTcmDiff.repository.SyndromeSetRepo;
 import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter;
 import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
 import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Relation;
@@ -36,10 +38,11 @@ import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Relation;
 public class DiffService {
 	 	
 		@Autowired
-	    private DiffResultRepository diffRepository;
+	    private DiffResultRepo diffRepository;
 	
+
 		//private ConvertSymptoms converter = null;
-	 	private StandardSymptomsTableRepository symptomTable = null;
+	 	private StdSymptomsTableRepo symptomTable = null;
 	    private Differentiator dem_diff = null;
 	    private Differentiator def_diff = null;
 	    private Differentiator menstrual_diff = null;
@@ -72,49 +75,50 @@ public class DiffService {
 	    
 	    
   
-	    public DiffService(HashMap<String,String> d_pathMap, HashMap<String,String> p_pathMap, String sst_path) throws IOException, ParseException{
+	    public DiffService(HashMap<String,String> d_pathMap, HashMap<String,String> p_pathMap, String sst_path,SyndromeSetRepo syndromeRepo, ParameterRepo parameterRepo) throws IOException, ParseException{
 	    	//try-catch部分刪掉 給config判斷 e拋給config即可
-	    	
+   	
+	        
 	    	//*********************************內科資料*********************************
-            dem_diff=new Differentiator(d_pathMap.get("DE_m_d"),p_pathMap.get("DE_m_p"));
-            def_diff=new Differentiator(d_pathMap.get("DE_f_d"),p_pathMap.get("DE_f_p"));
+            this.dem_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")),parameterRepo.loadParameter(p_pathMap.get("DE_m_p")));
+            this.def_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")),parameterRepo.loadParameter(p_pathMap.get("DE_f_p")));
             
-            dem_suggester=new Suggester(d_pathMap.get("DE_m_d"));
-            def_suggester=new Suggester(d_pathMap.get("DE_f_d"));
+            this.dem_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")));
+            this.def_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")));
 	        
 	        //*********************************婦產科資料*********************************
-            menstrual_diff=new Differentiator(d_pathMap.get("Menstrual_d"),p_pathMap.get("Menstrual_p"));
-            pregnancy_diff=new Differentiator(d_pathMap.get("Pregnancy_d"),p_pathMap.get("Pregnancy_p"));
-            postpartum_diff=new Differentiator(d_pathMap.get("Postpartum_d"),p_pathMap.get("Postpartum_p"));
+            this.menstrual_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")),parameterRepo.loadParameter(p_pathMap.get("Menstrual_p")));
+            this.pregnancy_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")),parameterRepo.loadParameter(p_pathMap.get("Pregnancy_p")));
+            this.postpartum_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")),parameterRepo.loadParameter(p_pathMap.get("Postpartum_p")));
             
-            menstrual_suggester=new Suggester(d_pathMap.get("Menstrual_d"));
-            pregnancy_suggester=new Suggester(d_pathMap.get("Pregnancy_d"));
-            postpartum_suggester=new Suggester(d_pathMap.get("Postpartum_d"));
+            this.menstrual_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")));
+            this.pregnancy_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")));
+            this.postpartum_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")));
             
-            abdomen_diff=new Differentiator(d_pathMap.get("Abdomen_d"),p_pathMap.get("Abdomen_p"));
-            abdomen_suggester=new Suggester(d_pathMap.get("Abdomen_d"));  
-            breast_diff=new Differentiator(d_pathMap.get("Breast_d"),p_pathMap.get("Breast_p"));
-            breast_suggester=new Suggester(d_pathMap.get("Breast_d"));  
-            infertility_diff=new Differentiator(d_pathMap.get("Infertility_d"),p_pathMap.get("Infertility_p"));
-            infertility_suggester=new Suggester(d_pathMap.get("Infertility_d"));  
-            leukorrhea_diff=new Differentiator(d_pathMap.get("Leukorrhea_d"),p_pathMap.get("Leukorrhea_p"));
-            leukorrhea_suggester=new Suggester(d_pathMap.get("Leukorrhea_d"));  
-            vulvar_diff=new Differentiator(d_pathMap.get("Vulvar_d"),p_pathMap.get("Vulvar_p"));
-            vulvar_suggester=new Suggester(d_pathMap.get("Vulvar_d"));  
+            this.abdomen_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")),parameterRepo.loadParameter(p_pathMap.get("Abdomen_p")));
+            this.abdomen_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")));  
+            this.breast_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")),parameterRepo.loadParameter(p_pathMap.get("Breast_p")));
+            this.breast_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")));  
+            this.infertility_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")),parameterRepo.loadParameter(p_pathMap.get("Infertility_p")));
+            this.infertility_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")));  
+            this.leukorrhea_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")),parameterRepo.loadParameter(p_pathMap.get("Leukorrhea_p")));
+            this.leukorrhea_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")));  
+            this.vulvar_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")),parameterRepo.loadParameter(p_pathMap.get("Vulvar_p")));
+            this.vulvar_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")));  
 
 	        //*********************************精神科資料*********************************
-            insomnia_diff=new Differentiator(d_pathMap.get("Insomnia_d"),p_pathMap.get("Insomnia_p"));
-            anxiety_diff=new Differentiator(d_pathMap.get("Anxiety_d"),p_pathMap.get("Anxiety_p"));
+            this.insomnia_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")),parameterRepo.loadParameter(p_pathMap.get("Insomnia_p")));
+            this.anxiety_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")),parameterRepo.loadParameter(p_pathMap.get("Anxiety_p")));
             
-            insomnial_suggester=new Suggester(d_pathMap.get("Insomnia_d"));
-            anxiety_suggester=new Suggester(d_pathMap.get("Anxiety_d"));
+            this.insomnial_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")));
+            this.anxiety_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")));
 
 	        //*********************************ICD11*********************************
-            icd11_diff=new Differentiator(d_pathMap.get("ICD11_d"),p_pathMap.get("ICD11_p"));
-            icd11_suggester=new Suggester(d_pathMap.get("ICD11_d"));
+            this.icd11_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")),parameterRepo.loadParameter(p_pathMap.get("ICD11_p")));
+            this.icd11_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")));
             
 	        //*********************************標準症狀表裡面有全部症狀的總表*********************************
-            symptomTable = new StandardSymptomsTableRepository(sst_path);
+            symptomTable = new StdSymptomsTableRepo(sst_path);
 	    }
 	    
 	   
@@ -126,7 +130,7 @@ public class DiffService {
 	    	ArrayList<String> input_Symptoms = new ArrayList<>(Arrays.asList(userInputSymptoms.split("\\s*[\\s*,.、，\"。:;_(){}\\[\\]]\\s*")));// "\\"s*:零個或多個空白字符
 	        //拿這些症狀的id集合 
 	    	//SymptomSet input_Symptoms_ID = converter.get_IDs(input_Symptoms);
-	    	SymptomSet input_Symptoms_ID = symptomTable.get_IDs(input_Symptoms);
+	    	SymptomSet input_Symptoms_ID = this.convertIDs(input_Symptoms);
 	        HashMap<String, Object> jsonOutput = new HashMap<>();
 	        ArrayList<ArrayList<String>> suggested_symptoms_Group_Name = new ArrayList<>();
 	        ArrayList<Set<Integer>> suggested_symptoms_List = null;
@@ -140,7 +144,7 @@ public class DiffService {
 	        
 	        switch(logicKey){
 	        	case "DE01":
-	                result = dem_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = dem_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = dem_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"舌苔顏色白", "舌苔顏色黃", "舌苔質地黏膩", "舌體顏色淡白色", "舌體顏色紅色"},
@@ -151,7 +155,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "DE02":
-	                result = def_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = def_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = def_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"舌苔顏色白", "舌苔顏色黃", "舌苔質地黏膩", "舌體顏色淡白色", "舌體顏色紅色"},
@@ -162,7 +166,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "OG01":
-	                result = menstrual_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = menstrual_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = menstrual_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"舌苔顏色白","舌苔顏色黃", "舌苔厚度薄", "舌體顏色淡白色","舌體顏色紅色"},
@@ -173,7 +177,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "OG02":
-	                result = pregnancy_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = pregnancy_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = pregnancy_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"舌苔顏色白", "舌苔顏色黃","舌苔厚度薄","舌體顏色淡白色","舌體顏色深紅色"},
@@ -184,7 +188,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "OG03":
-	                result = postpartum_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = postpartum_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = postpartum_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"舌苔顏色白", "舌苔顏色黃","舌苔厚度薄", "舌體顏色淡白色", "舌體顏色紅色"},
@@ -195,7 +199,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "PS01":
-	                result = insomnia_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = insomnia_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = insomnial_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"面色紅", "舌苔顏色黃", "舌苔厚度薄", "舌苔質地黏膩","舌體顏色紅色"},
@@ -206,7 +210,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "PS02":
-	                result = anxiety_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = anxiety_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = anxiety_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"面色紅", "舌苔顏色黃", "舌苔厚度薄", "舌苔質地黏膩","舌體顏色紅色"},
@@ -217,7 +221,7 @@ public class DiffService {
 	                }
 	                break;
 	            case "ICD11":
-	                result = icd11_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = icd11_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = icd11_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒神疲", "舌苔顏色白", "舌苔顏色黃", "舌體顏色淡白色", "舌苔質地黏膩","舌體顏色紅色"},
@@ -229,7 +233,7 @@ public class DiffService {
 	                break;
 
 	            case "OG04":
-	                result = leukorrhea_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = leukorrhea_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = leukorrhea_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒憤怒", "情緒煩躁", "情緒憂鬱", "情緒神疲", "面色白","舌苔質地黏膩","舌苔厚度薄","舌體顏色紅色"},
@@ -240,7 +244,7 @@ public class DiffService {
 	                }
 	                break; 
 	            case "OG05":
-	                result = breast_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = breast_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = breast_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒憤怒", "情緒煩躁", "情緒憂鬱", "情緒神疲", "面色白","舌苔質地黏膩","舌苔厚度薄","舌體顏色紅色"},
@@ -251,7 +255,7 @@ public class DiffService {
 	                }
 	                break; 
 	            case "OG06":
-	                result = vulvar_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = vulvar_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = vulvar_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒神疲", "情緒煩躁", "舌苔顏色黃", "舌體顏色淡白色", "舌苔質地黏膩","舌體顏色紅色","舌苔厚度薄"},
@@ -265,7 +269,7 @@ public class DiffService {
 	                System.out.println("沒有"+logicKey+"選項的辨證器");
 	                break;
 	            case "OG07":
-	                result = infertility_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = infertility_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = infertility_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒煩躁", "情緒憤怒", "情緒憂鬱", "情緒神疲", "面色白","舌苔質地黏膩","舌體顏色紅色","舌苔厚度薄"},
@@ -276,7 +280,7 @@ public class DiffService {
 	                }
 	                break; 
 	            case "OG08":
-	                result = abdomen_diff.differentiationSyndrome(input_Symptoms_ID, 0.001);
+	                result = abdomen_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = abdomen_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒神疲", "舌苔顏色白", "舌體顏色淡白色", "舌體顏色紫色","舌苔質地黏膩","舌苔厚度薄"},
@@ -440,12 +444,36 @@ public class DiffService {
 	    private void setData(ArrayList<ArrayList<String>> suggested_symptoms_Group_Name,ArrayList<Set<Integer>> sdata) {
 	        for(int i=0;i<sdata.size();i++) {
 	        	//suggested_symptoms_Group_Name.add(converter.get_NAMEs(sdata.get(i)));
-	        	suggested_symptoms_Group_Name.add(symptomTable.get_NAMEs(sdata.get(i)));
+	        	suggested_symptoms_Group_Name.add(this.convertNames(sdata.get(i)));
 	        }
 	    }
 
+	    // 1. 症狀名稱集合 轉 ID集合
+	    private SymptomSet convertIDs(ArrayList<String> inputSymptoms) {
+	        SymptomSet outputSymptomsID = new SymptomSet(); 
+	        Integer id;
+	        for(String symptomName : inputSymptoms) {
+	            id = symptomTable.getID(symptomName); // 直接呼叫內部的 get_ID
+	            if (id != null && !outputSymptomsID.contains(id)) {
+	                outputSymptomsID.add(id);
+	            }
+	        }
+	        return outputSymptomsID;   
+	    }
 
 
-
-
+	 // 2. 症狀ID集合 轉 名稱集合
+	    private ArrayList<String> convertNames(Collection<Integer> inputSymptom) {
+	        ArrayList<String> outputSymptomsName = new ArrayList<>();
+	        String name;
+	        List<Integer> list = new ArrayList<Integer>(inputSymptom);
+	        Collections.sort(list); // 排序
+	        for(Integer symptom_Id : list) {
+	            name = symptomTable.getName(symptom_Id); // 直接呼叫內部的 get_Name
+	            if (name != null && !outputSymptomsName.contains(name)) {
+	                outputSymptomsName.add(name);
+	            }
+	        }
+	        return outputSymptomsName;   
+	    }
 }
