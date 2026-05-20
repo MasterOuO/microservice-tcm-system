@@ -1,16 +1,11 @@
 package com.tcmdiff.SpringTcmDiff.repository;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
+import java.io.IOException;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.*;
 import org.springframework.stereotype.Repository;
-
 import com.tcmdiff.SpringTcmDiff.models.SymptomSet;
 import com.tcmdiff.SpringTcmDiff.models.Syndrome;
 import com.tcmdiff.SpringTcmDiff.models.SyndromeSet;
@@ -18,14 +13,21 @@ import com.tcmdiff.SpringTcmDiff.models.SyndromeSet;
 @Repository
 public class SyndromeSetRepo{
 	
-	public SyndromeSet loadSyndromeSet(String filePath) throws IOException, ParseException {
+	public SyndromeSet loadSyndromeSet(String jsonContent) throws IOException, ParseException {
 		SyndromeSet syndromeSet = new SyndromeSet();
-
-	    //解碼用
-	    JSONParser parser = new JSONParser();
-		FileInputStream fileInputStream = new FileInputStream(filePath);
+		//解碼用
+		JSONParser parser = new JSONParser();
+		
+		/* 改成直接接收json字串而非路徑，不用FIS，包成jar才能用 
+	    	FileInputStream fileInputStream = new FileInputStream(filePath);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        */
+		
+		// 使用Parser解析JSON文件成obj 
+		Object obj = parser.parse(jsonContent);
+        JSONObject jsonObject = (JSONObject) obj;
+        
         
         //症候集合的屬性 group是外層id
         JSONObject groups;
@@ -36,11 +38,6 @@ public class SyndromeSetRepo{
         SymptomSet[] primarySymptomSets;
         SymptomSet[] secondarySymptomSets;
         
-        // 使用JSONParser解析JSON文件 解析成javaobj
-        Object obj = parser.parse(reader);
-
-        // 將解析結果轉為JSONObject
-        JSONObject jsonObject = (JSONObject) obj;
         
         for (Object key : jsonObject.keySet()) {    
             groups = (JSONObject) jsonObject.get(key);// 第i個症候id 找到後再看它裡面的javaobj (內層map)
@@ -90,7 +87,7 @@ public class SyndromeSetRepo{
             // ************************將物件放入回傳的陣列
             syndromeSet.add(syndrome_object);
         }
-        reader.close();
+
         
         return syndromeSet;
 	}

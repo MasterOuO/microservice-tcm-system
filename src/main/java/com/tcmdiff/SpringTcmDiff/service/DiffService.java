@@ -75,50 +75,50 @@ public class DiffService {
 	    
 	    
   
-	    public DiffService(HashMap<String,String> d_pathMap, HashMap<String,String> p_pathMap, String sst_path,SyndromeSetRepo syndromeRepo, ParameterRepo parameterRepo) throws IOException, ParseException{
+	    public DiffService(HashMap<String,String> d_contentMap, HashMap<String,String> p_contentMap, String sstContent ,SyndromeSetRepo syndromeRepo, ParameterRepo parameterRepo) throws IOException, ParseException{
 	    	//try-catch部分刪掉 給config判斷 e拋給config即可
    	
 	        
 	    	//*********************************內科資料*********************************
-            this.dem_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")),parameterRepo.loadParameter(p_pathMap.get("DE_m_p")));
-            this.def_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")),parameterRepo.loadParameter(p_pathMap.get("DE_f_p")));
+            this.dem_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_m_d")),parameterRepo.loadParameter(p_contentMap.get("DE_m_p")));
+            this.def_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_f_d")),parameterRepo.loadParameter(p_contentMap.get("DE_f_p")));
             
-            this.dem_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")));
-            this.def_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")));
+            this.dem_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_m_d")));
+            this.def_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_f_d")));
 	        
 	        //*********************************婦產科資料*********************************
-            this.menstrual_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")),parameterRepo.loadParameter(p_pathMap.get("Menstrual_p")));
-            this.pregnancy_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")),parameterRepo.loadParameter(p_pathMap.get("Pregnancy_p")));
-            this.postpartum_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")),parameterRepo.loadParameter(p_pathMap.get("Postpartum_p")));
+            this.menstrual_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Menstrual_d")),parameterRepo.loadParameter(p_contentMap.get("Menstrual_p")));
+            this.pregnancy_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Pregnancy_d")),parameterRepo.loadParameter(p_contentMap.get("Pregnancy_p")));
+            this.postpartum_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Postpartum_d")),parameterRepo.loadParameter(p_contentMap.get("Postpartum_p")));
             
-            this.menstrual_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")));
-            this.pregnancy_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")));
-            this.postpartum_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")));
+            this.menstrual_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Menstrual_d")));
+            this.pregnancy_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Pregnancy_d")));
+            this.postpartum_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Postpartum_d")));
             
-            this.abdomen_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")),parameterRepo.loadParameter(p_pathMap.get("Abdomen_p")));
-            this.abdomen_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")));  
-            this.breast_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")),parameterRepo.loadParameter(p_pathMap.get("Breast_p")));
-            this.breast_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")));  
-            this.infertility_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")),parameterRepo.loadParameter(p_pathMap.get("Infertility_p")));
-            this.infertility_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")));  
-            this.leukorrhea_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")),parameterRepo.loadParameter(p_pathMap.get("Leukorrhea_p")));
-            this.leukorrhea_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")));  
-            this.vulvar_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")),parameterRepo.loadParameter(p_pathMap.get("Vulvar_p")));
-            this.vulvar_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")));  
+            this.abdomen_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Abdomen_d")),parameterRepo.loadParameter(p_contentMap.get("Abdomen_p")));
+            this.abdomen_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Abdomen_d")));  
+            this.breast_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Breast_d")),parameterRepo.loadParameter(p_contentMap.get("Breast_p")));
+            this.breast_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Breast_d")));  
+            this.infertility_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Infertility_d")),parameterRepo.loadParameter(p_contentMap.get("Infertility_p")));
+            this.infertility_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Infertility_d")));  
+            this.leukorrhea_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Leukorrhea_d")),parameterRepo.loadParameter(p_contentMap.get("Leukorrhea_p")));
+            this.leukorrhea_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Leukorrhea_d")));  
+            this.vulvar_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Vulvar_d")),parameterRepo.loadParameter(p_contentMap.get("Vulvar_p")));
+            this.vulvar_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Vulvar_d")));  
 
 	        //*********************************精神科資料*********************************
-            this.insomnia_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")),parameterRepo.loadParameter(p_pathMap.get("Insomnia_p")));
-            this.anxiety_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")),parameterRepo.loadParameter(p_pathMap.get("Anxiety_p")));
+            this.insomnia_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Insomnia_d")),parameterRepo.loadParameter(p_contentMap.get("Insomnia_p")));
+            this.anxiety_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Anxiety_d")),parameterRepo.loadParameter(p_contentMap.get("Anxiety_p")));
             
-            this.insomnial_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")));
-            this.anxiety_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")));
+            this.insomnial_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Insomnia_d")));
+            this.anxiety_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Anxiety_d")));
 
 	        //*********************************ICD11*********************************
-            this.icd11_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")),parameterRepo.loadParameter(p_pathMap.get("ICD11_p")));
-            this.icd11_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")));
+            this.icd11_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("ICD11_d")),parameterRepo.loadParameter(p_contentMap.get("ICD11_p")));
+            this.icd11_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("ICD11_d")));
             
 	        //*********************************標準症狀表裡面有全部症狀的總表*********************************
-            symptomTable = new StdSymptomsTableRepo(sst_path);
+            symptomTable = new StdSymptomsTableRepo(sstContent);
 	    }
 	    
 	   
@@ -310,7 +310,7 @@ public class DiffService {
 	        
 	        //限制產圖邏輯
 	        long validScoreCount = scores.values().stream()
-                    .filter(score -> score > 0.4)
+                    .filter(score -> score >= 0.4)
 			        .count();
 			int symptomCount = scores.size();
 			

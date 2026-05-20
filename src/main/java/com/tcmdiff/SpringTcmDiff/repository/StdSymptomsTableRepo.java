@@ -1,14 +1,9 @@
 package com.tcmdiff.SpringTcmDiff.repository;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import org.json.simple.parser.*;
-
-
 import org.json.simple.JSONObject;
 
 
@@ -92,29 +87,24 @@ public class StdSymptomsTableRepo {
 	 * @throws ParseException 
 	 * @throws IOException 
 	 */
-	private void connData(String FilePath) throws IOException, ParseException {
+	private void connData(String jsonContent) throws IOException, ParseException {
 		
 	    JSONParser parser = new JSONParser();
 	    
-	    //java8
-	    //FileReader reader = new FileReader(FilePath);
-	    
+	    	    /*
 	    FileInputStream fileInputStream = new FileInputStream(FilePath);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(inputStreamReader);
-        
+        */
+	    
 		// 使用JSONParser解析JSON文件
-		Object obj = parser.parse(reader);
-
-		// 將解析結果轉為JSONObject
+		Object obj = parser.parse(jsonContent);
 		JSONObject jsonObject = (JSONObject) obj;
 		for (Object key : jsonObject.keySet()) {
 			int intKey = Integer.parseInt(key.toString());
 			String value = (String) jsonObject.get(key);
 			this.Table.put(value, intKey);
-			//this.Table.put(key.toString(), intKey);
 			this.Table_name.put(intKey, value);
 		}
-		reader.close();
 	}
 }

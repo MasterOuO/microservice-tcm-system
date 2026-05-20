@@ -81,12 +81,12 @@ public class SyndromeGraphPlotter {
         else return null; 
     }
 
-    // 是否畫點（點分數 >= 0.4）
+    // 是否畫點
     private static boolean shouldDrawNode(double score) {
         return score >= 0.4;
     }
 
-    // 是否畫邊（起點 >= 0.4） 
+    // 是否畫邊
     private static boolean shouldDrawEdge(double fromScore, double toScore) {
         return fromScore >= 0.4;
     }
