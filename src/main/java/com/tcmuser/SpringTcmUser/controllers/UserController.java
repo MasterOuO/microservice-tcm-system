@@ -21,8 +21,8 @@ import com.tcmuser.SpringTcmUser.models.Patient;
 import com.tcmuser.SpringTcmUser.models.PatientDto;
 import com.tcmuser.SpringTcmUser.models.User;
 import com.tcmuser.SpringTcmUser.models.UserDto;
-import com.tcmuser.SpringTcmUser.repository.PatientRepository;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.PatientRepo;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 import com.tcmuser.SpringTcmUser.service.CustomUserDetail;
 import com.tcmuser.SpringTcmUser.service.UserService;
 
@@ -43,10 +43,10 @@ public class UserController {
 	private UserService userService;
 	
 	@Autowired 
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 	
 	@Autowired
-	private PatientRepository patientRepository;
+	private PatientRepo patientRepository;
 	
 
 	

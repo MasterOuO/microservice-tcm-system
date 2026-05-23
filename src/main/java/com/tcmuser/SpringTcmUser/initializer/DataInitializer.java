@@ -7,16 +7,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.tcmuser.SpringTcmUser.models.User;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 
 import java.util.List;
 
 @Component
 public class DataInitializer implements CommandLineRunner{
-	private final UserRepository userRepository;
+	private final UserRepo userRepository;
 	private final PasswordEncoder passwordEncoder;
 	
-	public DataInitializer(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+	public DataInitializer(UserRepo userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 	}

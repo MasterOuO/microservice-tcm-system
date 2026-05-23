@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.tcmuser.SpringTcmUser.models.Patient;
 
 @Repository
-public interface PatientRepository extends JpaRepository<Patient, Long>{
+public interface PatientRepo extends JpaRepository<Patient, Long>{
 
 	//自訂義function用身分證找病患資料 
 	//findBy 一些JPA的資料庫語法

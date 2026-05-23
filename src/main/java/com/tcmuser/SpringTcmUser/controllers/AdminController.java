@@ -17,8 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.tcmuser.SpringTcmUser.models.Patient;
 import com.tcmuser.SpringTcmUser.models.User;
 import com.tcmuser.SpringTcmUser.models.UserDto;
-import com.tcmuser.SpringTcmUser.repository.PatientRepository;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.PatientRepo;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 import com.tcmuser.SpringTcmUser.service.UserService;
 
 import org.springframework.data.domain.Page;
@@ -39,13 +39,13 @@ public class AdminController {
 	private UserService userService;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private PatientRepository patientRepository;
+	private PatientRepo patientRepository;
 	
 	
 	//========================== 從admin_page.html 前往 createRole page ============================

@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$("#form").submit(function(event) {
 		event.preventDefault();
 		const dataToSend = {   //建立要送到後端的資料物件 跟@RequestParam一致
-					opt: $("#opt").val(), 
+					opt: $("#opt").val(),   //後端名稱, html資料
 					sub_opt: $("#sub_opt").val(),
 					symptoms: $("#symptoms").val()
 				};

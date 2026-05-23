@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.tcmuser.SpringTcmUser.models.User;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 
 //用來為Spring Security提供使用者認證所需的資料。他只做一件事情 從資料庫中查找使用者
 //操作UserDetail實作封裝的obj
@@ -17,7 +17,7 @@ import com.tcmuser.SpringTcmUser.repository.UserRepository;
 public class CustomUserDetailsService implements UserDetailsService{
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{

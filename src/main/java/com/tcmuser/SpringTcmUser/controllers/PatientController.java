@@ -17,8 +17,8 @@ import com.tcmuser.SpringTcmUser.models.Patient;
 import com.tcmuser.SpringTcmUser.models.PatientDto;
 import com.tcmuser.SpringTcmUser.models.User;
 import com.tcmuser.SpringTcmUser.models.UserDto;
-import com.tcmuser.SpringTcmUser.repository.PatientRepository;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.PatientRepo;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 
 import jakarta.validation.Valid;
 
@@ -28,9 +28,9 @@ public class PatientController {
 	@Autowired
 	UserDetailsService userDetailsService;	
 	@Autowired
-	private PatientRepository patientRepository;
+	private PatientRepo patientRepository;
 	@Autowired 
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 	
 	//================================== 病患預約看診(新增預約看診資料) =================================
 	@PostMapping("/createPatient")

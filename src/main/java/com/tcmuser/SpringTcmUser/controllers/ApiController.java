@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcmuser.SpringTcmUser.models.User;
-import com.tcmuser.SpringTcmUser.repository.UserRepository;
+import com.tcmuser.SpringTcmUser.repository.UserRepo;
 
 // ============================ AJAX 非同步更新、API取得資料 =======================================
 @RestController
@@ -23,7 +23,7 @@ import com.tcmuser.SpringTcmUser.repository.UserRepository;
 public class ApiController {
 
 	@Autowired //根據類型找到對象完成注入
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 	
 
 	

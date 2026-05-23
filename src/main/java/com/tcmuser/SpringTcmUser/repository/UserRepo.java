@@ -8,7 +8,7 @@ import com.tcmuser.SpringTcmUser.models.User;
 import java.util.*;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepo extends JpaRepository<User, Long>{
 	//自定義JPA中的function
 	User findByAccount(String account);
 	
