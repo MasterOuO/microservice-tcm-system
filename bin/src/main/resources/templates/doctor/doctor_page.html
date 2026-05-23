@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>醫生看診介面</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{css/styles.css}">
+  <link rel="stylesheet" th:href="@{css/sidebar.css}">
+  <link rel="stylesheet" th:href="@{css/diff.css}">
+</head>
+
+<body>
+	<!-- 頂部 Navbar (小螢幕時會顯示漢堡按鈕) -->
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #07393C;">
+	  <div class="container-fluid">
+	    <!-- 漢堡按鈕 (在大螢幕也會顯示, 但可視需要 d-lg-none) -->
+	    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    
+	    
+	    <!-- 右側：使用者姓名 & 登出 -->
+	    <div class="ms-auto text-white d-flex align-items-center">
+	    	<span class="w3-bar-item w3-right" style="margin-right: 10px">Hi, [[${userDetails.getFullname()}]]</span>
+	     	<a class="btn btn-outline-light btn-sm" th:href="@{logout}" sec:authorize="isAuthenticated">登出</a>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div class="container-fluid">
+		<div class="row">
+		<!-- 側邊欄 -->
+			<div class="col-2 sidebar d-done d-lg-block">
+				<div class="sidebar-heading">醫生管理系統</div>
+				<hr/>
+				<nav class="nav flex-column">
+					<a class="nav-link" >門診</a>
+					<a class="nav-link" >病患名單查詢</a>
+					<a class="nav-link" >個人資料管理</a>
+				</nav>
+			</div>
+	
+		
+		<div class="col">
+			<div class="container mt-4">
+			<!-- Header -->
+				<div id="toastContainer" style="position: fixed; top: 5%; right: 0; z-index: 9999; width: 60%;">
+					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; width: 60%;" data-bs-delay="300">
+						<div class="toast-body" style="width: 100%; text-align: center;">
+							<h4>辨證結果已更新 !</h4>
+						</div>
+					</div>
+				</div>
+		
+				<header class="w3-container" style="padding-top: 22px">
+					<h2>
+						<b>門診</b>
+					</h2>
+				</header>
+		
+				<div class="card p-4 mb-4" style="background-color: #EAFcFA">
+					<div class="mb-3" id="patient_form">
+						<h3>病患:</h3>
+						<select class="form-select" id="patientSelect">
+							<option value="">--選擇病患--</option>
+							<th:block th:each="patient : ${patients}">
+								<option 
+									th:value="${patient.id}"
+									th:data-identity="${patient.identity}"
+									th:text="${patient.name + '('+ patient.identity +')'}">
+								</option>
+							</th:block>
+						</select>
+						<div class=" w3-text-black w3-xlarge" id="history"></div>
+					</div>
+					
+					<form class="w3-container w3-card-4 w3-light-grey w3-margin w3-xlarge" id="form">
+							<h3>主訴:</h3>
+							<select class="form-select" id="opt" name="opt" required>
+								<option value="">--選擇主訴--</option>
+								<option th:each="opt : ${opts}"
+										th:value="${opt[0]}"
+										th:text="${opt[1]}">
+							</select>
+							<div class="w3-panel">
+								<div id="input_symptoms_container">
+									<div id="suggests">
+										<div id="suggest_G1"></div>
+										<div id="suggest_G2"></div>
+										<div id="suggest_G3"></div>
+										<div id="suggest_G4"></div>
+									</div>
+									<div class="textarea-container mb-4">
+										<h3>其他症狀輸入:<br></h3>
+										<input id="other_input" placeholder="請輸入關鍵字" class="w3-input w3-border" style="width: 50%; font-size: 1.3rem;" type="text">
+										<div id="hints"></div>
+										<h3>已輸入的症狀:<br></h3>
+										<div id="symptomTags" class="mb-2"></div>
+										<input type="hidden" name="symptoms" id="symptoms">
+										
+									</div>
+									<div class="text-end">
+										<input type="submit" value="進行辨證" class="btn btn-primary btn-md">
+										<button id="clear" class="btn btn-danger btn-md">清除</button>
+									</div>
+								</div>
+							</div>
+					</form>
+				</div>
+		
+				<div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="result"></div>
+					
+				<form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="end_form">
+					<br>
+					<div class="textarea-container_other">
+						<textarea name="other" id="other" placeholder="其他註記"></textarea>
+						<br>
+					</div>
+					<h5>
+						<input type="submit" value="儲存結果" class="btn btn-success btn-md">
+						<br>
+					</h5>
+				</form>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+	const diff_url = "/diff/compute";
+</script>
+<script th:src="@{js/package/jquery-3.7.1.min.js}"></script>
+<script th:src="@{js/Symptom_Data.js}" defer></script> <!-- defer : 非同步載入各科辨證資料 -->
+<script th:src="@{js/functions.js}" defer></script> <!-- 協助資料呈現、按鈕產生、輸入校正、與介面顯示切換等操作 -->
+<script th:src="@{js/patient_event_handler.js}" defer></script> <!-- 根據性別設定顯示不同科別 & 透過AJAX向後端取得前次辨證結果 -->
+<script th:src="@{js/symptom_event_handler.js}" defer></script> <!-- 望聞問切症狀持續動態更新 & 輸入其他症狀，會根據關鍵字到symptom_data.js搜尋並提供正確的症狀選項 -->
+<script th:src="@{js/diff_event_handler.js}" defer></script> <!-- 向後端拿望聞問切資料 -->
+<script th:src="@{js/final_event_handler.js}" defer></script> <!-- 儲存辨證結果 -->
+</body>
+</html> 

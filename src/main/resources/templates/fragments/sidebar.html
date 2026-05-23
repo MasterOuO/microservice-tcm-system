@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- ✅ 只輸出 col（給 .row 用），絕不夾帶 offcanvas -->
+<th:block th:fragment="sidebarCol(base)">
+  <div class="col-2 sidebar d-none d-lg-block">
+    <div class="sidebar-heading">行政人員管理系統</div>
+    <hr/>
+    <nav class="nav flex-column">
+      <a class="nav-link" th:href="@{${base} + '/admin-page'}">人員列表</a>
+      <a class="nav-link" th:href="@{${base} + '/admin-page/schedule'}">醫師排班</a>
+      <a class="nav-link" th:href="@{${base} + '/admin-page/createRole'}">新增人員</a>
+      <a class="nav-link" th:href="@{${base} + '/all_Patient'}">病患查詢</a>
+    </nav>
+  </div>
+</th:block>
+
+<!-- ✅ offcanvas 不放 row 裡：獨立 fragment -->
+<th:block th:fragment="offcanvas(base)">
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileOffcanvas"
+       aria-labelledby="mobileOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mobileOffcanvasLabel">功能選單</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a class="nav-link" th:href="@{${base} + '/admin-page'}">人員列表</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" th:href="@{${base} + '/admin-page/schedule'}">醫師排班</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" th:href="@{${base} + '/admin-page/createRole'}">新增人員</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" th:href="@{${base} + '/all_Patient'}">病患查詢</a></li>
+      </ul>
+    </div>
+  </div>
+</th:block>
+
+</body>
+</html>

@@ -25,6 +25,7 @@ import com.tcmuser.SpringTcmUser.repository.PatientRepo;
 import com.tcmuser.SpringTcmUser.repository.UserRepo;
 import com.tcmuser.SpringTcmUser.service.CustomUserDetail;
 import com.tcmuser.SpringTcmUser.service.UserService;
+import com.tcmuser.SpringTcmUser.client.DiffClient;
 
 
 //有新增疾病要去
@@ -48,6 +49,9 @@ public class UserController {
 	@Autowired
 	private PatientRepo patientRepository;
 	
+	//辯證服務
+	@Autowired
+    private DiffClient diffClient;
 
 	
 	//======================== 在API做測試用 & 初始新增admin =================================
@@ -112,8 +116,10 @@ public class UserController {
 		
 		model.addAttribute("opts", opts);
 		System.out.println("opt:" + opts);
-		model.addAttribute("diff_url", "http://localhost:8070/diff/compute");	
+		model.addAttribute("diff_url", "/api/diff/load-diff/compute");
 		model.addAttribute("patients",patients);
+		
+		System.out.println("--- UI 服務接收前端請求，準備轉發給辨證服務 ---");
 		return "doctor/doctor_page";
 	}
 
