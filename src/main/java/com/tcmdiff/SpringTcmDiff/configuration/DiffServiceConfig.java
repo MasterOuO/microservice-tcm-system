@@ -25,10 +25,6 @@ public class DiffServiceConfig {
     @Autowired 
     private ParameterRepo parameterRepo;
     
-	/* 不用路徑了
-	@Value("${tcm.data.root-path}")
-    private String rootPath;
-	*/
 	//初始化diffservice的配置 如何建立與設定物件
 	@Bean
     public DiffService diffService() {
@@ -84,12 +80,6 @@ public class DiffServiceConfig {
             return StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
         }
 	}
-	/*
-	private String getAbsolutePath(String relativePath) {
-        // File.separator 處理斜線差異
-        File f = new File(rootPath + File.separator + relativePath);
-        return f.getAbsolutePath();
-    }
-	*/
+
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ import com.tcmdiff.SpringTcmDiff.service.DiffService;
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
 
 @RestController
+@RequestMapping("/api/diff")
 public class DiffController {
 
 	@Autowired
@@ -30,7 +32,7 @@ public class DiffController {
 	//=====================================User controller的方法拆過來 =======================================
 	//url在doctor_page下面const
 	// ============================ 選擇主訴 執行這邊辯證計算結果 ============================
-	@PostMapping("/diff/compute")
+	@PostMapping("/compute")
 	@ResponseBody
 	@CrossOrigin(origins = "http://localhost:8080")
 	public Map<String, Object> computeDiff(
