@@ -33,7 +33,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8070/load-diff",
+			url: "http://localhost:8080/api/diff/load-diff",
 			data: {identity: identity},
 			success: function(res){
 				if(res.success){

@@ -9,7 +9,7 @@ $(document).ready(function(){
 		console.log(dataToSend);
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8070/diff/compute",    // diff_url => /diff/compute in UserController
+			url: "http://localhost:8080/api/diff/compute",    // diff_url => /diff/compute in UserController
 			data: dataToSend,
 			success: function(response) {  //response是後端回傳的JSON，若後端 @ResponseBody回傳Map jQuery自動當物件
 				var data = response;
@@ -37,7 +37,7 @@ $(document).ready(function(){
 					if (data.graph) {
 					            $("#result").append(`
 					                <br>
-					                <img src="http://localhost:8070${data.graph}"
+					                <img src="http://localhost:8080${data.graph}"
 					                     alt="graph" 
 					                     style="max-width:100%; height:auto;">
 					            `);

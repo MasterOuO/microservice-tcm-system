@@ -29,7 +29,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8070/save-diff",
+			url: "http://localhost:8080/api/diff/save-diff",
 			data:{
 				id: id,
 				name: name,
