@@ -19,7 +19,7 @@ public class SyndromeSetRepo{
 		JSONParser parser = new JSONParser();
 		
 		/* 改成直接接收json字串而非路徑，不用FIS，包成jar才能用 
-	    	FileInputStream fileInputStream = new FileInputStream(filePath);
+	    FileInputStream fileInputStream = new FileInputStream(filePath);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         */

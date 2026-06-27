@@ -1,22 +1,24 @@
 package com.tcmdiff.SpringTcmDiff.controllers;
 
 import java.nio.file.Path;
-
-
+import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tcmdiff.SpringTcmDiff.service.DiffService;
+import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
 
 @RestController
@@ -41,7 +43,22 @@ public class DiffController {
 			@RequestParam(value = "sub_opt", required = false) String subOpt) throws Exception{
 		double startTime = System.nanoTime();
 		Map<String, Object> result = diffService.computeDiff(opt, subOpt, inputSymptom);
-		Path pngPath = diffService.generateGraph(result);
+		// 有計算分數且高於門檻的才取得他的cause 下拉可以看
+		@SuppressWarnings("unchecked")
+	    Map<String, Double> computedSyndromes = (Map<String, Double>) result.get("output");
+	    Set<String> computedSyndromeNames = computedSyndromes.keySet();
+		
+
+		List<Cause> allCauses = diffService.getPreloadCauses();
+		Map<String, List<String>> syndromeCausesMap = new HashMap<>();
+		for (Cause c : allCauses) {
+			if (computedSyndromeNames.contains(c.getTo())) {
+	            syndromeCausesMap.put(c.getTo(), c.getCauseList()); 
+	        }
+		}
+		result.put("causesData", syndromeCausesMap);
+/*
+		Path pngPath = diffService.generateGraph(result);		
 		//要不要生圖
 		if (pngPath != null) {
 			String fullPath = pngPath.toString(); 
@@ -51,6 +68,7 @@ public class DiffController {
 	    } else {
 	        result.put("graph", null); 
 	    }
+*/
 		//執行時間
 		double timeMs = (System.nanoTime() - startTime) / 1000000.0;
 		System.out.println("opt:" + opt);
@@ -61,7 +79,34 @@ public class DiffController {
 		return result;
 	}
 	
-	
+	@PostMapping("/generateGraph")
+	@ResponseBody
+	@CrossOrigin(origins = "http://localhost:8080")
+	public Map<String, Object> generateGraph(@RequestBody List<Map<String, String>> requestData) throws Exception {
+		double startTime = System.nanoTime();
+		Map<String, Object> result = new HashMap<>();
+
+	    // 呼叫改寫後的 Service 方法
+	    Path pngPath = diffService.generateGraph(requestData);
+
+	    if (pngPath != null) {
+	        String fullPath = pngPath.toString(); 
+	        String[] parts = fullPath.split("static"); 
+	        String urlPath = parts[1].replace("\\", "/");
+	        String noCacheUrl = urlPath + "?t=" + System.currentTimeMillis();
+	        
+	        result.put("graphUrl", noCacheUrl); 
+	    } else {
+	        result.put("graphUrl", null); 
+	    }
+	    
+	    double timeMs = (System.nanoTime() - startTime) / 1000000.0;
+
+		System.out.println("Graph Gnenrate exec time : " + timeMs);
+		System.out.println("-------------------------------------------------------");
+	    
+	    return result;
+	}
 
 		
 		
@@ -100,13 +145,14 @@ public class DiffController {
             @RequestParam String identity,
             @RequestParam String symptoms, 
             @RequestParam String result, 
-            @RequestParam String other) {
+            @RequestParam String other,
+            @RequestParam(required = false) String tmpGraphPath) {
         
         Map<String, Object> response = new HashMap<>();
         
         try {
             // 將所有參數交給 Service 處理
-            diffService.saveDiffRecord(name, identity, symptoms, result, other);
+            diffService.saveDiffRecord(name, identity, symptoms, result, other, tmpGraphPath);
             
             response.put("success", true);
             response.put("message", "儲存成功");
@@ -168,4 +214,14 @@ public class DiffController {
         }
         return response;
     }
+	
+	// OOM測試API
+	private static List<byte[]> memoryLeakList = new ArrayList<>();
+
+	@PostMapping("/test/oom")
+	public String triggerOOM() {
+	    // 每次呼叫塞10MB 
+	    memoryLeakList.add(new byte[10 * 1024 * 1024]); 
+	    return "Added 10MB";
+	}
 }

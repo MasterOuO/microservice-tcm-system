@@ -23,11 +23,12 @@ public class SyndromeGraphPlotter {
 	}
     /* Path */
     // 統一輸出根目錄（用正斜線，不要有中文!!!）
-    private static final Path OUTPUT_ROOT = Paths.get("target/classes/static/graph");
+    private static final Path OUTPUT_ROOT = Paths.get("target/classes/static/diffgraph");
 
     private static final Path DOT_DIR = OUTPUT_ROOT.resolve(Paths.get("dot"));
-    private static final Path PNG_DIR = OUTPUT_ROOT.resolve(Paths.get("png"));
-
+    public static final Path PNG_DIR = OUTPUT_ROOT.resolve(Paths.get("png"));
+    public static final Path TMP_PNG_DIR = OUTPUT_ROOT.resolve(Paths.get("tmpPng"));
+    
     /* 字形設定 */
     private static final String FONT_FAMILY ="DFKai-SB, BiauKai, Kaiti TC, KaiTi, TW-Kai, AR PL UKai TW"; // 標楷體
     // 避免 < > & 等字元
@@ -58,17 +59,24 @@ public class SyndromeGraphPlotter {
     // 症候演變關係 最上面成因 
     public static class Cause {
     	public final String id;
-        public final String cause;      
+    	public final List<String> cause;        
         public final String to;   
         public final String source;  
         public final String label;
 
-        public Cause (String id, String cause, String to, String source, String label) {
-            this.id = id;
+        public Cause (String id, List<String> cause, String to, String source, String label) {
+        	this.id = id;
             this.cause = cause;
             this.to = to;
             this.source = source;
 			this.label = label;
+        }
+
+		public List<String> getCauseList() {
+			return this.cause;
+		}
+        public String getTo() {
+        		return this.to;
         }
     }
 
@@ -140,12 +148,18 @@ public class SyndromeGraphPlotter {
             if (!visibleSyndromes.containsKey(cause.to)) continue;
 
             String nodeId = cause.id; 
-            String dotLabel = escapeLabel(cause.cause).replace("\n", "\\l"); 
-
+            String dotLabel = "";
+/*
+              if (cause.cause != null && !cause.cause.isEmpty()) {
+             
+                // 前端成因陣列用 \l 串接起來對齊
+                dotLabel = escapeLabel(String.join("\\l", cause.cause)) + "\\l"; 
+            }
+*/
             sb.append("  ").append(nodeId)
-              .append(" [label=\"").append(dotLabel).append("\"")
-              .append(", shape=box, style=filled, align=left") // align=left 文字靠左
-              .append(", fillcolor=\"#E6F5E6\", color=\"#006400\", fontcolor=\"#006400\"") // 字顏色
+              
+              .append("[shape=point, width=0.15, ") // align=left 文字靠左
+              .append("fillcolor=\"#E6F5E6\", color=\"#006400\", fontcolor=\"#006400\"") // 字顏色
               .append("];\n");
         }
         sb.append("\n");
@@ -177,18 +191,24 @@ public class SyndromeGraphPlotter {
 
             String fromId = cause.id;                 
             String toId   = syndromeIdMap.get(cause.to);  
-            String arrowLabel = cause.label;        
+//            String arrowLabel = cause.label;        
 
             if (fromId != null && toId != null) {
                 sb.append("  ").append(fromId).append(" -> ").append(toId);
-
+/*
                 if (arrowLabel != null && !arrowLabel.isEmpty()) {
                     String dotLabel = escapeLabel(arrowLabel);
                     sb.append(" [label=\"").append(dotLabel).append("\"");
                     sb.append(", fontsize=10, fontcolor=\"#0000FF\"") 
                       .append(", fontname=\"").append(FONT_FAMILY).append("\"").append("]");
                 }
-                
+*/              
+                if (cause.cause != null && !cause.cause.isEmpty()) {
+                	String dotLabel = escapeLabel(String.join("\\l", cause.cause)) + "\\l";
+                    sb.append(" [label=\"").append(dotLabel).append("\"");
+                    sb.append(", fontsize=10, fontcolor=\"#0000FF\"") 
+                      .append(", fontname=\"").append(FONT_FAMILY).append("\"").append("]");
+                }
                 sb.append(";\n");
             }
         }
@@ -235,17 +255,13 @@ public class SyndromeGraphPlotter {
 
     // .dot 轉 .png 
     public static Path dotToPng(Path dotFile) throws IOException, InterruptedException {
-        //產圖放的資料夾
-    	if (!Files.exists(PNG_DIR)) Files.createDirectories(PNG_DIR);
+    	//產圖放的資料夾
+    	if (!Files.exists(TMP_PNG_DIR)) Files.createDirectories(TMP_PNG_DIR);
         
         //檔名決定
         String baseName = stripExtension(dotFile.getFileName().toString());
-        Path pngOut = PNG_DIR.resolve(baseName + ".png");
+        Path pngOut = TMP_PNG_DIR.resolve(baseName + ".png");
         
-        //如果要多張表的話
-        //String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        //Path pngOut = PNG_DIR.resolve(baseName + "_" + timestamp + ".png");
-
         // 使用 Graphviz 的 dot 指令
         String dotExe = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
         ProcessBuilder pb = new ProcessBuilder(

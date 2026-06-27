@@ -2,7 +2,11 @@ package com.tcmdiff.SpringTcmDiff.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -73,52 +77,58 @@ public class DiffService {
 	    private Suggester leukorrhea_suggester = null;
 	    private Suggester vulvar_suggester = null;
 	    
-	    
+	    private final List<Cause> loadCauses;
+	    private final List<Relation> loadRelations;	    
   
-	    public DiffService(HashMap<String,String> d_contentMap, HashMap<String,String> p_contentMap, String sstContent ,SyndromeSetRepo syndromeRepo, ParameterRepo parameterRepo) throws IOException, ParseException{
+	    public DiffService(HashMap<String,String> d_pathMap, HashMap<String,String> p_pathMap, String sst_path,SyndromeSetRepo syndromeRepo, ParameterRepo parameterRepo, List<Cause> loadCauses, List<Relation> loadRelations) throws IOException, ParseException{
 	    	//try-catch部分刪掉 給config判斷 e拋給config即可
    	
 	        
 	    	//*********************************內科資料*********************************
-            this.dem_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_m_d")),parameterRepo.loadParameter(p_contentMap.get("DE_m_p")));
-            this.def_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_f_d")),parameterRepo.loadParameter(p_contentMap.get("DE_f_p")));
+            this.dem_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")),parameterRepo.loadParameter(p_pathMap.get("DE_m_p")));
+            this.def_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")),parameterRepo.loadParameter(p_pathMap.get("DE_f_p")));
             
-            this.dem_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_m_d")));
-            this.def_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("DE_f_d")));
+            this.dem_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_m_d")));
+            this.def_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("DE_f_d")));
 	        
 	        //*********************************婦產科資料*********************************
-            this.menstrual_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Menstrual_d")),parameterRepo.loadParameter(p_contentMap.get("Menstrual_p")));
-            this.pregnancy_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Pregnancy_d")),parameterRepo.loadParameter(p_contentMap.get("Pregnancy_p")));
-            this.postpartum_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Postpartum_d")),parameterRepo.loadParameter(p_contentMap.get("Postpartum_p")));
+            this.menstrual_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")),parameterRepo.loadParameter(p_pathMap.get("Menstrual_p")));
+            this.pregnancy_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")),parameterRepo.loadParameter(p_pathMap.get("Pregnancy_p")));
+            this.postpartum_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")),parameterRepo.loadParameter(p_pathMap.get("Postpartum_p")));
             
-            this.menstrual_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Menstrual_d")));
-            this.pregnancy_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Pregnancy_d")));
-            this.postpartum_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Postpartum_d")));
+            this.menstrual_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Menstrual_d")));
+            this.pregnancy_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Pregnancy_d")));
+            this.postpartum_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Postpartum_d")));
             
-            this.abdomen_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Abdomen_d")),parameterRepo.loadParameter(p_contentMap.get("Abdomen_p")));
-            this.abdomen_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Abdomen_d")));  
-            this.breast_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Breast_d")),parameterRepo.loadParameter(p_contentMap.get("Breast_p")));
-            this.breast_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Breast_d")));  
-            this.infertility_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Infertility_d")),parameterRepo.loadParameter(p_contentMap.get("Infertility_p")));
-            this.infertility_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Infertility_d")));  
-            this.leukorrhea_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Leukorrhea_d")),parameterRepo.loadParameter(p_contentMap.get("Leukorrhea_p")));
-            this.leukorrhea_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Leukorrhea_d")));  
-            this.vulvar_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Vulvar_d")),parameterRepo.loadParameter(p_contentMap.get("Vulvar_p")));
-            this.vulvar_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Vulvar_d")));  
+            this.abdomen_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")),parameterRepo.loadParameter(p_pathMap.get("Abdomen_p")));
+            this.abdomen_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Abdomen_d")));  
+            this.breast_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")),parameterRepo.loadParameter(p_pathMap.get("Breast_p")));
+            this.breast_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Breast_d")));  
+            this.infertility_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")),parameterRepo.loadParameter(p_pathMap.get("Infertility_p")));
+            this.infertility_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Infertility_d")));  
+            this.leukorrhea_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")),parameterRepo.loadParameter(p_pathMap.get("Leukorrhea_p")));
+            this.leukorrhea_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Leukorrhea_d")));  
+            this.vulvar_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")),parameterRepo.loadParameter(p_pathMap.get("Vulvar_p")));
+            this.vulvar_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Vulvar_d")));  
 
 	        //*********************************精神科資料*********************************
-            this.insomnia_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Insomnia_d")),parameterRepo.loadParameter(p_contentMap.get("Insomnia_p")));
-            this.anxiety_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("Anxiety_d")),parameterRepo.loadParameter(p_contentMap.get("Anxiety_p")));
+            this.insomnia_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")),parameterRepo.loadParameter(p_pathMap.get("Insomnia_p")));
+            this.anxiety_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")),parameterRepo.loadParameter(p_pathMap.get("Anxiety_p")));
             
-            this.insomnial_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Insomnia_d")));
-            this.anxiety_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("Anxiety_d")));
+            this.insomnial_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Insomnia_d")));
+            this.anxiety_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("Anxiety_d")));
 
 	        //*********************************ICD11*********************************
-            this.icd11_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_contentMap.get("ICD11_d")),parameterRepo.loadParameter(p_contentMap.get("ICD11_p")));
-            this.icd11_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_contentMap.get("ICD11_d")));
+            this.icd11_diff=new Differentiator(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")),parameterRepo.loadParameter(p_pathMap.get("ICD11_p")));
+            this.icd11_suggester=new Suggester(syndromeRepo.loadSyndromeSet(d_pathMap.get("ICD11_d")));
             
 	        //*********************************標準症狀表裡面有全部症狀的總表*********************************
-            symptomTable = new StdSymptomsTableRepo(sstContent);
+            symptomTable = new StdSymptomsTableRepo(sst_path);
+            
+            
+            //預載入的cause
+            this.loadCauses = loadCauses;
+            this.loadRelations = loadRelations;
 	    }
 	    
 	   
@@ -294,6 +304,9 @@ public class DiffService {
 	        if(!result.isEmpty()) {
 	            setData(suggested_symptoms_Group_Name,suggested_symptoms_List);
 	        }
+
+			result.entrySet().removeIf(entry -> entry.getValue() < 0.3);
+
 	        jsonOutput.put("output", result);
 	        jsonOutput.put("output_suggested_G1", suggested_symptoms_Group_Name.get(0));
 	        jsonOutput.put("output_suggested_G2", suggested_symptoms_Group_Name.get(1));
@@ -303,43 +316,63 @@ public class DiffService {
 	        return jsonOutput;
 	    }
 	    
-	    public Path generateGraph(Map<String, Object> result) throws Exception {
-	        //處理graphviz生圖 從jsonOutput裡面拿
-	        @SuppressWarnings("unchecked")
-			Map<String, Double> scores = (Map<String, Double>) result.get("output");
-	        
-	        //限制產圖邏輯
-	        long validScoreCount = scores.values().stream()
-                    .filter(score -> score >= 0.4)
-			        .count();
-			int symptomCount = scores.size();
-			
-			if (validScoreCount < 2 || symptomCount < 3) {
-				return null;
-			}
-	        
-			//讀取物件放入list
-			List<Relation> allRelations = loadRelations();
-			List<Cause> causes = loadCauses();
-	        //先測試relationList<Relation> relationsCase1 = Arrays.asList(
-	        /*
-	      	List<SyndromeGraphPlotter.Relation> relations = Arrays.asList(
-	        	    new SyndromeGraphPlotter.Relation("脾氣虛", "肺氣虛"),
-	        	    new SyndromeGraphPlotter.Relation("肺氣虛", "痰濕阻肺"),
-	                new SyndromeGraphPlotter.Relation("肺氣虛", "痰濕阻肺"),
-	                new SyndromeGraphPlotter.Relation("痰濕阻肺", "痰熱壅肺")
-	        	);
-	        	*/
-	        String dot = SyndromeGraphPlotter.toDot(scores, allRelations, causes);
-	        Path dotFile = SyndromeGraphPlotter.writeDot(dot, "case_diff.dot");
-	        Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
-	        System.out.println("已生成圖檔：" + pngFile);
-			return pngFile;
-	    }
+	    public Path generateGraph(List<Map<String, String>> result) throws Exception {
+    		Map<String, Double> scores = new HashMap<>();
+        List<Cause> customCauses = new ArrayList<>(); 
+        int causeCounter = 1;
+        // 把controller收到的ajax 資料 map組合成的list抓出來
+        for (Map<String, String> data : result) {
+            String syndrome = data.get("syndrome");
+            String scoreStr = data.get("score");
+            String causeStr = data.get("cause");
+
+            // 轉換分數
+            if (scoreStr != null && !scoreStr.isEmpty()) {
+                scores.put(syndrome, Double.parseDouble(scoreStr));
+            }
+
+            // 使用者有選成因，額外建立一個 Cause 物件
+            if (causeStr != null && !causeStr.trim().isEmpty() && !causeStr.contains("-- 不顯示 --")) {
+                List<String> causeList = new ArrayList<>();
+            
+                String formattedCause = causeStr.replace("\\n", "\\l").replace("\n", "\\l");
+                causeList.add(formattedCause); 
+                String uniqueId = "c" + (causeCounter++);
+                
+                Cause c = new Cause(uniqueId, causeList, syndrome, "自訂來源", "");
+                
+                customCauses.add(c);
+            }
+        }
+
+        // 限制產圖邏輯
+        long validScoreCount = scores.values().stream()
+                .filter(score -> score > 0.399)
+                .count();
+        if (validScoreCount < 2 ) {
+            return null;
+        }
+
+        List<Relation> relations = this.loadRelations;
+        
+        String dot = SyndromeGraphPlotter.toDot(scores, relations, customCauses);
+        /*
+        Path dotFile = SyndromeGraphPlotter.writeDot(dot, "case_diff.dot");
+        Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
+        */
+        
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String dotFileName = "case_diff_temp_" + timestamp + ".dot";
+        Path dotFile = SyndromeGraphPlotter.writeDot(dot, dotFileName);
+        Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
+        
+        System.out.println("已生成圖檔：" + pngFile);
+        return pngFile;
+    }
 	    
 	    
 	    @Transactional // 確保資料庫操作的完整性
-	    public void saveDiffRecord(String name, String identity, String symptoms, String result, String other) {
+	    public void saveDiffRecord(String name, String identity, String symptoms, String result, String other, String tmpGraphPath) throws IOException {
 	        DiffResult diff = new DiffResult();
 	        
 	        diff.setName(name);
@@ -350,6 +383,38 @@ public class DiffService {
 	        
 	        // 處理時間格式
 	        diff.setDateTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+	        //處理圖片從暫存到永久路徑 
+	        String finalGraphPath = null;
+	        if (tmpGraphPath != null && !tmpGraphPath.trim().isEmpty()) {
+	            // 後面 "?t=..." 快取參數砍掉
+	            String cleanPath = tmpGraphPath.split("\\?")[0]; 
+	            
+	            // 抓檔名 "case_diff_temp_20260615_173010.png"
+	            String fileName = Paths.get(cleanPath).getFileName().toString();
+
+	            // 定義tmp與permanent的絕對路徑
+	            Path sourcePath = SyndromeGraphPlotter.TMP_PNG_DIR.resolve(fileName);
+	            String currentDir = System.getProperty("user.dir");
+	            Path targetDir = Paths.get(currentDir, "tcm_data", "graph", "permanent");
+	            Path targetPath = targetDir.resolve(fileName);
+
+	            // 確保永久資料夾存在
+	            if (!Files.exists(targetDir)) {
+	                Files.createDirectories(targetDir);
+	            }
+
+	            // 執行搬移 (若目標檔存在則覆寫)
+	            if (Files.exists(sourcePath)) {
+	                Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+	                // 寫入 DB 的相對路徑，供前端日後讀取
+	                finalGraphPath = "/graph/permanent/" + fileName;
+	            }
+	        }
+	        
+	        if (finalGraphPath != null) {
+	            diff.setGraphPath(finalGraphPath);
+	        }
 	        diffRepository.save(diff);
 	    }
 	    
@@ -361,10 +426,8 @@ public class DiffService {
 	            return diffs.get(0);
 	        }
 	        return null;
-	    }
-	    
-	    
-	    
+	    }  
+/*    
 	    // 從json讀檔轉物件
 	    private List<Relation> loadRelations() throws Exception {
 	    	List<Relation> relations = new ArrayList<>();
@@ -389,7 +452,9 @@ public class DiffService {
 	        }
 	        return relations;
 		}
+*/
 	    
+/*	    
 	    private List<Cause> loadCauses() throws Exception {
 	    	List<Cause> causes = new ArrayList<>();
 	        JSONParser parser = new JSONParser();
@@ -414,7 +479,7 @@ public class DiffService {
 	        }
 	        return causes;
 		}
-
+*/
 		//分數=1.0 跳過,>=0.8直接加入,<0.8只加入前三個
 	    private ArrayList<String> getTopSyndrome(LinkedHashMap<String, Double> result) {
 	        int count = 0;
@@ -475,5 +540,9 @@ public class DiffService {
 	            }
 	        }
 	        return outputSymptomsName;   
+	    }
+	    
+	    public List<Cause> getPreloadCauses() {
+	        return this.loadCauses;
 	    }
 }

@@ -23,19 +23,22 @@ public class DiffResult {
 	private String other;
 	private String dateTime;
 	
+	private String graphPath;
+	
 	//JPA反射邏輯必須 get,set,建構子...
 	public DiffResult() {
 		super();
 	}
 	
 	//參數化建構子 自己要用entity物件時可以使用 eg. dto轉成entity,測試 站存 計算 
-	public DiffResult(String name, String identity, String symptom, String result, String other, String dateTime) {
+	public DiffResult(String name, String identity, String symptom, String result, String other, String dateTime, String graphPath) {
 		this.name = name;
 		this.identity = identity;
 		this.symptom = symptom;
 		this.result = result;
 		this.other = other;
 		this.dateTime = dateTime;
+		this.graphPath = graphPath;
 	}
 	//JPA反射邏輯必須 get,set,建構子...
 	public long getId() {
@@ -82,6 +85,10 @@ public class DiffResult {
 		return other;
 	}
 	
+	public String getGraphPath() {
+		return graphPath;
+	}
+	
 	public void setOther(String other) {
 		this.other = other;
 	}
@@ -92,5 +99,9 @@ public class DiffResult {
 	
 	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
+	}
+	
+	public void setGraphPath(String graphPath) {
+		this.graphPath = graphPath;
 	}
 }

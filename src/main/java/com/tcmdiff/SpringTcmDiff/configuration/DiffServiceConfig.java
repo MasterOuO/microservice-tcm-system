@@ -3,9 +3,15 @@ package com.tcmdiff.SpringTcmDiff.configuration;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +22,8 @@ import org.springframework.util.StreamUtils;
 import com.tcmdiff.SpringTcmDiff.repository.ParameterRepo;
 import com.tcmdiff.SpringTcmDiff.repository.SyndromeSetRepo;
 import com.tcmdiff.SpringTcmDiff.service.DiffService;
+import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
+import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Relation;
 
 @Configuration
 public class DiffServiceConfig {
@@ -64,7 +72,10 @@ public class DiffServiceConfig {
 			
 			
 			String sstContent = loadJsonFromClasspath("BXL_DataFiles/BXL_SST.json");
-			DiffService diffService =  new DiffService(dataJsonStrMap, parameterPathMap, sstContent , syndromeRepo, parameterRepo);
+
+			List<Cause> loadCauses = loadCauses();
+			List<Relation> loadRelations = loadRelations();
+			DiffService diffService =  new DiffService(dataJsonStrMap, parameterPathMap, sstContent , syndromeRepo, parameterRepo, loadCauses, loadRelations);
 			System.out.println("------ 辨證 JSON 載入完成! --------");
 			return diffService;
 		}catch(Exception e){
@@ -81,5 +92,63 @@ public class DiffServiceConfig {
         }
 	}
 
+	// 演變資料初始化
+	private List<Cause> loadCauses() throws Exception {
+		
+		List<Cause> causes = new ArrayList<>();
+	    JSONParser parser = new JSONParser();
+	   
+	    try (InputStream is = new ClassPathResource("static/Syndrome_Evolution_Causes.json").getInputStream()) 
+	    {
+	        if (is == null) {
+	            throw new IllegalStateException("找不到 JSON 檔");
+	        }
+	
+	        JSONArray arr = (JSONArray) parser.parse(new InputStreamReader(is, "UTF-8"));
+	        for (Object o : arr) {
+	            JSONObject obj = (JSONObject) o;
+	            String id = (String) obj.get("id"); 
+	            String to = (String) obj.get("to");
+	            String source = (String) obj.get("source");
+	            String label = (String) obj.get("label");
+	            
+	            List<String> causeList = new ArrayList<>();
+	            JSONArray causeArr = (JSONArray) obj.get("cause");
+	            if (causeArr != null) {
+	                for (Object c : causeArr) {
+	                    causeList.add((String) c);
+	                }
+	            }
+	            
+	            causes.add(new Cause(id, causeList, to, source, label));
+	        }
+	    }
+	    return causes;
+	}
+	
+    // 從json讀檔轉物件
+    private List<Relation> loadRelations() throws Exception {
+    	List<Relation> relations = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+
+       // try (InputStream is = SyndromeGraphPlotter.class.getResourceAsStream("/static/Syndrome_Evolution_Relation.json")) 
+        try (InputStream is = new ClassPathResource("static/Syndrome_Evolution_Relation.json").getInputStream()) 
+        {
+            if (is == null) {
+                throw new IllegalStateException("找不到 JSON 檔");
+            }
+
+            JSONArray arr = (JSONArray) parser.parse(new InputStreamReader(is, "UTF-8"));
+            for (Object o : arr) {
+                JSONObject obj = (JSONObject) o;
+                String from = (String) obj.get("from");
+                String to = (String) obj.get("to");
+                String source = (String) obj.get("source");
+                String label = (String) obj.get("label");
+                relations.add(new Relation(from, to, source, label));
+            }
+        }
+        return relations;
+	}
 	
 }
