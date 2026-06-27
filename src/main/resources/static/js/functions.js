@@ -1,12 +1,14 @@
 let syndromeObject = {}; // 儲存前次分數用
 let tagSymptoms = [];
 
-function render_result(data) {
+function render_result(data, causesData) {
+	causesData = causesData || {};
 	let output = `
 		<table class="table table-bordered table-hover align-middle">
 			<thead class="table-dark">
 				<tr>
 					<th>證候</th>
+					<th>成因</th>
 					<th>本次分數</th>
 					<th>前次分數</th>
 				</tr>
@@ -16,9 +18,37 @@ function render_result(data) {
 
 	$.each(data, function(key, value) {
 		const beforeScore = syndromeObject[key] !== undefined ? syndromeObject[key].toFixed(3) : "";
+		
+		// 直接從後端給的 Map 裡面拿這個證候的成因陣列
+		// 如果這個證候剛好沒有定義成因，就給一個空陣列 [] 防止報錯
+		let causesArray = causesData[key] || []; 
+
+		let causeSelectHtml = `<select class="form-select form-select-sm cause-selector">`;
+		causeSelectHtml += `<option value="">-- 不顯示 --</option>`;
+
+		if (causesArray.length > 0) {
+            // 在 JS 中組合出 "1. 先天不足\n2. 房事過度" 的格式
+            let allCausesString = causesArray.map((c, index) => `${index + 1}.${c}`).join("\\n");
+            causeSelectHtml += `<option value="${allCausesString}">-- 全選 --</option>`;
+
+            causesArray.forEach((cause, index) => {
+                // 選項顯示加上數字，例如 "1. 先天不足"
+                causeSelectHtml += `<option value="${index + 1}.${cause}">${index + 1}. ${cause}</option>`;
+            });
+        }
+				
+		causeSelectHtml += `<option value="custom"> 自訂輸入...</option>`;
+		causeSelectHtml += `</select>`;
+		causeSelectHtml += `<input type="text" class="form-control form-control-sm custom-cause-input mt-1" placeholder="請輸入自訂成因" style="display: none;">`;		
+
+
+
+
+
 		output += `
 			<tr class="re_data">
 				<td>${key}</td>
+				<td>${causeSelectHtml}</td>
 				<td>${value.toFixed(3)}</td>
 				<td>${beforeScore}</td>
 			</tr>
@@ -91,3 +121,14 @@ function updateTagDisplay() {
 	});
 	$("#symptoms").val(tagSymptoms.join(", "));
 }
+
+// 監聽下拉選單自訂輸入成因
+$(document).on('change', '.cause-selector', function() {
+    let customInput = $(this).siblings('.custom-cause-input');
+
+    if ($(this).val() === 'custom') {
+        customInput.show().focus();
+    } else {
+        customInput.hide().val(""); 
+    }
+});

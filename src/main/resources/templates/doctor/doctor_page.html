@@ -47,9 +47,9 @@
 			<div class="container mt-4">
 			<!-- Header -->
 				<div id="toastContainer" style="position: fixed; top: 5%; right: 0; z-index: 9999; width: 60%;">
-					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; width: 60%;" data-bs-delay="300">
+					<div class="toast" id="globalToast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; width: 60%;" data-bs-delay="300">
 						<div class="toast-body" style="width: 100%; text-align: center;">
-							<h4>辨證結果已更新 !</h4>
+							<h4 id="toastMessage">辨證結果已更新 !</h4>
 						</div>
 					</div>
 				</div>
@@ -109,6 +109,7 @@
 									</div>
 									<div class="text-end">
 										<input type="submit" value="進行辨證" class="btn btn-primary btn-md">
+										<button id="generate_graph_btn" type="button" class="btn btn-success btn-md" style="display: none;">生成演變圖</button>
 										<button id="clear" class="btn btn-danger btn-md">清除</button>
 									</div>
 								</div>
@@ -124,6 +125,7 @@
 						<textarea name="other" id="other" placeholder="其他註記"></textarea>
 						<br>
 					</div>
+					<input type="hidden" id="temp_graph_path" name="temp_graph_path" value="">
 					<h5>
 						<input type="submit" value="儲存結果" class="btn btn-success btn-md">
 						<br>

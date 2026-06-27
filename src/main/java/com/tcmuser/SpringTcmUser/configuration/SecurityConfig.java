@@ -43,6 +43,7 @@ public class SecurityConfig {
 					.requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
 					.requestMatchers("/appointment").permitAll()	//門診系統預約看診 任何人都可以進入				
 					.requestMatchers("/test.html", "/static/**", "/api-test/**", "/ui-test/**").permitAll()
+					.requestMatchers("/api/*/dates").permitAll()
 					.requestMatchers("/admin-page").hasAnyAuthority("admin","topadmin") //辨證系統要權限
 					.requestMatchers("/doctor-page").hasAuthority("doctor")
 					//.anyRequest().permitAll())

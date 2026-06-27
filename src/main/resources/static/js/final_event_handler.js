@@ -5,7 +5,7 @@ $(document).ready(function(){
 		rows.each(function(){
 			let tds = $(this).find("td");
 			let syndrome = $(tds[0]).text().trim();
-			let score = $(tds[1]).text().trim();
+			let score = $(tds[2]).text().trim();
 			output.push(syndrome + ":" + score);
 		});
 		return output.join(", ");
@@ -20,7 +20,9 @@ $(document).ready(function(){
 		const result = extractResult();
 		const other = $("#other").val().trim();
 		
-		console.log({id, name, identity, symptoms, result, other});
+		// 暫存路徑
+		const tmpGraphPath = $("#temp_graph_path").val();
+		console.log({id, name, identity, symptoms, result, other, tmpGraphPath});
 		
 		if(!id || !name || !identity || !symptoms || !result){
 			alert("請確認所有欄位皆以填寫");
@@ -36,7 +38,8 @@ $(document).ready(function(){
 				identity: identity,
 				symptoms: symptoms,
 				result: result,
-				other: other
+				other: other,
+				tmpGraphPath: tmpGraphPath
 			},
 			success: function(res){
 				if(res.success){

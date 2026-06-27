@@ -65,7 +65,7 @@ $(document).ready(function(){
 	function updatePreviousScoreUI(){
 		$("#result tr.re_data").each(function(){
 			let key = $(this).find("td:first").text().trim();
-			let beforeCell = $(this).find("td").eq(2);
+			let beforeCell = $(this).find("td").eq(3);
 			if(previousScores[key]){
 				beforeCell.text(previousScores[key]);
 				setting_color(beforeCell, previousScores[key]);
@@ -77,7 +77,7 @@ $(document).ready(function(){
 	}	
 	function clearPreviousResult(){
 		$("#result tr.re_data").each(function(){
-			$(this).find("td").eq(2).text("");
+			$(this).find("td").eq(3).text("");
 		});
 	}
 	
