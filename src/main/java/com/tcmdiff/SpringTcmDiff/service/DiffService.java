@@ -395,20 +395,22 @@ public class DiffService {
 
 	            // 定義tmp與permanent的絕對路徑
 	            Path sourcePath = SyndromeGraphPlotter.TMP_PNG_DIR.resolve(fileName);
+	            Path targetPath = SyndromeGraphPlotter.PNG_DIR.resolve(fileName);
+	            /*
 	            String currentDir = System.getProperty("user.dir");
 	            Path targetDir = Paths.get(currentDir, "tcm_data", "graph", "permanent");
 	            Path targetPath = targetDir.resolve(fileName);
-
+				*/
 	            // 確保永久資料夾存在
-	            if (!Files.exists(targetDir)) {
-	                Files.createDirectories(targetDir);
+	            if (!Files.exists(SyndromeGraphPlotter.PNG_DIR)) {
+	                Files.createDirectories(SyndromeGraphPlotter.PNG_DIR);
 	            }
 
 	            // 執行搬移 (若目標檔存在則覆寫)
 	            if (Files.exists(sourcePath)) {
 	                Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
 	                // 寫入 DB 的相對路徑，供前端日後讀取
-	                finalGraphPath = "/graph/permanent/" + fileName;
+	                finalGraphPath = "/diffgraph/png/" + fileName;
 	            }
 	        }
 	        

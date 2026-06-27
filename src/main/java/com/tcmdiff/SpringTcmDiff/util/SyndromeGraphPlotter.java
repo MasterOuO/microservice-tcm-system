@@ -23,8 +23,10 @@ public class SyndromeGraphPlotter {
 	}
     /* Path */
     // 統一輸出根目錄（用正斜線，不要有中文!!!）
-    private static final Path OUTPUT_ROOT = Paths.get("target/classes/static/diffgraph");
-
+    //private static final Path OUTPUT_ROOT = Paths.get("target/classes/static/diffgraph");
+	
+	//打包路徑測試
+    private static final Path OUTPUT_ROOT = Paths.get("./diffgraph");
     private static final Path DOT_DIR = OUTPUT_ROOT.resolve(Paths.get("dot"));
     public static final Path PNG_DIR = OUTPUT_ROOT.resolve(Paths.get("png"));
     public static final Path TMP_PNG_DIR = OUTPUT_ROOT.resolve(Paths.get("tmpPng"));

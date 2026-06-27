@@ -88,7 +88,8 @@ public class DiffController {
 
 	    // 呼叫改寫後的 Service 方法
 	    Path pngPath = diffService.generateGraph(requestData);
-
+	    
+	    /*
 	    if (pngPath != null) {
 	        String fullPath = pngPath.toString(); 
 	        String[] parts = fullPath.split("static"); 
@@ -99,7 +100,18 @@ public class DiffController {
 	    } else {
 	        result.put("graphUrl", null); 
 	    }
+	    */
 	    
+	    //測試打包用路徑 不在static裡面
+	    if (pngPath != null) {
+	        String fileName = pngPath.getFileName().toString(); 
+	        String urlPath = "/diffgraph/tmpPng/" + fileName;
+	        String noCacheUrl = urlPath + "?t=" + System.currentTimeMillis();
+	        
+	        result.put("graphUrl", noCacheUrl); 
+	    } else {
+	        result.put("graphUrl", null); 
+	    }
 	    double timeMs = (System.nanoTime() - startTime) / 1000000.0;
 
 		System.out.println("Graph Gnenrate exec time : " + timeMs);
