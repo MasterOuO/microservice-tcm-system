@@ -1,4 +1,4 @@
-package com.tcmdiff.SpringTcmDiff.util;
+package com.tcmdiff.SpringTcmDiff.service;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,24 +7,18 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
+import org.springframework.stereotype.Service;
 
-
+import com.tcmdiff.SpringTcmDiff.models.Relation;
+import com.tcmdiff.SpringTcmDiff.models.Cause;
 
 /**
  * 	處理diffservice後要透過症候&分數 用graphviz建立演變圖 
  *  換佈署Graphviz 行182要換執行路徑exe
  */
-public class SyndromeGraphPlotter {
-
-	private SyndromeGraphPlotter() {
-		throw new IllegalStateException("Util Class");
-	}
-    /* Path */
-    // 統一輸出根目錄（用正斜線，不要有中文!!!）
-    //private static final Path OUTPUT_ROOT = Paths.get("target/classes/static/diffgraph");
-	
+@Service
+public class SyndromeGraphService {	
 	//打包路徑測試
     private static final Path OUTPUT_ROOT = Paths.get("./diffgraph");
     private static final Path DOT_DIR = OUTPUT_ROOT.resolve(Paths.get("dot"));
@@ -33,8 +27,10 @@ public class SyndromeGraphPlotter {
     
     /* 字形設定 */
     private static final String FONT_FAMILY ="DFKai-SB, BiauKai, Kaiti TC, KaiTi, TW-Kai, AR PL UKai TW"; // 標楷體
+    
+    
     // 避免 < > & 等字元
-    private static String htmlEscape(String s) {
+    private String htmlEscape(String s) {
         if (s == null) return "";
         return s.replace("&", "&amp;")
                 .replace("<", "&lt;")
@@ -42,48 +38,9 @@ public class SyndromeGraphPlotter {
                 .replace("\"", "&quot;");
     }
 
-    // 證候演變關係 (from → to) 
-    public static class Relation {
-    	public final String from;
-        public final String to;
-    	public final String source;
-    	public final String label;
-
-
-        public Relation( String from, String to,  String source, String label) {
-            this.from = from;
-            this.to = to;
-            this.source = source;
-			this.label = label;
-        }
-    }
-    
-    // 症候演變關係 最上面成因 
-    public static class Cause {
-    	public final String id;
-    	public final List<String> cause;        
-        public final String to;   
-        public final String source;  
-        public final String label;
-
-        public Cause (String id, List<String> cause, String to, String source, String label) {
-        	this.id = id;
-            this.cause = cause;
-            this.to = to;
-            this.source = source;
-			this.label = label;
-        }
-
-		public List<String> getCauseList() {
-			return this.cause;
-		}
-        public String getTo() {
-        		return this.to;
-        }
-    }
 
     // 根據 score 畫顏色 
-    private static String getNodeColor(double score) {
+    private String getNodeColor(double score) {
         if (score >= 0.8 && score <= 1.0) return "red";
         if (score >= 0.6 && score < 0.8)  return "orange";
         if (score >= 0.5 && score < 0.6)  return "yellow";
@@ -92,17 +49,17 @@ public class SyndromeGraphPlotter {
     }
 
     // 是否畫點
-    private static boolean shouldDrawNode(double score) {
+    private  boolean shouldDrawNode(double score) {
         return score >= 0.4;
     }
 
     // 是否畫邊
-    private static boolean shouldDrawEdge(double fromScore, double toScore) {
+    private  boolean shouldDrawEdge(double fromScore, double toScore) {
         return fromScore >= 0.4;
     }
 
     // 存檔id對應表 
-    private static Map<String, String> buildSyndromeIdMap(Set<String> names) {
+    private  Map<String, String> buildSyndromeIdMap(Set<String> names) {
         Map<String, String> idMap = new LinkedHashMap<>();
         int idx = 1;
         for (String name : names) {
@@ -112,12 +69,12 @@ public class SyndromeGraphPlotter {
     }
 
     // 處理 Graphviz label 引號問題 
-    private static String escapeLabel(String label) {
+    private String escapeLabel(String label) {
         return label.replace("\"", "“");
     }
 
     // 生成 Graphviz dot 語法 
-    public static String toDot(Map<String, Double> syndromeScores,
+    public String toDot(Map<String, Double> syndromeScores,
                                List<Relation> syndromeRelations,
                                List<Cause> causes
                                ) {
@@ -149,9 +106,9 @@ public class SyndromeGraphPlotter {
             // 指向的症候沒有 或分數不夠 不畫
             if (!visibleSyndromes.containsKey(cause.to)) continue;
 
-            String nodeId = cause.id; 
-            String dotLabel = "";
+            String nodeId = cause.id;
 /*
+            String dotLabel = "";
               if (cause.cause != null && !cause.cause.isEmpty()) {
              
                 // 前端成因陣列用 \l 串接起來對齊
@@ -244,7 +201,7 @@ public class SyndromeGraphPlotter {
     }
 
     /* 輸出 .dot 檔案 */
-    public static Path writeDot(String dot, String fileName) throws IOException {
+    public Path writeDot(String dot, String fileName) throws IOException {
         //產dot放的資料夾 +檔名
     	if (!Files.exists(DOT_DIR)) Files.createDirectories(DOT_DIR);
         Path p = DOT_DIR.resolve(fileName);
@@ -256,7 +213,7 @@ public class SyndromeGraphPlotter {
     }
 
     // .dot 轉 .png 
-    public static Path dotToPng(Path dotFile) throws IOException, InterruptedException {
+    public Path dotToPng(Path dotFile) throws IOException, InterruptedException {
     	//產圖放的資料夾
     	if (!Files.exists(TMP_PNG_DIR)) Files.createDirectories(TMP_PNG_DIR);
         
@@ -292,7 +249,7 @@ public class SyndromeGraphPlotter {
         return pngOut;
     }
 
-    private static String stripExtension(String filename) {
+    private String stripExtension(String filename) {
         int i = filename.lastIndexOf('.');
         return (i == -1) ? filename : filename.substring(0, i);
     }

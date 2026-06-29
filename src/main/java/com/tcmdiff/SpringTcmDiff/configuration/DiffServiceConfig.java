@@ -1,6 +1,5 @@
 package com.tcmdiff.SpringTcmDiff.configuration;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,7 +12,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -22,8 +20,8 @@ import org.springframework.util.StreamUtils;
 import com.tcmdiff.SpringTcmDiff.repository.ParameterRepo;
 import com.tcmdiff.SpringTcmDiff.repository.SyndromeSetRepo;
 import com.tcmdiff.SpringTcmDiff.service.DiffService;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Relation;
+import com.tcmdiff.SpringTcmDiff.models.Relation;
+import com.tcmdiff.SpringTcmDiff.models.Cause;
 
 @Configuration
 public class DiffServiceConfig {

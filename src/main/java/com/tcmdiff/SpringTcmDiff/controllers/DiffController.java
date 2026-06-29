@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tcmdiff.SpringTcmDiff.service.DiffService;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
+
+
+import com.tcmdiff.SpringTcmDiff.models.Cause;
 
 @RestController
 @RequestMapping("/api/diff")

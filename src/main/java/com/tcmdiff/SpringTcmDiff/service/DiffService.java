@@ -1,7 +1,6 @@
 package com.tcmdiff.SpringTcmDiff.service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,14 +9,14 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.io.InputStreamReader;
 
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.tcmdiff.SpringTcmDiff.models.Relation;
+import com.tcmdiff.SpringTcmDiff.models.Cause;
+
 import org.json.simple.parser.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
@@ -26,9 +25,7 @@ import com.tcmdiff.SpringTcmDiff.repository.DiffResultRepo;
 import com.tcmdiff.SpringTcmDiff.repository.ParameterRepo;
 import com.tcmdiff.SpringTcmDiff.repository.StdSymptomsTableRepo;
 import com.tcmdiff.SpringTcmDiff.repository.SyndromeSetRepo;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Cause;
-import com.tcmdiff.SpringTcmDiff.util.SyndromeGraphPlotter.Relation;
+
 
 //有新增疾病或症候要去
 //(1)前端系統更新patient_event_handler.js的顯示選項
@@ -44,6 +41,8 @@ public class DiffService {
 		@Autowired
 	    private DiffResultRepo diffRepository;
 	
+		@Autowired
+		private SyndromeGraphService syndromeGraphService;
 
 		//private ConvertSymptoms converter = null;
 	 	private StdSymptomsTableRepo symptomTable = null;
@@ -355,7 +354,7 @@ public class DiffService {
 
         List<Relation> relations = this.loadRelations;
         
-        String dot = SyndromeGraphPlotter.toDot(scores, relations, customCauses);
+        String dot = syndromeGraphService.toDot(scores, relations, customCauses);
         /*
         Path dotFile = SyndromeGraphPlotter.writeDot(dot, "case_diff.dot");
         Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
@@ -363,8 +362,8 @@ public class DiffService {
         
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String dotFileName = "case_diff_temp_" + timestamp + ".dot";
-        Path dotFile = SyndromeGraphPlotter.writeDot(dot, dotFileName);
-        Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
+        Path dotFile = syndromeGraphService.writeDot(dot, dotFileName);
+        Path pngFile = syndromeGraphService.dotToPng(dotFile);
         
         System.out.println("已生成圖檔：" + pngFile);
         return pngFile;
@@ -394,16 +393,16 @@ public class DiffService {
 	            String fileName = Paths.get(cleanPath).getFileName().toString();
 
 	            // 定義tmp與permanent的絕對路徑
-	            Path sourcePath = SyndromeGraphPlotter.TMP_PNG_DIR.resolve(fileName);
-	            Path targetPath = SyndromeGraphPlotter.PNG_DIR.resolve(fileName);
+	            Path sourcePath = SyndromeGraphService.TMP_PNG_DIR.resolve(fileName);
+	            Path targetPath = SyndromeGraphService.PNG_DIR.resolve(fileName);
 	            /*
 	            String currentDir = System.getProperty("user.dir");
 	            Path targetDir = Paths.get(currentDir, "tcm_data", "graph", "permanent");
 	            Path targetPath = targetDir.resolve(fileName);
 				*/
 	            // 確保永久資料夾存在
-	            if (!Files.exists(SyndromeGraphPlotter.PNG_DIR)) {
-	                Files.createDirectories(SyndromeGraphPlotter.PNG_DIR);
+	            if (!Files.exists(SyndromeGraphService.PNG_DIR)) {
+	                Files.createDirectories(SyndromeGraphService.PNG_DIR);
 	            }
 
 	            // 執行搬移 (若目標檔存在則覆寫)
