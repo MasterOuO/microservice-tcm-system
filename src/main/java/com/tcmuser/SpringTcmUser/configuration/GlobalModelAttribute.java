@@ -11,7 +11,7 @@ public class GlobalModelAttribute {
     public String base(HttpServletRequest request) {
     	// 【單一入口模式】
         // 所有頁面一律假設從 Gateway 進來
-    	
-        return "/tcm/patients";
+    	//暫時拿掉
+        return "";
     }
 }

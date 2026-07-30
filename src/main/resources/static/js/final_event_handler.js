@@ -31,7 +31,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/api/diff/save-diff",
+			url: gatewayBaseUrl + "/api/diff/save-diff",
 			data:{
 				id: id,
 				name: name,

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 //name 是他在 Eureka 上的名字
-@FeignClient(name = "acupuncture") // 確保這名字在 Eureka 上看得到
+@FeignClient(name = "acupuncture") 
 public interface AcuClient {
 
 	@GetMapping("/api/acupuncture/get-points")
