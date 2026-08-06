@@ -32,6 +32,9 @@ $(document).ready(function(){
 		$.ajax({
 			type: "POST",
 			url: gatewayBaseUrl + "/api/diff/save-diff",
+			xhrFields: {
+			        withCredentials: true // 允許跨域帶 Cookie/Session
+			},
 			data:{
 				id: id,
 				name: name,

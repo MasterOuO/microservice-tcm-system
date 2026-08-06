@@ -35,6 +35,9 @@ $(document).ready(function(){
 			type: "GET",
 			url: gatewayBaseUrl + "/api/diff/load-diff",
 			data: {identity: identity},
+			xhrFields: {
+				withCredentials: true // 跨域認證必備
+			},
 			success: function(res){
 				if(res.success){
 					$("#symptoms").val(res.symptom);
