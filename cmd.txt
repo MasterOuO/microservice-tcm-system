@@ -1,0 +1,5 @@
+下載套件
+pip install -r requirements.txt
+
+更新目前專案套件
+pip freeze > requirements.txt
