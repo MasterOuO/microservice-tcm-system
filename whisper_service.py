@@ -205,7 +205,9 @@ class WhisperService:
           predicted_ids, skip_special_tokens=True
       )[0]
 
-      return transcription
+     # 文字正規化 
+      final_transcription = normalize_text(transcription)
+      return final_transcription
 
     finally:
       # 8. 清理臨時檔
