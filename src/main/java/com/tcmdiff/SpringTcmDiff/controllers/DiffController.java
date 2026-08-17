@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
@@ -36,12 +37,12 @@ public class DiffController {
 	
 	@Autowired
 	private SyndromeGraphPlotter syndromeGraphPlotter;
+	
 	//=====================================User controller的方法拆過來 =======================================
 	//url在doctor_page下面const
 	// ============================ 選擇主訴 執行這邊辯證計算結果 ============================
 	@PostMapping("/compute")
-	//測試可擴充性 先直接連行政
-	@CrossOrigin(origins = "http://localhost:8080")
+	@ResponseBody
 	public Map<String, Object> computeDiff(
 			@RequestParam("opt") String opt,
 			@RequestParam(value ="symptoms") String inputSymptom,
@@ -94,9 +95,9 @@ public class DiffController {
 		return result;
 	}
 	
+	//@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping("/generateGraph")
-	//測試可擴充性 先直接連行政
-	@CrossOrigin(origins = "http://localhost:8080")
+	@ResponseBody
 	public Map<String, Object> generateGraph(@RequestBody List<Map<String, String>> requestData) {
 		double startTime = System.nanoTime();
 		Map<String, Object> result = new HashMap<>();
@@ -189,10 +190,11 @@ public class DiffController {
 		return response;
 	}
 	*/
-	@PostMapping("/save-diff")
+	
 	//測試可擴充性 先直接連行政
-	@CrossOrigin(origins = "http://localhost:8080")
-    public Map<String, Object> updateDiff(
+	//@CrossOrigin(origins = "http://localhost:8080")
+	@PostMapping("/save-diff")
+	public Map<String, Object> updateDiff(
             @RequestParam Long id, 
             @RequestParam String name, 
             @RequestParam String identity,
@@ -246,8 +248,8 @@ public class DiffController {
 	}
 	*/
 	
+	//@CrossOrigin(origins = "*")
 	@GetMapping("/load-diff")
-    @CrossOrigin(origins = "http://localhost:8080")
     public Map<String, Object> getLatestDiff(@RequestParam String identity) {
         Map<String, Object> response = new HashMap<>();
         
@@ -271,9 +273,8 @@ public class DiffController {
         return response;
     }
 
-
-	@GetMapping("/external/getdiff")
 	//開給別的microservice用的API
+	@GetMapping("/external/getdiff")
     public ResponseEntity<?> extGetDiff(@RequestParam String identity) {
         try {
             DiffResult latestDiff = diffService.findLatestDiffById(identity);
