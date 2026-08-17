@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ import com.tcmuser.SpringTcmUser.repository.PatientRepo;
 import com.tcmuser.SpringTcmUser.repository.UserRepo;
 import com.tcmuser.SpringTcmUser.service.CustomUserDetail;
 import com.tcmuser.SpringTcmUser.service.UserService;
+import com.tcmuser.SpringTcmUser.client.AcuClient;
 import com.tcmuser.SpringTcmUser.client.DiffClient;
 
 
@@ -52,6 +54,10 @@ public class UserController {
 	//辯證服務
 	@Autowired
     private DiffClient diffClient;
+	
+	//gateway
+	@Value("${custom.gateway.base-url:http://localhost:8080}")
+    private String gatewayBaseUrl;
 
 	
 	//======================== 在API做測試用 & 初始新增admin =================================
@@ -116,12 +122,15 @@ public class UserController {
 		
 		model.addAttribute("opts", opts);
 		System.out.println("opt:" + opts);
-		model.addAttribute("diff_url", "/api/diff/load-diff/compute");
+		model.addAttribute("diff_url", "/api/diff/compute");
 		model.addAttribute("patients",patients);
+		model.addAttribute("gateway_base_url", gatewayBaseUrl);
 		
 		System.out.println("--- UI 服務接收前端請求，準備轉發給辨證服務 ---");
 		return "doctor/doctor_page";
 	}
+
+	
 
 
 }

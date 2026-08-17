@@ -10,8 +10,11 @@ $(document).ready(function(){
 		console.log(dataToSend);
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/api/diff/compute",    // diff_url => /diff/compute in UserController
+			url: gatewayBaseUrl + "/api/diff/compute",    // diff_url => /diff/compute in UserController
 			data: dataToSend,
+			xhrFields: {
+			        withCredentials: true // 跨域認證必備
+			},
 			success: function(response) {  //response是後端回傳的JSON，若後端 @ResponseBody回傳Map jQuery自動當物件
 				var data = response;
 				$("#suggest_G1").html(render_suggested('望診症狀',data.output_suggested_G1));  // "#suggest_G1"是html定義的
@@ -97,7 +100,7 @@ $(document).ready(function(){
 			// 發送第二次 POST 請求給generateGraph
 			$.ajax({
 			    type: "POST",
-			    url: "http://localhost:8080/api/diff/generateGraph",
+			    url: gatewayBaseUrl + "/api/diff/generateGraph",
 			    contentType: "application/json", // JSON 格式
 			    data: JSON.stringify(selectedData),
 			    success: function(response) {

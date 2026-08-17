@@ -41,7 +41,7 @@ public class SecurityConfig {
 			//authorizeHttpRequests() → 開始設定 URL 授權規則
 			.authorizeHttpRequests( request -> request
 					.requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-					.requestMatchers("/appointment").permitAll()	//門診系統預約看診 任何人都可以進入				
+					.requestMatchers("/appointment", "/createPatient", "/getPatient").permitAll()	//門診系統預約看診 任何人都可以進入				
 					.requestMatchers("/test.html", "/static/**", "/api-test/**", "/ui-test/**", "/diffgraph/**").permitAll()
 					.requestMatchers("/api/*/dates", "/api/*/times", "/editPatient","/createPatient","/api/appointments/date").permitAll()
 					.requestMatchers("/admin-page").hasAnyAuthority("admin","topadmin") //辨證系統要權限

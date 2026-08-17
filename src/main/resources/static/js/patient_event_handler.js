@@ -33,8 +33,11 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/api/diff/load-diff",
+			url: gatewayBaseUrl + "/api/diff/load-diff",
 			data: {identity: identity},
+			xhrFields: {
+				withCredentials: true // 跨域認證必備
+			},
 			success: function(res){
 				if(res.success){
 					$("#symptoms").val(res.symptom);

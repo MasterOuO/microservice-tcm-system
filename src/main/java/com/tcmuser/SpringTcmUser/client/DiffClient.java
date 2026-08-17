@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface DiffClient {
 
     // 定義你想抓取的 API 路徑與參數
-	@PostMapping("/diff/compute")
+	@PostMapping("/api/diff/compute")
     Map<String, Object> getComputeData(
         @RequestParam("opt") String opt,
         @RequestParam("symptoms") String symptoms,
