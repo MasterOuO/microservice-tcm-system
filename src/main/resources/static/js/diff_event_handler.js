@@ -104,11 +104,17 @@ $(document).ready(function(){
 			    contentType: "application/json", // JSON 格式
 			    data: JSON.stringify(selectedData),
 			    success: function(response) {
-			        if (response.graphUrl) {
+			        console.log("後端回應資料:", response);
+					if (response.graphUrl) {
+						console.log("準備塞入圖片，原始路徑:", response.graphUrl);
 						let imageUrl = response.graphUrl.startsWith("/") 
 			               ? response.graphUrl 
 			               : "/" + response.graphUrl;
 			            
+						   
+						//加gateway後的路徑
+					   	let fullImageUrl = gatewayBaseUrl + imageUrl;
+						
 						// 暫存路徑 之後永久存時候用
 						$("#temp_graph_path").val(response.graphUrl);
 						$("#graph_image_container").remove();
@@ -118,7 +124,7 @@ $(document).ready(function(){
 			                <div id="graph_image_container" class="text-center mt-4 mb-4">
 			                    <hr>
 			                    <h4 class="text-dark">證候演變圖</h4>
-			                    <img src="${imageUrl}" alt="演變圖" style="max-width:100%; height:auto; border: 1px solid #ccc;">
+			                    <img src="${fullImageUrl}" alt="演變圖" style="max-width:100%; height:auto; border: 1px solid #ccc;">
 			                </div>
 			            `);
 						$('#toastMessage').text('演變圖已生成!');
