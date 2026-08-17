@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tcmuser.SpringTcmUser.models.Patient;
 import com.tcmuser.SpringTcmUser.models.User;
+import com.tcmuser.SpringTcmUser.repository.PatientRepo;
 import com.tcmuser.SpringTcmUser.repository.UserRepo;
 
 // ============================ AJAX 非同步更新、API取得資料 =======================================
@@ -25,7 +27,8 @@ public class ApiController {
 	@Autowired //根據類型找到對象完成注入
 	private UserRepo userRepository;
 	
-
+	@Autowired
+	private PatientRepo patientRepo;
 	
 	private static final ObjectMapper mapper = new ObjectMapper();
 	
@@ -153,5 +156,52 @@ public class ApiController {
 		result.put("timeSlots", timeSlots);
 		return result;
 		}
+
+	//===================================== 檢查身分證該日是否已預約 =======================================
+	@GetMapping("/appointments/exist")
+	public Map<String, Object> checkAppointmentExists(
+			@RequestParam String identity, 
+			@RequestParam String date) {
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		try {
+			// 用 identity + date 查預約表
+			List<Patient> patients = patientRepo.findByIdentityAndAppointmentDate(identity, date);
+			
+			boolean exists = !patients.isEmpty();
+			result.put("success", true);
+			result.put("exists", exists);
+			
+			if(exists) {
+				result.put("message", "該身分證在 " + date + " 已有預約");
+			}
+			
+		} catch (Exception e) {
+			result.put("success", false);
+			result.put("exists", false);
+			result.put("message", "查詢失敗: " + e.getMessage());
+		}
+		
+		return result;
+	}
+
+	@GetMapping("/appointments/date")
+	public Map<String, Object> getAppointmentDate(@RequestParam String identity) {
+	    Map<String, Object> result = new HashMap<>();
+	    List<Patient> patients = patientRepo.findByIdentity(identity);
+
+	    if (patients.isEmpty()) {
+	        result.put("success", false);
+	        result.put("message", "查無預約資料");
+	        result.put("date", null);
+	        return result;
+	    }
+
+	    Patient latest = patients.get(0); // 先簡單取第一筆，若你要最新資料再排序
+	    result.put("success", true);
+	    result.put("date", latest.getAppointmentDate());
+	    return result;
+	}
 	
 }

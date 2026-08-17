@@ -14,5 +14,7 @@ public interface PatientRepo extends JpaRepository<Patient, Long>{
 	List<Patient> findByIdentity(String identity);
 	
 	List<Patient> findBySelectDoctor(String select_doctor);
+
+	List<Patient> findByIdentityAndAppointmentDate(String identity, String date);
 	
 }
