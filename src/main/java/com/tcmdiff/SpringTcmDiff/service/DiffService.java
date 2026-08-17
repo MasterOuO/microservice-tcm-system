@@ -16,8 +16,9 @@ import com.tcmdiff.SpringTcmDiff.models.Cause;
 
 import org.json.simple.parser.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.tcmdiff.SpringTcmDiff.models.DiffResult;
 import com.tcmdiff.SpringTcmDiff.models.SymptomSet;
@@ -42,9 +43,8 @@ public class DiffService {
 	    private DiffResultRepo diffRepository;
 	
 		@Autowired
-		private SyndromeGraphService syndromeGraphService;
+		private SyndromeGraphPlotter syndromeGraphService;
 
-		//private ConvertSymptoms converter = null;
 	 	private StdSymptomsTableRepo symptomTable = null;
 	    private Differentiator dem_diff = null;
 	    private Differentiator def_diff = null;
@@ -135,7 +135,7 @@ public class DiffService {
 	    
 	    //從user點選的症狀進行操作 userController用 
 	    public HashMap<String, Object> computeDiff(String opt,String subOpt, String userInputSymptoms) throws IOException, InterruptedException {
-	        //使用者點選的症狀轉成arraylist<string>
+	    	//使用者點選的症狀轉成arraylist<string>
 	    	ArrayList<String> input_Symptoms = new ArrayList<>(Arrays.asList(userInputSymptoms.split("\\s*[\\s*,.、，\"。:;_(){}\\[\\]]\\s*")));// "\\"s*:零個或多個空白字符
 	        //拿這些症狀的id集合 
 	    	//SymptomSet input_Symptoms_ID = converter.get_IDs(input_Symptoms);
@@ -274,9 +274,6 @@ public class DiffService {
 	                    setData(suggested_symptoms_Group_Name,sdata);
 	                }
 	                break;  
-	            default:
-	                System.out.println("沒有"+logicKey+"選項的辨證器");
-	                break;
 	            case "OG07":
 	                result = infertility_diff.differentiateSyndrome(input_Symptoms_ID, 0.001);
 	                suggested_symptoms_List = infertility_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
@@ -299,12 +296,17 @@ public class DiffService {
 	                    setData(suggested_symptoms_Group_Name,sdata);
 	                }
 	                break; 
+	            default:
+	                System.out.println("沒有"+logicKey+"選項的辨證器");
+	                jsonOutput.put("error", "不支援的辨證選項：" + logicKey);
+	                return jsonOutput;
 	        }
 	        if(!result.isEmpty()) {
 	            setData(suggested_symptoms_Group_Name,suggested_symptoms_List);
 	        }
 
-			result.entrySet().removeIf(entry -> entry.getValue() < 0.3);
+	        // 0.3以下的結果不傳回去，顯示比較少
+			result.entrySet().removeIf(entry -> entry.getValue() <= 0.3);
 
 	        jsonOutput.put("output", result);
 	        jsonOutput.put("output_suggested_G1", suggested_symptoms_Group_Name.get(0));
@@ -316,59 +318,78 @@ public class DiffService {
 	    }
 	    
 	    public Path generateGraph(List<Map<String, String>> result) throws Exception {
-    		Map<String, Double> scores = new HashMap<>();
-        List<Cause> customCauses = new ArrayList<>(); 
-        int causeCounter = 1;
-        // 把controller收到的ajax 資料 map組合成的list抓出來
-        for (Map<String, String> data : result) {
-            String syndrome = data.get("syndrome");
-            String scoreStr = data.get("score");
-            String causeStr = data.get("cause");
+	    	Map<String, Double> scores = new HashMap<>();
+	        List<Cause> customCauses = new ArrayList<>(); 
+	        int causeCounter = 1;
+	        
+	        // 從 relation 取得有效的証候列表
+	        Set<String> validSyndromes = new HashSet<>();
+	        if (this.loadCauses != null) {
+	        	for (Cause cause : this.loadCauses) {
+	        		validSyndromes.add(cause.to);
+	        	}
+	        }
+	        
+	        // 把controller收到的ajax 資料 map組合成的list抓出來
+	        for (int idx = 0; idx < result.size(); idx++) {
+	        	Map<String, String> data = result.get(idx);
+	            String syndrome = data.get("syndrome");
+	            String scoreStr = data.get("score");
+	            String causeStr = data.get("cause");         
 
-            // 轉換分數
-            if (scoreStr != null && !scoreStr.isEmpty()) {
-                scores.put(syndrome, Double.parseDouble(scoreStr));
-            }
+	            // 無紀錄證候，記錄Log
+	            if (!validSyndromes.isEmpty() && !validSyndromes.contains(syndrome)) {
+	            	System.out.println("警告：第 " + (idx+1) + " 筆症候 '" + syndrome + "' 不在有效列表");
+	            }
+	            
+	            // 轉換分數
+	            if (scoreStr != null && !scoreStr.isEmpty()) {
+	                try {
+	                	scores.put(syndrome, Double.parseDouble(scoreStr));
+	                } catch (NumberFormatException e) {
+	                	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+	                		"分數格式錯誤: " + e.getMessage());
+	                }
+	            }
 
-            // 使用者有選成因，額外建立一個 Cause 物件
-            if (causeStr != null && !causeStr.trim().isEmpty() && !causeStr.contains("-- 不顯示 --")) {
-                List<String> causeList = new ArrayList<>();
-            
-                String formattedCause = causeStr.replace("\\n", "\\l").replace("\n", "\\l");
-                causeList.add(formattedCause); 
-                String uniqueId = "c" + (causeCounter++);
-                
-                Cause c = new Cause(uniqueId, causeList, syndrome, "自訂來源", "");
-                
-                customCauses.add(c);
-            }
-        }
+	            // 使用者有選成因，額外建立一個 Cause 物件
+	            if (causeStr != null && !causeStr.trim().isEmpty() && !causeStr.contains("-- 不顯示 --")) {
+	                List<String> causeList = new ArrayList<>();
+	            
+	                String formattedCause = causeStr.replace("\\n", "\\l").replace("\n", "\\l");
+	                causeList.add(formattedCause); 
+	                String uniqueId = "c" + (causeCounter++);
+	                
+	                Cause c = new Cause(uniqueId, causeList, syndrome, "自訂來源", "");
+	                
+	                customCauses.add(c);
+	            }
+	        }
 
-        // 限制產圖邏輯
-        long validScoreCount = scores.values().stream()
-                .filter(score -> score > 0.399)
-                .count();
-        if (validScoreCount < 2 ) {
-            return null;
-        }
+	        // 限制產圖邏輯
+	        long validScoreCount = scores.values().stream()
+	                .filter(score -> score > 0.4 && score < 1.000)
+	                .count();
+	        if (validScoreCount < 2 ) {
+	            return null;
+	        }
 
-        List<Relation> relations = this.loadRelations;
-        
-        String dot = syndromeGraphService.toDot(scores, relations, customCauses);
-        /*
-        Path dotFile = SyndromeGraphPlotter.writeDot(dot, "case_diff.dot");
-        Path pngFile = SyndromeGraphPlotter.dotToPng(dotFile);
-        */
-        
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String dotFileName = "case_diff_temp_" + timestamp + ".dot";
-        Path dotFile = syndromeGraphService.writeDot(dot, dotFileName);
-        Path pngFile = syndromeGraphService.dotToPng(dotFile);
-        
-        System.out.println("已生成圖檔：" + pngFile);
-        return pngFile;
-    }
-	    
+	        List<Relation> relations = this.loadRelations;
+	        
+	        try {
+	        	String dot = syndromeGraphService.toDot(scores, relations, customCauses);        
+	        	String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	        	String dotFileName = "case_diff_temp_" + timestamp + ".dot";
+	        	Path dotFile = syndromeGraphService.writeDot(dot, dotFileName);
+	        	Path pngFile = syndromeGraphService.dotToPng(dotFile);
+	        	
+	        	System.out.println("已生成圖檔：" + pngFile);
+	        	return pngFile;
+	        } catch (IOException | InterruptedException e) {
+	        	throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
+	        		"圖表生成失敗: " + e.getMessage());
+	        }
+	    }
 	    
 	    @Transactional // 確保資料庫操作的完整性
 	    public void saveDiffRecord(String name, String identity, String symptoms, String result, String other, String tmpGraphPath) throws IOException {
@@ -393,16 +414,16 @@ public class DiffService {
 	            String fileName = Paths.get(cleanPath).getFileName().toString();
 
 	            // 定義tmp與permanent的絕對路徑
-	            Path sourcePath = SyndromeGraphService.TMP_PNG_DIR.resolve(fileName);
-	            Path targetPath = SyndromeGraphService.PNG_DIR.resolve(fileName);
+	            Path sourcePath = SyndromeGraphPlotter.TMP_PNG_DIR.resolve(fileName);
+	            Path targetPath = SyndromeGraphPlotter.PNG_DIR.resolve(fileName);
 	            /*
 	            String currentDir = System.getProperty("user.dir");
 	            Path targetDir = Paths.get(currentDir, "tcm_data", "graph", "permanent");
 	            Path targetPath = targetDir.resolve(fileName);
 				*/
 	            // 確保永久資料夾存在
-	            if (!Files.exists(SyndromeGraphService.PNG_DIR)) {
-	                Files.createDirectories(SyndromeGraphService.PNG_DIR);
+	            if (!Files.exists(SyndromeGraphPlotter.PNG_DIR)) {
+	                Files.createDirectories(SyndromeGraphPlotter.PNG_DIR);
 	            }
 
 	            // 執行搬移 (若目標檔存在則覆寫)
@@ -428,59 +449,7 @@ public class DiffService {
 	        }
 	        return null;
 	    }  
-/*    
-	    // 從json讀檔轉物件
-	    private List<Relation> loadRelations() throws Exception {
-	    	List<Relation> relations = new ArrayList<>();
-	        JSONParser parser = new JSONParser();
 
-	       // try (InputStream is = SyndromeGraphPlotter.class.getResourceAsStream("/static/Syndrome_Evolution_Relation.json")) 
-	        try (InputStream is = new ClassPathResource("static/Syndrome_Evolution_Relation.json").getInputStream()) 
-	        {
-	            if (is == null) {
-	                throw new IllegalStateException("找不到 JSON 檔");
-	            }
-
-	            JSONArray arr = (JSONArray) parser.parse(new InputStreamReader(is, "UTF-8"));
-	            for (Object o : arr) {
-	                JSONObject obj = (JSONObject) o;
-	                String from = (String) obj.get("from");
-	                String to = (String) obj.get("to");
-	                String source = (String) obj.get("source");
-	                String label = (String) obj.get("label");
-	                relations.add(new Relation(from, to, source, label));
-	            }
-	        }
-	        return relations;
-		}
-*/
-	    
-/*	    
-	    private List<Cause> loadCauses() throws Exception {
-	    	List<Cause> causes = new ArrayList<>();
-	        JSONParser parser = new JSONParser();
-
-	       // try (InputStream is = SyndromeGraphPlotter.class.getResourceAsStream("/static/Syndrome_Evolution_Relation.json")) 
-	        try (InputStream is = new ClassPathResource("static/Syndrome_Evolution_Causes.json").getInputStream()) 
-	        {
-	            if (is == null) {
-	                throw new IllegalStateException("找不到 JSON 檔");
-	            }
-
-	            JSONArray arr = (JSONArray) parser.parse(new InputStreamReader(is, "UTF-8"));
-	            for (Object o : arr) {
-	                JSONObject obj = (JSONObject) o;
-	                String id = (String) obj.get("id"); 
-	                String cause = (String) obj.get("cause");
-	                String to = (String) obj.get("to");
-	                String source = (String) obj.get("source");
-	                String label = (String) obj.get("label");
-	                causes.add(new Cause(id, cause, to, source, label));
-	            }
-	        }
-	        return causes;
-		}
-*/
 		//分數=1.0 跳過,>=0.8直接加入,<0.8只加入前三個
 	    private ArrayList<String> getTopSyndrome(LinkedHashMap<String, Double> result) {
 	        int count = 0;

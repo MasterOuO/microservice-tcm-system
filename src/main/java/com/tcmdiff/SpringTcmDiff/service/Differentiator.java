@@ -87,6 +87,25 @@ public class Differentiator {
 	        double S_W = this.parameter.getSecWeight(); 
 	        
 	        Double result_score=0.0;
+	        for (int i = 0; i < 5; i++) {
+	            SymptomSet primSet = syndrome_i.getPrimSymptSets()[i];
+	            SymptomSet secSet = syndrome_i.getSecSymptSets()[i];
+
+
+	            int primIntersectCount = (int) primSet.stream().filter(input_Symptoms_set::contains).count();
+	            if (secSet.isEmpty()) { 
+	                // 沒有次要群 算主要群就好
+	                result_score += this.diffGroup(primIntersectCount, primSet.size()) * G_W[i];
+	            } else {
+	                int secIntersectCount = (int) secSet.stream().filter(input_Symptoms_set::contains).count();
+	                
+	                result_score += (this.diffGroup(primIntersectCount, primSet.size()) * P_W 
+	                                + this.diffGroup(secIntersectCount, secSet.size()) * S_W) * G_W[i];
+	            }
+	        }
+	        return result_score;
+	    }
+/*
 	        for(int i=0;i<5;i++) {
 	            if(syndrome_i.getSecSymptSets()[i].size()==0) {  //沒有次要群 算主要5群就好
 	                result_score+=this.diffGroup(
@@ -99,7 +118,7 @@ public class Differentiator {
 	        
 	        return result_score;
 	    }
-		
+*/		
 		
 		// m是選擇症狀跟症候某群裡面症狀相同的數字
 		// n是症候某群裡面幾個症狀

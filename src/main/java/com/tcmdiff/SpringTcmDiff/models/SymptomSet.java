@@ -25,12 +25,13 @@ public class SymptomSet extends ArrayList<Integer> {
      * @param Input_Symptoms_set patient symptom set
      * @return Return the intersection ID of the patient's symptom set and the Syndrome symptom set
      */
+    /*
     public SymptomSet intersect(SymptomSet input_Symptoms_set){
     	SymptomSet i = new SymptomSet(input_Symptoms_set);
     	i.retainAll(this);  //會只剩下跟this相關的元素
     	return i;
     }
-    
+    */
     @Override
     public boolean add(Integer symptomId) {
         // 不改set 家這個限制

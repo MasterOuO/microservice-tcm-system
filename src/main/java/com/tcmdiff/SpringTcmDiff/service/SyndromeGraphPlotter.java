@@ -18,7 +18,7 @@ import com.tcmdiff.SpringTcmDiff.models.Cause;
  *  換佈署Graphviz 行182要換執行路徑exe
  */
 @Service
-public class SyndromeGraphService {	
+public class SyndromeGraphPlotter {	
 	//打包路徑測試
     private static final Path OUTPUT_ROOT = Paths.get("./diffgraph");
     private static final Path DOT_DIR = OUTPUT_ROOT.resolve(Paths.get("dot"));
@@ -44,18 +44,18 @@ public class SyndromeGraphService {
         if (score >= 0.8 && score <= 1.0) return "red";
         if (score >= 0.6 && score < 0.8)  return "orange";
         if (score >= 0.5 && score < 0.6)  return "yellow";
-        if (score >= 0.4 && score < 0.5)  return "white"; 
+        if (score > 0.4 && score < 0.5)  return "white"; 
         else return null; 
     }
 
     // 是否畫點
     private  boolean shouldDrawNode(double score) {
-        return score >= 0.4;
+        return score > 0.4;
     }
 
     // 是否畫邊
     private  boolean shouldDrawEdge(double fromScore, double toScore) {
-        return fromScore >= 0.4;
+        return fromScore > 0.4;
     }
 
     // 存檔id對應表 
@@ -73,6 +73,8 @@ public class SyndromeGraphService {
         return label.replace("\"", "“");
     }
 
+
+    
     // 生成 Graphviz dot 語法 
     public String toDot(Map<String, Double> syndromeScores,
                                List<Relation> syndromeRelations,
@@ -86,7 +88,40 @@ public class SyndromeGraphService {
                 visibleSyndromes.put(entry.getKey(), entry.getValue());
             }
         }
-
+        
+        //兼併證候 沒有from就不顯示
+        Map<String, List<String>> mergeDependencies = new HashMap<>();
+        for (Relation r : syndromeRelations) {
+            if ("兼併證候".equals(r.source)) {
+                // r.to 是兼併結果(肝脾不和), r.from 是前提(肝氣鬱結)
+                mergeDependencies.computeIfAbsent(r.to, k -> new ArrayList<>()).add(r.from);
+            }
+        }
+        Iterator<Map.Entry<String, Double>> iterator = visibleSyndromes.entrySet().iterator();
+        while (iterator.hasNext()) {
+            String currentSyndrome = iterator.next().getKey();
+            
+            // 出現在依賴表裡是兼併證候
+            if (mergeDependencies.containsKey(currentSyndrome)) {
+                List<String> requiredFroms = mergeDependencies.get(currentSyndrome);
+                boolean allPrerequisitesMet = true;
+                
+                // 檢查所有from存在visibleSyndromes
+                for (String reqFrom : requiredFroms) {
+                    if (!visibleSyndromes.containsKey(reqFrom)) {
+                        allPrerequisitesMet = false;
+                        break;
+                    }
+                }
+                
+                // 只要有一個前提沒達標，刪除
+                if (!allPrerequisitesMet) {
+                    iterator.remove(); 
+                }
+            }
+        }
+        
+        
         // id對應
         Map<String, String> syndromeIdMap = buildSyndromeIdMap(visibleSyndromes.keySet());
 
@@ -173,6 +208,8 @@ public class SyndromeGraphService {
         }
         sb.append("\n");
         
+    	// 篩選重複relation，避免畫重複邊
+    	Set<String> drawnEdges = new HashSet<>();
         // relation的邊
         for (Relation relation : syndromeRelations) {
             if (!syndromeScores.containsKey(relation.from) || !syndromeScores.containsKey(relation.to)) continue; // 確認有辨證分數
@@ -181,6 +218,11 @@ public class SyndromeGraphService {
             if (fromScore == null || toScore == null) continue;
             if (!visibleSyndromes.containsKey(relation.from) || !visibleSyndromes.containsKey(relation.to)) continue; // 確認歸屬度> 0.4
             if (shouldDrawEdge(fromScore, toScore)) {
+            	// 建立from->to的key，避免重複畫邊
+            	String edgeKey = relation.from + "->" + relation.to;
+            	if (drawnEdges.contains(edgeKey)) continue; 
+            	drawnEdges.add(edgeKey);
+            	
                 String fromId = syndromeIdMap.get(relation.from);
                 String toId   = syndromeIdMap.get(relation.to);
                 String labelId = relation.label;
@@ -222,7 +264,7 @@ public class SyndromeGraphService {
         Path pngOut = TMP_PNG_DIR.resolve(baseName + ".png");
         
         // 使用 Graphviz 的 dot 指令
-        String dotExe = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+        String dotExe = "dot";
         ProcessBuilder pb = new ProcessBuilder(
                 dotExe, "-Tpng",
                 dotFile.toAbsolutePath().toString(),
