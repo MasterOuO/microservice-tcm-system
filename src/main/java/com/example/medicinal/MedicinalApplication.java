@@ -20,7 +20,7 @@ public class MedicinalApplication {
     /**
      * 當 MedicinalApplication 啟動完成後，自動拉起同專案目錄下的 node server.js
      */
-    @EventListener(ApplicationReadyEvent.class)
+    /*@EventListener(ApplicationReadyEvent.class)
     public void startNodeService() {
         try {
             // 自動鎖定專案下的 midicinal_system 資料夾 (C:\tcm_2026\midicinal\midicinal_system)
@@ -54,5 +54,5 @@ public class MedicinalApplication {
         } catch (IOException e) {
             System.err.println("❌ 啟動 Node.js 中藥服務失敗: " + e.getMessage());
         }
-    }
+    }*/
 }
