@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>中醫方劑效力值推論系統 - 報表中心</title>
+    <style>
+        body { 
+            font-family: "Microsoft JhengHei", sans-serif; 
+            padding: 25px 0; 
+            background-color: #f8f9fa; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 讓內容整體置中 */
+        }
+        .container {
+            width: 50%; /* 只佔用中間 50% 寬度 */
+            min-width: 600px; /* 避免在小螢幕或手機上縮太小變形 */
+            max-width: 900px; /* 限制大螢幕上的最大寬度，保持緊湊 */
+        }
+        .header-box { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 3px solid #2c3e50; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px; 
+        }
+        h1 { font-size: 1.6rem; margin: 0; }
+        .effect-card { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 15px; overflow: hidden; }
+        .effect-title { background: #2c3e50; color: white; padding: 10px 20px; font-size: 1.3rem; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th { padding: 8px 20px; text-align: left; border-bottom: 2px solid #ddd; background: #fafafa; font-size: 1.05rem; }
+        td { padding: 8px 20px; text-align: left; border-bottom: 1px solid #eee; font-size: 1.15rem; } /* 大字體 */
+        .score-badge { display: inline-block; padding: 3px 12px; border-radius: 15px; font-weight: bold; font-size: 1.05rem; }
+        .high-score { background-color: #e8f5e9; color: #2e7d32; }
+        .mid-score { background-color: #fff3e0; color: #ef6c00; }
+        .low-score { background-color: #fafafa; color: #9e9e9e; }
+        .btn-group { display: flex; gap: 8px; }
+        .btn { border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; color: white; font-size: 14px; }
+        .btn-blue { background: #3498db; }
+        .btn-orange { background: #e67e22; }
+        .btn-purple { background: #9b59b6; }
+        .btn-green { background: #27ae60; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header-box">
+        <h1>方劑效力值報表中心 </h1>
+        <div class="btn-group">
+            <button class="btn btn-blue" onclick="getReport()">🔍 讀取資料庫</button>
+            <button class="btn btn-orange" onclick="triggerInference('incremental')">⚡ 增量計算</button>
+            <button class="btn btn-purple" onclick="triggerInference('global')">🌐 全量計算</button>
+            <button class="btn btn-green" onclick="saveToDatabase()">📥 發布至資料庫</button>
+        </div>
+    </div>
+    <div id="resultsContainer">
+        <div style="text-align:center; color:#95a5a6; padding:30px;">請點擊按鈕獲取數據。</div>
+    </div>
+</div>
+
+<script>
+    const GATEWAY_URL = 'http://localhost:8080/api/medicinal';
+    const container = document.getElementById('resultsContainer');
+
+    function render(data) {
+        container.innerHTML = '';
+        if (!data || Object.keys(data).length === 0) {
+            container.innerHTML = '<div style="text-align:center; padding:30px; color:#e74c3c; font-weight:bold; font-size:1.2rem;">⚠️ 目前 MySQL 資料庫中尚無任何經發布的正式效力值，請先點選上方按鍵計算並發布！</div>'; 
+            return;
+        }
+        for (const [effectName, scores] of Object.entries(data)) {
+            if (effectName === '_metadata') continue;
+            let cardHTML = `<div class="effect-card"><div class="effect-title">🎯 療效：${effectName}</div><table><thead><tr><th style="width: 50%;">藥材</th><th style="width: 50%;">分值</th></tr></thead><tbody>`;
+            const sortedDrugs = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            sortedDrugs.forEach(([drug, score]) => {
+                let badgeClass = score >= 90 ? 'high-score' : (score >= 80 ? 'mid-score' : 'low-score');
+                cardHTML += `<tr><td><strong>${drug}</strong></td><td><span class="score-badge ${badgeClass}">${score} 分</span></td></tr>`;
+            });
+            cardHTML += `</tbody></table></div>`; 
+            container.innerHTML += cardHTML;
+        }
+    }
+
+    async function getReport() {
+        container.innerHTML = '正在自 MySQL 正式資料庫讀取已發布權重...';
+        try {
+            const reportRes = await fetch(`${GATEWAY_URL}/inference/report`);
+            const data = await reportRes.json(); 
+            render(data);
+        } catch (e) { 
+            console.error(e);
+            container.innerHTML = '自資料庫讀取數據失敗。'; 
+        }
+    }
+
+    async function triggerInference(type) {
+        container.innerHTML = type === 'global' ? '正在重啟全域圖論演算法運算暫存中...' : '正在檢查變動並寫入本地暫存...';
+        try {
+            const endpoint = type === 'global' ? '/inference/global' : '/inference/incremental';
+            const inferRes = await fetch(`${GATEWAY_URL}${endpoint}`, { method: 'POST' });
+            const result = await inferRes.json(); 
+            alert(result.msg); 
+            render(result.data);
+        } catch (e) { 
+            console.error(e);
+            container.innerHTML = '演算法運算請求失敗。'; 
+        }
+    }
+
+    async function saveToDatabase() {
+        if (!confirm("確定要將當前暫存檔案中的權重數據正式發布，覆蓋並更新 MySQL 資料庫嗎？")) return;
+        container.innerHTML = '正在將查驗數據發布至資料庫...';
+        try {
+            const saveRes = await fetch(`${GATEWAY_URL}/inference/save-to-db`, { method: 'POST' });
+            const result = await saveRes.json();
+            alert(result.msg);
+            getReport();
+        } catch (e) {
+            console.error(e);
+            alert("同步資料庫失敗");
+            getReport();
+        }
+    }
+
+    window.onload = getReport;
+</script>
+</body>
+</html>

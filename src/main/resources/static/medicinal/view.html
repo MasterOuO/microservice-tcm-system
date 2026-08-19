@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>方劑資料總表 - 格式優化版</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; padding: 30px; background: #fff; }
+        .header-box { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        th, td { border: 1px solid #000; padding: 12px; text-align: left; word-wrap: break-word; vertical-align: top; font-size: 14px; line-height: 1.6; }
+        th { background-color: #f2f2f2; font-weight: bold; text-align: center; }
+        
+        /* 寬度分配：1、2欄縮小，3-7欄平均分配 */
+        .col-1 { width: 8%; }  
+        .col-2 { width: 10%; } 
+        .col-rest { width: 16.4%; } 
+
+        @media print {
+            .no-print { display: none; }
+            body { padding: 0; }
+            table { font-size: 11px; }
+        }
+
+        .btn-print { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .btn-print:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="header-box">
+    <h1>中醫方劑研究資料匯總表</h1>
+    <button class="btn-print no-print" onclick="window.print()">儲存為 PDF / 列印</button>
+</div>
+
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th class="col-1">方劑</th>
+            <th class="col-2">症候</th>
+            <th class="col-rest">君</th>
+            <th class="col-rest">臣</th>
+            <th class="col-rest">佐</th>
+            <th class="col-rest">使</th>
+            <th class="col-rest">偏序關係</th>
+        </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+</table>
+
+<script>
+    const GATEWAY_URL = 'http://localhost:8080/api/medicinal';
+
+    // 格式化函式：僅針對分號 ; 進行換行處理
+    function formatText(text) {
+        if (!text) return '';
+        return text.toString().replace(/;/g, '<br>');
+    }
+
+    async function fetchData() {
+        try {
+            const res = await fetch(`${GATEWAY_URL}/all`);
+            const data = await res.json();
+            const body = document.getElementById('dataBody');
+            
+            if (!data || data.length === 0) {
+                body.innerHTML = '<tr><td colspan="7" style="text-align:center;">目前尚無資料</td></tr>';
+                return;
+            }
+
+            body.innerHTML = ''; 
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${formatText(row.name)}</td>
+                    <td>${formatText(row.symptoms)}</td>
+                    <td>${formatText(row.king)}</td>
+                    <td>${formatText(row.minister)}</td>
+                    <td>${formatText(row.assistant)}</td>
+                    <td>${formatText(row.envoy)}</td>
+                    <td>${formatText(row.relation)}</td>
+                `;
+                body.appendChild(tr);
+            });
+        } catch (e) {
+            console.error(e);
+            alert("讀取失敗，請確認 Gateway (8080) 與 Node.js (3000) 是否已啟動。");
+        }
+    }
+
+    window.onload = fetchData;
+</script>
+
+</body>
+</html>

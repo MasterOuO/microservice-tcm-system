@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中醫方劑研究資料輸入系統</title>
+    <style>
+        body { background-color: #f4f7f6; font-family: "Microsoft JhengHei", sans-serif; padding: 30px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 1300px; }
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+        .main-panel { background-color: #fffde7; border: 1px solid #e0e0e0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .full-row { grid-column: span 3; }
+        .input-group { display: flex; flex-direction: column; }
+        .input-group label { font-weight: bold; margin-bottom: 8px; color: #555; border-left: 4px solid #007bff; padding-left: 8px; }
+        textarea { width: 100%; min-height: 100px; padding: 12px; font-size: 16px; line-height: 1.6; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; outline: none; transition: all 0.3s; resize: vertical; }
+        textarea:focus { border-color: #007bff; background-color: #fff; box-shadow: 0 0 8px rgba(0,123,255,0.1); }
+        .btn-box { margin-top: 30px; display: flex; justify-content: flex-end; gap: 15px; }
+        button { padding: 12px 35px; font-size: 16px; cursor: pointer; border: none; border-radius: 6px; color: white; font-weight: bold; transition: all 0.2s; }
+        .btn-green { background-color: #28a745; }
+        .btn-red { background-color: #dc3545; }
+        button:hover { opacity: 0.9; transform: translateY(-2px); }
+        button:active { transform: translateY(0); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>方劑輸入系統</h2>
+    <div class="main-panel">
+        <div class="grid-container">
+            <div class="input-group"><label>方劑名稱</label><textarea id="name"></textarea></div>
+            <div class="input-group"><label>證候</label><textarea id="symptoms" ></textarea></div>
+            <div class="input-group"><label>君藥(藥材:療效1、療效2...;)</label><textarea id="king" ></textarea></div>
+            <div class="input-group"><label>臣藥(藥材:療效1、療效2...;)</label><textarea id="minister" ></textarea></div>
+            <div class="input-group"><label>佐藥(藥材:療效1、療效2...;)</label><textarea id="assistant" ></textarea></div>
+            <div class="input-group"><label>使藥(藥材:療效1、療效2...;)</label><textarea id="envoy" ></textarea></div>
+            <div class="input-group full-row"><label>偏序關係 (格式：療效:藥A>藥B; 功效:藥C>藥D)</label><textarea id="relation" ></textarea></div>
+        </div>
+    </div>
+    <div class="btn-box">
+        <button class="btn-red" onclick="reset()">清除內容</button>
+        <button class="btn-green" onclick="submit()">確認新增到資料庫</button>
+    </div>
+</div>
+<script>
+    const GATEWAY_URL = 'http://localhost:8080/api/medicinal';
+
+    // 自動調整輸入框高度
+    document.querySelectorAll('textarea').forEach(t => { 
+        t.oninput = () => { 
+            t.style.height = 'auto'; 
+            t.style.height = t.scrollHeight + 'px'; 
+        }; 
+    });
+
+    // 必須加上 async 關鍵字，才能在函式內部使用 await
+    async function submit() {
+        const relationField = document.getElementById('relation');
+        let relationRaw = relationField.value.trim();
+        let relationClean = relationRaw.replace(/\n/g, ' ');
+
+        const data = {
+            name: document.getElementById('name').value.trim(),
+            symptoms: document.getElementById('symptoms').value.trim(),
+            king: document.getElementById('king').value.trim(),
+            minister: document.getElementById('minister').value.trim(),
+            assistant: document.getElementById('assistant').value.trim(),
+            envoy: document.getElementById('envoy').value.trim(),
+            relation: relationClean
+        };
+
+        if (!data.name) { 
+            alert("請務必輸入「方劑名稱」！"); 
+            return; 
+        }
+
+        const relationPattern = /^([^:;]+:[^:;>]+(>[^:;]+)?(;\s*|$))+$/;
+        if (data.relation && !relationPattern.test(data.relation)) { 
+            alert("格式錯誤！\n偏序關係輸入規則請參考欄位上方提示"); 
+            return; 
+        }
+
+        try {
+            // 發送至 Gateway 8080 的 /api/medicinal/add
+            const res = await fetch(`${GATEWAY_URL}/add`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json(); 
+            alert(result.msg); 
+            resetFields(); 
+        } catch (e) { 
+            console.error(e);
+            alert("傳送失敗！請檢查 Gateway (8080) 與 Node.js (3000) 狀態。"); 
+        }
+    }
+
+    function reset() { 
+        if (confirm("確定要清空畫面上所有的輸入內容嗎？")) {
+            resetFields(); 
+        }
+    }
+
+    function resetFields() { 
+        document.querySelectorAll('textarea').forEach(t => { 
+            t.value = ""; 
+            t.style.height = '100px'; 
+        }); 
+    }
+</script>
+</body>
+</html>
