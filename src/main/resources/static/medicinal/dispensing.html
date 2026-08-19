@@ -5,76 +5,98 @@
     <title>TCM 智能動態配藥系統</title>
     <style>
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #a2e8f5; 
+            font-family: "Microsoft JhengHei", 'Segoe UI', sans-serif; 
+            background-color: #dcf2ea; 
             margin: 20px; 
-            color: #333; 
+            color: #2c3e50; 
         }
         .container { 
-            max-width: 1000px; 
+            max-width: 1050px; 
             margin: 0 auto; 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 30px; 
+            background: #ffffff; 
+            padding: 35px; 
             border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+            box-shadow: 0 4px 16px rgba(46, 125, 107, 0.08); 
         }
-        h2 { border-bottom: 2px solid #29b6f6; padding-bottom: 10px; color: #0288d1; }
+        h2 { 
+            border-bottom: 2px solid #b2dfdb; 
+            padding-bottom: 12px; 
+            color: #1b5e20; 
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
         .config-section { 
             display: grid; 
             grid-template-columns: 1fr 2fr; 
             gap: 20px; 
-            background: #e1f5fe; 
-            padding: 20px; 
-            border-radius: 8px; 
-            border: 1px solid #b3e5fc; 
-            margin-bottom: 25px; 
+            background: #eef7f4; 
+            padding: 22px; 
+            border-radius: 10px; 
+            border: 1px solid #c8e6c9; 
+            margin-bottom: 20px; 
         }
         .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; color: #01579b; }
-        select, input[type="number"] { width: 100%; padding: 10px; border: 1px solid #b3e5fc; border-radius: 6px; box-sizing: border-box; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: #2e7d6b; font-size: 15px; }
+        select, input[type="number"] { 
+            width: 100%; 
+            padding: 9px 12px; 
+            border: 1.5px solid #a3d9c9; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            background: #fff;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #2e7d6b;
+            box-shadow: 0 0 5px rgba(46, 125, 107, 0.2);
+        }
         .effect-row, .syndrome-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+        
         .btn { 
-            background: #2b75b0; color: white; padding: 12px 20px; border: none; border-radius: 6px; 
-            cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s; 
+            background: #2e7d6b; color: white; padding: 11px 20px; border: none; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; 
         }
-        .btn:hover { background: #1f5784; }
-        .btn-secondary { background: #00acc1; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s; }
-        .btn-secondary:hover { background: #00838f; }
-        .recommend-box { margin-top: 20px; background: #fff; border: 1px solid #b3e5fc; border-radius: 8px; padding: 15px; }
-        .drug-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .btn:hover { background: #236354; transform: translateY(-1px); }
+        .btn-secondary { 
+            background: #4db6ac; color: white; padding: 11px 20px; border: none; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; 
+        }
+        .btn-secondary:hover { background: #39968d; transform: translateY(-1px); }
+        
+        .recommend-box { margin-top: 20px; background: #fafdfc; border: 1px solid #b2dfdb; border-radius: 10px; padding: 20px; }
+        .drug-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
         .drug-tag { 
-            background: #2b75b0; color: white; padding: 8px 15px; border-radius: 6px; 
-            cursor: pointer; font-weight: 500; border: 1px solid #1f5784; transition: all 0.2s; user-select: none; 
+            background: #e0f2f1; color: #004d40; padding: 7px 14px; border-radius: 6px; 
+            cursor: pointer; font-weight: 600; border: 1px solid #80cbc4; transition: all 0.2s; user-select: none; 
+            display: inline-flex; align-items: center;
         }
-        .drug-tag:hover { background: #1f5784; transform: translateY(-2px); }
-        .drug-tag span { font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
-        .prescription-view { margin-top: 30px; border: 2px dashed #0288d1; border-radius: 8px; padding: 20px; background: #f0fbfd; display: none; }
-        .prescription-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
-        .prescription-table th, .prescription-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
-        .prescription-table th { background: #e1f5fe; color: #01579b; }
-        .delete-btn { color: #d32f2f; cursor: pointer; font-weight: bold; background: none; border: none; font-size: 14px; }
+        .drug-tag:hover { background: #b2dfdb; transform: translateY(-2px); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .drug-tag span { font-size: 12px; background: #ffffff; color: #00796b; padding: 2px 7px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
+        
+        .prescription-view { margin-top: 25px; border: 2px dashed #4db6ac; border-radius: 10px; padding: 22px; background: #f4faf8; display: none; }
+        .prescription-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 6px; overflow: hidden; }
+        .prescription-table th, .prescription-table td { border: 1px solid #e0ece9; padding: 12px 14px; text-align: left; }
+        .prescription-table th { background: #e8f5e9; color: #1b5e20; font-weight: bold; }
+        .delete-btn { color: #d32f2f; cursor: pointer; font-weight: bold; background: none; border: none; font-size: 13px; }
         .delete-btn:hover { text-decoration: underline; }
-        .role-tag { font-weight: bold; padding: 4px 10px; border-radius: 4px; color: white; font-size: 13px; display: inline-block; }
-        .role-君藥 { background: #d32f2f; }
-        .role-臣藥 { background: #f57c00; }
-        .role-佐藥 { background: #388e3c; }
-        .role-使藥 { background: #1976d2; }
-        .role-方劑 { background: #00acc1; } /* 完整方劑專屬青綠色標籤 */
-        /* 專屬質感模式 Badge 樣式 */
+        
+        .role-tag { font-weight: bold; padding: 3px 8px; border-radius: 4px; color: white; font-size: 12px; display: inline-block; }
+        .role-君藥 { background: #c62828; }
+        .role-臣藥 { background: #ef6c00; }
+        .role-佐藥 { background: #2e7d32; }
+        .role-使藥 { background: #0277bd; }
+        .role-方劑 { background: #00897b; }
+        
         .type-badge {
-        background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-        border: 1px solid #80deea;
-        color: #006064;
-        padding: 10px 14px;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .type-badge span {
-        letter-spacing: 0.5px;
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            color: #1b5e20;
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -83,19 +105,18 @@
 <div class="container">
     <h2>臨床動態配藥系統</h2>
     
-    <!-- 區塊一：單味藥材動態加權推薦 -->
     <div class="config-section">
         <div>
             <div class="form-group">
                 <label>藥材角色</label>
                 <select id="prescriptionRole">
-                    <option value="君藥">君藥 </option>
-                    <option value="臣藥">臣藥 </option>
-                    <option value="佐藥">佐藥 </option>
-                    <option value="使藥">使藥 </option>
+                    <option value="君藥">君藥</option>
+                    <option value="臣藥">臣藥</option>
+                    <option value="佐藥">佐藥</option>
+                    <option value="使藥">使藥</option>
                 </select>
             </div>
-            <button class="btn" onclick="calculateScores()"> 藥材推薦</button>
+            <button class="btn" onclick="calculateScores()">藥材推薦</button>
         </div>
         <div>
             <label>療效與權重</label>
@@ -116,48 +137,46 @@
         </div>
     </div>
 
-    <!-- 區塊二：證候選擇完整方劑  -->
     <div class="config-section">
-    <div>
-        <div class="form-group">
-            <label>選用模式</label>
-            <div class="type-badge">
-                <span>科學中藥</span>
+        <div>
+            <div class="form-group">
+                <label>選用模式</label>
+                <div class="type-badge">
+                    <span>科學中藥</span>
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="calculateSyndromePrescriptions()">方劑推薦</button>
+        </div>
+        <div>
+            <label>證候與權重</label>
+            <div id="syndromeWeightContainer">
+                <div class="syndrome-row">
+                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="1.0" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.5" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.2" placeholder="權重">
+                </div>
             </div>
         </div>
-        <button class="btn btn-secondary" onclick="calculateSyndromePrescriptions()">方劑推薦</button>
-    </div>
-    <div>
-        <label>證候與權重</label>
-        <div id="syndromeWeightContainer">
-            <div class="syndrome-row">
-                <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="1.0" placeholder="權重">
-            </div>
-            <div class="syndrome-row">
-                <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.5" placeholder="權重">
-            </div>
-            <div class="syndrome-row">
-                <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.2" placeholder="權重">
-            </div>
-        </div>
-    </div>
     </div>
 
-    <!-- 推薦結果顯示區塊 -->
     <div id="recommendationBox" class="recommend-box" style="display:none;">
-        <h3 id="recommendTitle" style="margin-top:0; color:#01579b;">推薦清單</h3>
+        <h3 id="recommendTitle" style="margin-top:0; color:#2e7d6b; font-size: 1.15rem;">推薦清單</h3>
         <div id="drugRecommendList" class="drug-tags"></div>
     </div>
 
     <div style="margin-top: 25px; text-align: right;">
-        <button class="btn btn-secondary" onclick="finalizePrescription()">完成配藥</button>
+        <button class="btn" style="background:#2e7d6b; padding:12px 28px; font-size:15px;" onclick="finalizePrescription()">✔ 完成配藥</button>
     </div>
 
     <div id="prescriptionOutput" class="prescription-view">
-        <h3 style="margin-top:0; color: #0288d1;">當前方劑</h3>
+        <h3 style="margin-top:0; color: #2e7d6b;">當前方劑處方箋</h3>
         <table class="prescription-table">
             <thead>
                 <tr>
@@ -184,11 +203,9 @@
 
     async function init() {
         try {
-            // 1. 讀取推論權重數據
             const res = await fetch(`${GATEWAY_URL}/inference/report`);
             inferenceReport = await res.json();
             
-            // 2. 讀取配伍禁忌字典
             const contraRes = await fetch(`${GATEWAY_URL}/dispensing/contraindications`);
             contraindicationsList = await contraRes.json();
             
@@ -206,7 +223,6 @@
                 });
             });
 
-            // 3. 載入證候選單數據
             const syndromeRes = await fetch(`${GATEWAY_URL}/syndrome/list`);
             const syndromes = await syndromeRes.json();
             const syndromeSelects = document.querySelectorAll('.syndrome-select');
@@ -218,7 +234,6 @@
                 });
             });
 
-            // === 4. 自動比對並帶入證候參數 (強效模糊匹配) ===
             const urlParams = new URLSearchParams(window.location.search);
             const incomingSyndrome = urlParams.get('syndrome');
 
@@ -228,8 +243,6 @@
 
                 if (firstSyndromeSelect) {
                     let matchedIndex = -1;
-
-                    // 第一輪：完全相符比對
                     for (let i = 0; i < firstSyndromeSelect.options.length; i++) {
                         const optText = firstSyndromeSelect.options[i].text.trim();
                         const optVal = firstSyndromeSelect.options[i].value.trim();
@@ -239,7 +252,6 @@
                         }
                     }
 
-                    // 第二輪：模糊包含比對 (例如 "心氣虛" 包含於 "心氣虛證")
                     if (matchedIndex === -1) {
                         for (let i = 1; i < firstSyndromeSelect.options.length; i++) {
                             const optText = firstSyndromeSelect.options[i].text.trim();
@@ -250,34 +262,28 @@
                         }
                     }
 
-                    // 如果成功找到對應項目
                     if (matchedIndex > 0) {
                         firstSyndromeSelect.selectedIndex = matchedIndex;
                         firstSyndromeSelect.value = firstSyndromeSelect.options[matchedIndex].value;
 
-                        // 確保權重預設為 1.0
                         const firstWeightInput = document.querySelector('.syndrome-weight-input');
                         if (firstWeightInput && (!firstWeightInput.value || parseFloat(firstWeightInput.value) <= 0)) {
                             firstWeightInput.value = "1.0";
                         }
 
-                        // 延遲 50ms 確保 DOM 狀態完全更新後執行計算
                         setTimeout(() => {
                             calculateSyndromePrescriptions();
                         }, 50);
-                    } else {
-                        console.warn(`[證候帶入警告] 資料庫中找不到與「${targetSyndrome}」相符的證候選項。`);
                     }
                 }
             }
 
         } catch (e) {
             console.error(e);
-            alert('數據初始化失敗，請確認後端 node server.js 是否已啟動！');
+            alert('數據初始化失敗，請確認後端 Node.js (Port 3000) 是否已啟動！');
         }
     }
 
-    // 單味藥材加權計算
     function calculateScores() {
         const rows = document.querySelectorAll('.effect-row');
         let selectedConfigs = [];
@@ -324,7 +330,7 @@
         container.innerHTML = '';
         
         if (top10.length === 0) {
-            container.innerHTML = '<p style="color:#999; font-size:13px; padding-left:5px;">暫無符合推薦藥材</p>';
+            container.innerHTML = '<p style="color:#888; font-size:13px; padding-left:5px;">暫無符合推薦藥材</p>';
         } else {
             top10.forEach(item => {
                 const tag = document.createElement('div'); 
@@ -337,7 +343,6 @@
         document.getElementById('recommendationBox').style.display = 'block';
     }
 
-    // 多證候動態加權運算 (多方劑推薦)
     async function calculateSyndromePrescriptions() {
         const rows = document.querySelectorAll('.syndrome-row');
         let selectedConfigs = [];
@@ -394,13 +399,14 @@
             container.innerHTML = '';
 
             if (top10.length === 0) {
-                container.innerHTML = '<p style="color:#999; font-size:13px; margin:0;">暫無符合之推薦方劑</p>';
+                container.innerHTML = '<p style="color:#888; font-size:13px; margin:0;">暫無符合之推薦方劑</p>';
             } else {
                 top10.forEach(item => {
                     const tag = document.createElement('div');
                     tag.className = 'drug-tag';
-                    tag.style.background = '#00acc1'; 
-                    tag.style.borderColor = '#00838f';
+                    tag.style.background = '#e8f5e9';
+                    tag.style.borderColor = '#a5d6a7';
+                    tag.style.color = '#1b5e20';
                     tag.innerHTML = `${item.name} <span>${item.score}分</span>`;
                     tag.onclick = () => addSyndromePrescription(item.name, item.combinedSyndromes);
                     container.appendChild(tag);
@@ -416,13 +422,7 @@
 
     function addSyndromePrescription(prescriptionName, combinedSyndromes) {
         selectedDrugs.add(prescriptionName);
-        
-        currentPrescription.push({ 
-            role: '方劑', 
-            name: prescriptionName, 
-            effect: `${combinedSyndromes}` 
-        });
-        
+        currentPrescription.push({ role: '方劑', name: prescriptionName, effect: `${combinedSyndromes}` });
         calculateSyndromePrescriptions(); 
         renderPrescriptionTable(); 
     }
@@ -442,9 +442,9 @@
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td><span class="role-tag role-${item.role}">${item.role}</span></td>
-                <td style="font-weight: 600; color: #2c3e50;">${item.name}</td>
-                <td style="color: #333; font-size: 14px; font-weight: 500;">${item.effect}</td>
-                <td><input type="number" style="padding:6px; width:80px;" min="0.5" step="0.5" value="1.0"></td>
+                <td style="font-weight: 600; color: #2e7d6b;">${item.name}</td>
+                <td style="color: #444; font-size: 14px;">${item.effect}</td>
+                <td><input type="number" style="padding:6px; width:75px;" min="0.5" step="0.5" value="1.0"></td>
                 <td><button class="delete-btn" onclick="removeDrug(${index}, '${item.name}')">❌ 移除</button></td>
             `;
             tbody.appendChild(tr);
