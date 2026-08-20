@@ -105,6 +105,37 @@
 <div class="container">
     <h2>臨床動態配藥系統</h2>
     
+    <!-- 1. 科學中藥選擇區塊 (置於上方) -->
+    <div class="config-section">
+        <div>
+            <div class="form-group">
+                <label>選用模式</label>
+                <div class="type-badge">
+                    <span>科學中藥 (方劑)</span>
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="calculateSyndromePrescriptions()">方劑推薦</button>
+        </div>
+        <div>
+            <label>證候與權重</label>
+            <div id="syndromeWeightContainer">
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 單味藥材選擇區塊 (置於下方) -->
     <div class="config-section">
         <div>
             <div class="form-group">
@@ -122,45 +153,16 @@
             <label>療效與權重</label>
             <div id="effectWeightContainer">
                 <div class="effect-row">
-                    <select class="effect-select"><option value="">--請選擇療效--</option></select>
-                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="1.0" placeholder="權重">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
                 </div>
                 <div class="effect-row">
-                    <select class="effect-select"><option value="">--請選擇療效--</option></select>
-                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.5" placeholder="權重">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
                 </div>
                 <div class="effect-row">
-                    <select class="effect-select"><option value="">--請選擇療效--</option></select>
-                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.2" placeholder="權重">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="config-section">
-        <div>
-            <div class="form-group">
-                <label>選用模式</label>
-                <div class="type-badge">
-                    <span>科學中藥</span>
-                </div>
-            </div>
-            <button class="btn btn-secondary" onclick="calculateSyndromePrescriptions()">方劑推薦</button>
-        </div>
-        <div>
-            <label>證候與權重</label>
-            <div id="syndromeWeightContainer">
-                <div class="syndrome-row">
-                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="1.0" placeholder="權重">
-                </div>
-                <div class="syndrome-row">
-                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.5" placeholder="權重">
-                </div>
-                <div class="syndrome-row">
-                    <select class="syndrome-select"><option value="">--請選擇證候--</option></select>
-                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.2" placeholder="權重">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
                 </div>
             </div>
         </div>
@@ -200,6 +202,41 @@
     let allAvailableDrugs = new Set(); 
     let selectedDrugs = new Set(); 
     let currentPrescription = []; 
+
+    // 動態自適應權重分配邏輯
+    function autoUpdateWeights(type) {
+        const selectClass = type === 'syndrome' ? '.syndrome-select' : '.effect-select';
+        const weightClass = type === 'syndrome' ? '.syndrome-weight-input' : '.weight-input';
+
+        const selects = document.querySelectorAll(selectClass);
+        const weightInputs = document.querySelectorAll(weightClass);
+
+        let selectedCount = 0;
+        selects.forEach(select => {
+            if (select.value.trim() !== "") {
+                selectedCount++;
+            }
+        });
+
+        let targetWeights = [0.0, 0.0, 0.0];
+        if (selectedCount === 1) {
+            targetWeights = [1.0, 0.0, 0.0];
+        } else if (selectedCount === 2) {
+            targetWeights = [0.7, 0.3, 0.0];
+        } else if (selectedCount >= 3) {
+            targetWeights = [0.5, 0.3, 0.2];
+        }
+
+        let assignedIndex = 0;
+        selects.forEach((select, i) => {
+            if (select.value.trim() !== "") {
+                weightInputs[i].value = targetWeights[assignedIndex];
+                assignedIndex++;
+            } else {
+                weightInputs[i].value = "0.0";
+            }
+        });
+    }
 
     async function init() {
         try {
@@ -266,10 +303,8 @@
                         firstSyndromeSelect.selectedIndex = matchedIndex;
                         firstSyndromeSelect.value = firstSyndromeSelect.options[matchedIndex].value;
 
-                        const firstWeightInput = document.querySelector('.syndrome-weight-input');
-                        if (firstWeightInput && (!firstWeightInput.value || parseFloat(firstWeightInput.value) <= 0)) {
-                            firstWeightInput.value = "1.0";
-                        }
+                        // 觸發自適應權重計算
+                        autoUpdateWeights('syndrome');
 
                         setTimeout(() => {
                             calculateSyndromePrescriptions();
@@ -327,7 +362,7 @@
         if (titleElem) titleElem.textContent = "推薦藥材 (單味)";
         
         const container = document.getElementById('drugRecommendList'); 
-        container.innerHTML = '';
+        container.innerHTML = ''; 
         
         if (top10.length === 0) {
             container.innerHTML = '<p style="color:#888; font-size:13px; padding-left:5px;">暫無符合推薦藥材</p>';
