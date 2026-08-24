@@ -15,11 +15,10 @@
 	<!-- 頂部 Navbar (小螢幕時會顯示漢堡按鈕) -->
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #07393C;">
 	  <div class="container-fluid">
-	    <!-- 漢堡按鈕 (在大螢幕也會顯示, 但可視需要 d-lg-none) -->
+	    <!-- 漢堡按鈕 -->
 	    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    
 	    
 	    <!-- 右側：使用者姓名 & 登出 -->
 	    <div class="ms-auto text-white d-flex align-items-center">
@@ -36,60 +35,80 @@
 				<div class="sidebar-heading">醫生管理系統</div>
 				<hr/>
 				<nav class="nav flex-column">
-					<a class="nav-link" >門診</a>
-					<a class="nav-link" >病患名單查詢</a>
-					<a class="nav-link" >個人資料管理</a>
+					<a class="nav-link" href="#" onclick="showDoctorMainView()" style="cursor: pointer;">門診</a>
+					<a class="nav-link" href="#" style="cursor: pointer;">病患名單查詢</a>
+					<a class="nav-link" href="#" style="cursor: pointer;">個人資料管理</a>
+				</nav>
+
+				<!-- === 中藥微服務管理選單 (在同頁面右側切換顯示) === -->
+				<div class="sidebar-heading mt-4" style="font-size: 1.1rem; color: #07393C; font-weight: bold;">中藥管理系統</div>
+				<hr/>
+				<nav class="nav flex-column">
+					<a class="nav-link text-success fw-bold" href="javascript:void(0)" onclick="loadMedicinalPage('/medicinal/dispensing.html')">
+						臨床動態配藥
+					</a>
+					<a class="nav-link" href="javascript:void(0)" onclick="loadMedicinalPage('/medicinal/index.html')">
+						方劑資料輸入
+					</a>
+					<a class="nav-link" href="javascript:void(0)" onclick="loadMedicinalPage('/medicinal/inference.html')">
+						效力推論報表
+					</a>
+					<a class="nav-link" href="javascript:void(0)" onclick="loadMedicinalPage('/medicinal/view.html')">
+						方劑資料總表
+					</a>
 				</nav>
 			</div>
 	
 		
 		<div class="col">
 			<div class="container mt-4">
-			<!-- Header -->
-				<div id="toastContainer" style="position: fixed; top: 5%; right: 0; z-index: 9999; width: 60%;">
-					<div class="toast" id="globalToast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; width: 60%;" data-bs-delay="300">
-						<div class="toast-body" style="width: 100%; text-align: center;">
-							<h4 id="toastMessage">辨證結果已更新 !</h4>
+				<!-- 原有門診主視圖區塊 -->
+				<div id="doctor_main_view">
+					<!-- Header -->
+					<div id="toastContainer" style="position: fixed; top: 5%; right: 0; z-index: 9999; width: 60%;">
+						<div class="toast" id="globalToast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; width: 60%;" data-bs-delay="300">
+							<div class="toast-body" style="width: 100%; text-align: center;">
+								<h4 id="toastMessage">辨證結果已更新 !</h4>
+							</div>
 						</div>
 					</div>
-				</div>
-		
-				<header class="w3-container" style="padding-top: 22px">
-					<h2>
-						<b>門診</b>
-					</h2>
-				</header>
-		
-				<div class="card p-4 mb-4" style="background-color: #EAFcFA">
-					<div class="mb-3" id="patient_form">
-						<h3>病患:</h3>
-						<select class="form-select" id="patientSelect">
-							<option value="">--選擇病患--</option>
-							<th:block th:each="patient : ${patients}">
-								<option 
-									th:value="${patient.id}"
-									th:data-identity="${patient.identity}"
-									th:text="${patient.name + '('+ patient.identity +')'}">
-								</option>
-							</th:block>
-						</select>
-						<div class=" w3-text-black w3-xlarge" id="history"></div>
-					</div>
-					
-					<form class="w3-container w3-card-4 w3-light-grey w3-margin w3-xlarge" id="form">
-							<h3>科別:</h3>
-							<select class="form-select" id="opt" name="opt" required>
-								<option value="">--選擇科別--</option>
-								<option th:each="opt : ${opts}"
-										th:value="${opt[0]}"
-										th:text="${opt[1]}">
+			
+					<header class="w3-container" style="padding-top: 22px">
+						<h2>
+							<b>門診</b>
+						</h2>
+					</header>
+			
+					<div class="card p-4 mb-4" style="background-color: #EAFcFA">
+						<div class="mb-3" id="patient_form">
+							<h3>病患:</h3>
+							<select class="form-select" id="patientSelect">
+								<option value="">--選擇病患--</option>
+								<th:block th:each="patient : ${patients}">
+									<option 
+										th:value="${patient.id}"
+										th:data-identity="${patient.identity}"
+										th:text="${patient.name + '('+ patient.identity +')'}">
+									</option>
+								</th:block>
 							</select>
-<div id="sub_opt_container" style="display: none; margin-top: 10px;">
-    <h3>子分類:</h3>
-    <select class="form-select" id="sub_opt" name="sub_opt">
-        <option value="">--選擇細項--</option>
-    </select>
-</div>
+							<div class=" w3-text-black w3-xlarge" id="history"></div>
+						</div>
+						
+						<form class="w3-container w3-card-4 w3-light-grey w3-margin w3-xlarge" id="form">
+								<h3>科別:</h3>
+								<select class="form-select" id="opt" name="opt" required>
+									<option value="">--選擇科別--</option>
+									<option th:each="opt : ${opts}"
+											th:value="${opt[0]}"
+											th:text="${opt[1]}">
+								</select>
+							<div id="sub_opt_container" style="display: none; margin-top: 10px;">
+    							<h3>子分類:</h3>
+    							<select class="form-select" id="sub_opt" name="sub_opt">
+        							<option value="">--選擇細項--</option>
+    							</select>
+							</div>
 									<div class="mb-2">
 								    	<label for="main_symptom" class="form-label"><h3>主訴:</h3></label>
 									    <input id="main_symptom" placeholder="主訴" class="w3-input w3-border" style="width: 50%; font-size: 1.3rem;" type="text">
@@ -129,24 +148,46 @@
 										<button id="clear" class="btn btn-danger btn-md">清除</button>
 									</div>
 								</div>
-							</div>
-					</form>
-				</div>
-		
-				<div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="result"></div>   <!-- 計算資料再diff_event js計算完塞進來 -->
-					
-				<form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="end_form">
-					<br>
-					<div class="textarea-container_other">
-						<textarea name="other" id="other" placeholder="其他註記"></textarea>
-						<br>
+						</form>
 					</div>
-					<input type="hidden" id="temp_graph_path" name="temp_graph_path" value="">
-					<h5>
-						<input type="submit" value="儲存結果" class="btn btn-success btn-md">
+			
+
+					<!-- 辨證結果展示區 -->
+					<div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="result"></div>
+
+						
+					<!-- === 中藥配藥跳轉按鈕區塊 (直接在同頁右側展開配藥) === -->
+					<div id="dispensing_action_box" class="w3-margin text-end">
+	    				<button type="button" class="btn btn-success btn-lg shadow-sm" onclick="goToDispensing()">
+	        				帶入辨證結果，進入動態配藥 ➔
+	   					</button>
+					</div>
+
+					<form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id="end_form">
 						<br>
-					</h5>
-				</form>	
+						<div class="textarea-container_other">
+							<textarea name="other" id="other" placeholder="其他註記"></textarea>
+							<br>
+						</div>
+						<input type="hidden" id="temp_graph_path" name="temp_graph_path" value="">
+						<h5>
+							<input type="submit" value="儲存結果" class="btn btn-success btn-md">
+							<br>
+						</h5>
+					</form>	
+				</div>
+
+				<!-- === 內嵌中藥子系統容器 (同頁顯示) === -->
+				<div id="medicinal_iframe_container" style="display: none; padding-top: 10px;">
+					<div class="d-flex justify-content-between align-items-center mb-3">
+						<h3 class="fw-bold text-success mb-0" style="color: #07393C;"> 中藥子系統</h3>
+						<button type="button" class="btn btn-outline-dark btn-md" onclick="showDoctorMainView()">
+							⬅ 返回看診門診
+						</button>
+					</div>
+					<iframe id="medicinal_frame" src="" style="width: 100%; height: 900px; border: 1px solid #c3e6cb; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"></iframe>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -158,11 +199,71 @@
     const gatewayBaseUrl = /*[[${@environment.getProperty('custom.gateway.base-url')}]]*/ 'http://localhost:8080';
 </script>
 <script th:src="@{js/package/jquery-3.7.1.min.js}"></script>
-<script th:src="@{js/Symptom_Data.js}" defer></script> <!-- defer : 非同步載入各科辨證資料 -->
-<script th:src="@{js/functions.js}" defer></script> <!-- 協助資料呈現、按鈕產生、輸入校正、與介面顯示切換等操作 -->
-<script th:src="@{js/patient_event_handler.js}" defer></script> <!-- 根據性別設定顯示不同科別 & 透過AJAX向後端取得前次辨證結果 -->
-<script th:src="@{js/symptom_event_handler.js}" defer></script> <!-- 望聞問切症狀持續動態更新 & 輸入其他症狀，會根據關鍵字到symptom_data.js搜尋並提供正確的症狀選項 -->
-<script th:src="@{js/diff_event_handler.js}" defer></script> <!-- 向後端拿望聞問切資料 -->
-<script th:src="@{js/final_event_handler.js}" defer></script> <!-- 儲存辨證結果 -->
+<script th:src="@{js/Symptom_Data.js}" defer></script>
+<script th:src="@{js/functions.js}" defer></script>
+<script th:src="@{js/patient_event_handler.js}" defer></script>
+<script th:src="@{js/symptom_event_handler.js}" defer></script>
+<script th:src="@{js/diff_event_handler.js}" defer></script>
+<script th:src="@{js/final_event_handler.js}" defer></script>
+
+<script>
+// 切換至中藥子頁面 (同頁展示)
+function loadMedicinalPage(url) {
+    document.getElementById('doctor_main_view').style.display = 'none';
+    const container = document.getElementById('medicinal_iframe_container');
+    const iframe = document.getElementById('medicinal_frame');
+    iframe.src = url;
+    container.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 返回門診主頁面
+function showDoctorMainView() {
+    const container = document.getElementById('medicinal_iframe_container');
+    const iframe = document.getElementById('medicinal_frame');
+    iframe.src = '';
+    container.style.display = 'none';
+    document.getElementById('doctor_main_view').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 帶入辨證結果並在原頁面開啟動態配藥
+function goToDispensing() {
+    const resultBox = document.getElementById('result');
+    let targetSyndrome = '';
+
+    if (resultBox) {
+        // 1. 如果辨證結果是 Table 表格，抓取資料列第一格
+        const tableRows = resultBox.querySelectorAll('tr');
+        if (tableRows && tableRows.length > 1) {
+            const firstDataRow = tableRows[1];
+            const firstCell = firstDataRow.querySelector('td') || firstDataRow.querySelector('th');
+            if (firstCell) {
+                targetSyndrome = firstCell.innerText.trim();
+            }
+        }
+
+        // 2. 如果不是 Table，依行文字過濾
+        if (!targetSyndrome) {
+            const lines = resultBox.innerText.split('\n').map(l => l.trim()).filter(l => l);
+            const validLines = lines.filter(line => 
+                !line.includes('證候') && 
+                !line.includes('分數') && 
+                !line.includes('前次') && 
+                !line.includes('辨證結果')
+            );
+            if (validLines.length > 0) {
+                targetSyndrome = validLines[0].split(/[\t\s,，]/)[0].trim();
+            }
+        }
+    }
+
+    const targetUrl = targetSyndrome 
+        ? `/medicinal/dispensing.html?syndrome=${encodeURIComponent(targetSyndrome)}`
+        : '/medicinal/dispensing.html';
+
+    loadMedicinalPage(targetUrl);
+}
+</script>
 </body>
-</html> 
+</html>

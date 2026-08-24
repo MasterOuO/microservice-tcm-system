@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>TCM 智能動態配藥系統</title>
+    <style>
+        body { 
+            font-family: "Microsoft JhengHei", 'Segoe UI', sans-serif; 
+            background-color: #dcf2ea; 
+            margin: 20px; 
+            color: #2c3e50; 
+        }
+        .container { 
+            max-width: 1050px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            padding: 35px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 16px rgba(46, 125, 107, 0.08); 
+        }
+        h2 { 
+            border-bottom: 2px solid #b2dfdb; 
+            padding-bottom: 12px; 
+            color: #1b5e20; 
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+        .config-section { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 20px; 
+            background: #eef7f4; 
+            padding: 22px; 
+            border-radius: 10px; 
+            border: 1px solid #c8e6c9; 
+            margin-bottom: 20px; 
+        }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: #2e7d6b; font-size: 15px; }
+        select, input[type="number"] { 
+            width: 100%; 
+            padding: 9px 12px; 
+            border: 1.5px solid #a3d9c9; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            background: #fff;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #2e7d6b;
+            box-shadow: 0 0 5px rgba(46, 125, 107, 0.2);
+        }
+        .effect-row, .syndrome-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+        
+        .btn { 
+            background: #2e7d6b; color: white; padding: 11px 20px; border: none; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; 
+        }
+        .btn:hover { background: #236354; transform: translateY(-1px); }
+        .btn-secondary { 
+            background: #4db6ac; color: white; padding: 11px 20px; border: none; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; 
+        }
+        .btn-secondary:hover { background: #39968d; transform: translateY(-1px); }
+        
+        .recommend-box { margin-top: 20px; background: #fafdfc; border: 1px solid #b2dfdb; border-radius: 10px; padding: 20px; }
+        .drug-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .drug-tag { 
+            background: #e0f2f1; color: #004d40; padding: 7px 14px; border-radius: 6px; 
+            cursor: pointer; font-weight: 600; border: 1px solid #80cbc4; transition: all 0.2s; user-select: none; 
+            display: inline-flex; align-items: center;
+        }
+        .drug-tag:hover { background: #b2dfdb; transform: translateY(-2px); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .drug-tag span { font-size: 12px; background: #ffffff; color: #00796b; padding: 2px 7px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
+        
+        .prescription-view { margin-top: 25px; border: 2px dashed #4db6ac; border-radius: 10px; padding: 22px; background: #f4faf8; display: none; }
+        .prescription-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 6px; overflow: hidden; }
+        .prescription-table th, .prescription-table td { border: 1px solid #e0ece9; padding: 12px 14px; text-align: left; }
+        .prescription-table th { background: #e8f5e9; color: #1b5e20; font-weight: bold; }
+        .delete-btn { color: #d32f2f; cursor: pointer; font-weight: bold; background: none; border: none; font-size: 13px; }
+        .delete-btn:hover { text-decoration: underline; }
+        
+        .role-tag { font-weight: bold; padding: 3px 8px; border-radius: 4px; color: white; font-size: 12px; display: inline-block; }
+        .role-君藥 { background: #c62828; }
+        .role-臣藥 { background: #ef6c00; }
+        .role-佐藥 { background: #2e7d32; }
+        .role-使藥 { background: #0277bd; }
+        .role-方劑 { background: #00897b; }
+        
+        .type-badge {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            color: #1b5e20;
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>臨床動態配藥系統</h2>
+    
+    <!-- 1. 科學中藥選擇區塊 (置於上方) -->
+    <div class="config-section">
+        <div>
+            <div class="form-group">
+                <label>選用模式</label>
+                <div class="type-badge">
+                    <span>科學中藥 (方劑)</span>
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="calculateSyndromePrescriptions()">方劑推薦</button>
+        </div>
+        <div>
+            <label>證候與權重</label>
+            <div id="syndromeWeightContainer">
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="syndrome-row">
+                    <select class="syndrome-select" onchange="autoUpdateWeights('syndrome')"><option value="">--請選擇證候--</option></select>
+                    <input type="number" class="syndrome-weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 單味藥材選擇區塊 (置於下方) -->
+    <div class="config-section">
+        <div>
+            <div class="form-group">
+                <label>藥材角色</label>
+                <select id="prescriptionRole">
+                    <option value="君藥">君藥</option>
+                    <option value="臣藥">臣藥</option>
+                    <option value="佐藥">佐藥</option>
+                    <option value="使藥">使藥</option>
+                </select>
+            </div>
+            <button class="btn" onclick="calculateScores()">藥材推薦</button>
+        </div>
+        <div>
+            <label>療效與權重</label>
+            <div id="effectWeightContainer">
+                <div class="effect-row">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="effect-row">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+                <div class="effect-row">
+                    <select class="effect-select" onchange="autoUpdateWeights('effect')"><option value="">--請選擇療效--</option></select>
+                    <input type="number" class="weight-input" min="0" max="1" step="0.1" value="0.0" placeholder="權重">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="recommendationBox" class="recommend-box" style="display:none;">
+        <h3 id="recommendTitle" style="margin-top:0; color:#2e7d6b; font-size: 1.15rem;">推薦清單</h3>
+        <div id="drugRecommendList" class="drug-tags"></div>
+    </div>
+
+    <div style="margin-top: 25px; text-align: right;">
+        <button class="btn" style="background:#2e7d6b; padding:12px 28px; font-size:15px;" onclick="finalizePrescription()">✔ 完成配藥</button>
+    </div>
+
+    <div id="prescriptionOutput" class="prescription-view">
+        <h3 style="margin-top:0; color: #2e7d6b;">當前方劑處方箋</h3>
+        <table class="prescription-table">
+            <thead>
+                <tr>
+                    <th style="width: 15%">角色</th>
+                    <th style="width: 20%">藥材/科學中藥</th>
+                    <th style="width: 35%">療效/證候</th>
+                    <th style="width: 15%">劑量</th>
+                    <th style="width: 15%">操作</th>
+                </tr>
+            </thead>
+            <tbody id="prescriptionBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const GATEWAY_URL = 'http://localhost:8080/api/medicinal';
+
+    let inferenceReport = {}; 
+    let contraindicationsList = {}; 
+    let allAvailableDrugs = new Set(); 
+    let selectedDrugs = new Set(); 
+    let currentPrescription = []; 
+
+    // 動態自適應權重分配邏輯
+    function autoUpdateWeights(type) {
+        const selectClass = type === 'syndrome' ? '.syndrome-select' : '.effect-select';
+        const weightClass = type === 'syndrome' ? '.syndrome-weight-input' : '.weight-input';
+
+        const selects = document.querySelectorAll(selectClass);
+        const weightInputs = document.querySelectorAll(weightClass);
+
+        let selectedCount = 0;
+        selects.forEach(select => {
+            if (select.value.trim() !== "") {
+                selectedCount++;
+            }
+        });
+
+        let targetWeights = [0.0, 0.0, 0.0];
+        if (selectedCount === 1) {
+            targetWeights = [1.0, 0.0, 0.0];
+        } else if (selectedCount === 2) {
+            targetWeights = [0.7, 0.3, 0.0];
+        } else if (selectedCount >= 3) {
+            targetWeights = [0.5, 0.3, 0.2];
+        }
+
+        let assignedIndex = 0;
+        selects.forEach((select, i) => {
+            if (select.value.trim() !== "") {
+                weightInputs[i].value = targetWeights[assignedIndex];
+                assignedIndex++;
+            } else {
+                weightInputs[i].value = "0.0";
+            }
+        });
+    }
+
+    async function init() {
+        try {
+            const res = await fetch(`${GATEWAY_URL}/inference/report`);
+            inferenceReport = await res.json();
+            
+            const contraRes = await fetch(`${GATEWAY_URL}/dispensing/contraindications`);
+            contraindicationsList = await contraRes.json();
+            
+            const effects = Object.keys(inferenceReport).filter(key => key !== '_metadata');
+            effects.forEach(eff => {
+                Object.keys(inferenceReport[eff]).forEach(drug => allAvailableDrugs.add(drug));
+            });
+
+            const selects = document.querySelectorAll('.effect-select');
+            selects.forEach(select => {
+                effects.forEach(eff => {
+                    const opt = document.createElement('option');
+                    opt.value = opt.textContent = eff; 
+                    select.appendChild(opt);
+                });
+            });
+
+            const syndromeRes = await fetch(`${GATEWAY_URL}/syndrome/list`);
+            const syndromes = await syndromeRes.json();
+            const syndromeSelects = document.querySelectorAll('.syndrome-select');
+            syndromeSelects.forEach(select => {
+                syndromes.forEach(syn => {
+                    const opt = document.createElement('option');
+                    opt.value = opt.textContent = syn;
+                    select.appendChild(opt);
+                });
+            });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const incomingSyndrome = urlParams.get('syndrome');
+
+            if (incomingSyndrome) {
+                const targetSyndrome = decodeURIComponent(incomingSyndrome).trim();
+                const firstSyndromeSelect = document.querySelector('.syndrome-select');
+
+                if (firstSyndromeSelect) {
+                    let matchedIndex = -1;
+                    for (let i = 0; i < firstSyndromeSelect.options.length; i++) {
+                        const optText = firstSyndromeSelect.options[i].text.trim();
+                        const optVal = firstSyndromeSelect.options[i].value.trim();
+                        if (optText === targetSyndrome || optVal === targetSyndrome) {
+                            matchedIndex = i;
+                            break;
+                        }
+                    }
+
+                    if (matchedIndex === -1) {
+                        for (let i = 1; i < firstSyndromeSelect.options.length; i++) {
+                            const optText = firstSyndromeSelect.options[i].text.trim();
+                            if (optText && (optText.includes(targetSyndrome) || targetSyndrome.includes(optText))) {
+                                matchedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (matchedIndex > 0) {
+                        firstSyndromeSelect.selectedIndex = matchedIndex;
+                        firstSyndromeSelect.value = firstSyndromeSelect.options[matchedIndex].value;
+
+                        // 觸發自適應權重計算
+                        autoUpdateWeights('syndrome');
+
+                        setTimeout(() => {
+                            calculateSyndromePrescriptions();
+                        }, 50);
+                    }
+                }
+            }
+
+        } catch (e) {
+            console.error(e);
+            alert('數據初始化失敗，請確認後端 Node.js (Port 3000) 是否已啟動！');
+        }
+    }
+
+    function calculateScores() {
+        const rows = document.querySelectorAll('.effect-row');
+        let selectedConfigs = [];
+        rows.forEach(row => {
+            const eff = row.querySelector('.effect-select').value;
+            const weight = parseFloat(row.querySelector('.weight-input').value) || 0;
+            if (eff && weight > 0) selectedConfigs.push({ eff, weight });
+        });
+
+        if (selectedConfigs.length === 0) {
+            alert('請至少選擇一組療效並給予大於 0 的權重！'); 
+            return;
+        }
+
+        const combinedEffectsText = selectedConfigs.map(config => config.eff).join('。');
+        let drugScores = [];
+
+        allAvailableDrugs.forEach(drug => {
+            if (selectedDrugs.has(drug)) return; 
+
+            let totalCompositeScore = 0;
+            let totalWeightUsed = 0;
+
+            selectedConfigs.forEach(config => {
+                let score = (inferenceReport[config.eff] && inferenceReport[config.eff][drug] !== undefined) 
+                            ? inferenceReport[config.eff][drug] 
+                            : 0; 
+                
+                totalCompositeScore += score * config.weight;
+                totalWeightUsed += config.weight;
+            });
+
+            let finalNormalizedScore = totalWeightUsed > 0 ? (totalCompositeScore / totalWeightUsed) : 0;
+            drugScores.push({ drug, score: Math.round(finalNormalizedScore * 10) / 10, combinedEffects: combinedEffectsText });
+        });
+
+        drugScores.sort((a, b) => b.score - a.score);
+        const top10 = drugScores.slice(0, 10);
+        
+        const titleElem = document.getElementById('recommendTitle');
+        if (titleElem) titleElem.textContent = "推薦藥材 (單味)";
+        
+        const container = document.getElementById('drugRecommendList'); 
+        container.innerHTML = ''; 
+        
+        if (top10.length === 0) {
+            container.innerHTML = '<p style="color:#888; font-size:13px; padding-left:5px;">暫無符合推薦藥材</p>';
+        } else {
+            top10.forEach(item => {
+                const tag = document.createElement('div'); 
+                tag.className = 'drug-tag';
+                tag.innerHTML = `${item.drug} <span>${item.score}分</span>`;
+                tag.onclick = () => addDrugToPrescription(item.drug, item.combinedEffects);
+                container.appendChild(tag);
+            });
+        }
+        document.getElementById('recommendationBox').style.display = 'block';
+    }
+
+    async function calculateSyndromePrescriptions() {
+        const rows = document.querySelectorAll('.syndrome-row');
+        let selectedConfigs = [];
+        rows.forEach(row => {
+            const syn = row.querySelector('.syndrome-select').value;
+            const weight = parseFloat(row.querySelector('.syndrome-weight-input').value) || 0;
+            if (syn && weight > 0) selectedConfigs.push({ syn, weight });
+        });
+
+        if (selectedConfigs.length === 0) {
+            alert('請至少選擇一組證候並給予大於 0 的權重！');
+            return;
+        }
+
+        try {
+            let pScoresMap = {};
+            let totalWeightUsed = 0;
+
+            for (let config of selectedConfigs) {
+                totalWeightUsed += config.weight;
+                const res = await fetch(`${GATEWAY_URL}/syndrome/prescriptions-with-score?syndrome=${encodeURIComponent(config.syn)}`);
+                const data = await res.json();
+
+                if (Array.isArray(data)) {
+                    data.forEach(item => {
+                        if (!pScoresMap[item.prescription]) {
+                            pScoresMap[item.prescription] = { totalScore: 0 };
+                        }
+                        pScoresMap[item.prescription].totalScore += item.effect_value * config.weight;
+                    });
+                }
+            }
+
+            const combinedSyndromesText = selectedConfigs.map(c => c.syn).join(' + ');
+            let rankedPrescriptions = [];
+
+            Object.keys(pScoresMap).forEach(pName => {
+                if (selectedDrugs.has(pName)) return; 
+                let finalScore = totalWeightUsed > 0 ? (pScoresMap[pName].totalScore / totalWeightUsed) : 0;
+                rankedPrescriptions.push({
+                    name: pName,
+                    score: Math.round(finalScore * 10) / 10,
+                    combinedSyndromes: combinedSyndromesText
+                });
+            });
+
+            rankedPrescriptions.sort((a, b) => b.score - a.score);
+            const top10 = rankedPrescriptions.slice(0, 10);
+
+            const titleElem = document.getElementById('recommendTitle');
+            if (titleElem) titleElem.textContent = "推薦科學中藥";
+            
+            const container = document.getElementById('drugRecommendList');
+            container.innerHTML = '';
+
+            if (top10.length === 0) {
+                container.innerHTML = '<p style="color:#888; font-size:13px; margin:0;">暫無符合之推薦方劑</p>';
+            } else {
+                top10.forEach(item => {
+                    const tag = document.createElement('div');
+                    tag.className = 'drug-tag';
+                    tag.style.background = '#e8f5e9';
+                    tag.style.borderColor = '#a5d6a7';
+                    tag.style.color = '#1b5e20';
+                    tag.innerHTML = `${item.name} <span>${item.score}分</span>`;
+                    tag.onclick = () => addSyndromePrescription(item.name, item.combinedSyndromes);
+                    container.appendChild(tag);
+                });
+            }
+            document.getElementById('recommendationBox').style.display = 'block';
+
+        } catch (e) {
+            console.error('多證候方劑計算失敗', e);
+            alert('計算失敗，請確認後端伺服器！');
+        }
+    }
+
+    function addSyndromePrescription(prescriptionName, combinedSyndromes) {
+        selectedDrugs.add(prescriptionName);
+        currentPrescription.push({ role: '方劑', name: prescriptionName, effect: `${combinedSyndromes}` });
+        calculateSyndromePrescriptions(); 
+        renderPrescriptionTable(); 
+    }
+
+    function addDrugToPrescription(drugName, combinedEffects) {
+        const role = document.getElementById('prescriptionRole').value;
+        selectedDrugs.add(drugName); 
+        currentPrescription.push({ role, name: drugName, effect: combinedEffects || '動態配伍綜合調和' });
+        calculateScores(); 
+        renderPrescriptionTable();
+    }
+
+    function renderPrescriptionTable() {
+        const tbody = document.getElementById('prescriptionBody'); 
+        tbody.innerHTML = ''; 
+        currentPrescription.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><span class="role-tag role-${item.role}">${item.role}</span></td>
+                <td style="font-weight: 600; color: #2e7d6b;">${item.name}</td>
+                <td style="color: #444; font-size: 14px;">${item.effect}</td>
+                <td><input type="number" style="padding:6px; width:75px;" min="0.5" step="0.5" value="1.0"></td>
+                <td><button class="delete-btn" onclick="removeDrug(${index}, '${item.name}')">❌ 移除</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+        document.getElementById('prescriptionOutput').style.display = currentPrescription.length > 0 ? 'block' : 'none';
+    }
+
+    function finalizePrescription() {
+        if (currentPrescription.length === 0) {
+            alert('目前處方箋內尚無任何藥材，請先點選上方推薦藥材加入！'); 
+            return;
+        }
+
+        for (let i = 0; i < currentPrescription.length; i++) {
+            const drugA = currentPrescription[i].name;
+            if (contraindicationsList[drugA]) {
+                const toxicCompanions = contraindicationsList[drugA];
+                for (let j = i + 1; j < currentPrescription.length; j++) {
+                    const drugB = currentPrescription[j].name;
+                    if (toxicCompanions.includes(drugB)) {
+                        alert(`❌ 觸發中醫臨床配伍禁忌！\n\n目前處方箋中同時包含了【${drugA}】與【${drugB}】。\n這兩味藥物在資料庫設定中屬於『十八反 / 十九畏』的絕對禁忌組合，系統已進行硬性攔截，請重新審查病機！`);
+                        return;
+                    }
+                }
+            }
+        }
+        renderPrescriptionTable();
+        document.getElementById('prescriptionOutput').style.display = 'block';
+        document.getElementById('prescriptionOutput').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function removeDrug(index, drugName) {
+        selectedDrugs.delete(drugName); 
+        currentPrescription.splice(index, 1); 
+        renderPrescriptionTable();
+        if (document.getElementById('recommendationBox').style.display === 'block') {
+            const titleElem = document.getElementById('recommendTitle');
+            if (titleElem && titleElem.textContent.includes('單味')) {
+                calculateScores();
+            } else {
+                calculateSyndromePrescriptions();
+            }
+        }
+    }
+    
+    window.onload = init;
+</script>
+</body>
+</html>
