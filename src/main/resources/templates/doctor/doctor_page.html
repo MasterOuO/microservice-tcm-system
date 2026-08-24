@@ -90,6 +90,14 @@
         <option value="">--選擇細項--</option>
     </select>
 </div>
+									<div class="mb-2">
+								    	<label for="main_symptom" class="form-label"><h3>主訴:</h3></label>
+									    <input id="main_symptom" placeholder="主訴" class="w3-input w3-border" style="width: 50%; font-size: 1.3rem;" type="text">
+									</div>
+									<div class="mb-2">
+								    	<label for="voice_input" class="form-label"><h3>問診過程:</h3></label>
+									    <input id="voice_input" placeholder="語音結果" class="w3-input w3-border" style="width: 50%; font-size: 1.3rem;" type="text">
+									</div>
 							<div class="w3-panel">
 								<div id="input_symptoms_container">
 									<div id="suggests">
@@ -98,6 +106,8 @@
 										<div id="suggest_G3"></div>
 										<div id="suggest_G4"></div>
 									</div>
+
+
 									<div class="textarea-container mb-4">
 										<h3>其他症狀輸入:<br></h3>
 										<input id="other_input" placeholder="請輸入關鍵字" class="w3-input w3-border" style="width: 50%; font-size: 1.3rem;" type="text">
@@ -108,6 +118,12 @@
 										
 									</div>
 									<div class="text-end">
+										<button id="start_recording_btn" type="button" class="btn btn-warning btn-md">
+											開始錄音
+										</button>
+										<button id="stop_recording_btn" type="button" class="btn btn-secondary btn-md" style="display: none;">
+											停止錄音
+										</button>
 										<input type="submit" value="進行辨證" class="btn btn-primary btn-md">
 										<button id="generate_graph_btn" type="button" class="btn btn-success btn-md" style="display: none;">生成演變圖</button>
 										<button id="clear" class="btn btn-danger btn-md">清除</button>

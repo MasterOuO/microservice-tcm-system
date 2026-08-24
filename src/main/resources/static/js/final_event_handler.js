@@ -18,6 +18,7 @@ $(document).ready(function(){
 		const identity = selectedOption.data("identity");
 		const symptoms = $("#symptoms").val().trim();
 		const result = extractResult();
+		const voiceResult = $("#voice_input").val().trim();
 		const other = $("#other").val().trim();
 		
 		// 暫存路徑
@@ -41,6 +42,7 @@ $(document).ready(function(){
 				identity: identity,
 				symptoms: symptoms,
 				result: result,
+				voiceResult: voiceResult, 
 				other: other,
 				tmpGraphPath: tmpGraphPath
 			},
