@@ -89,7 +89,7 @@
     </div>
 </div>
 <script>
-    const GATEWAY_URL = 'http://localhost:8080/api/medicinal';
+	const GATEWAY_URL = `http://${window.location.hostname}:8080/api/medicinal`;
 
     document.querySelectorAll('textarea').forEach(t => { 
         t.oninput = () => { 
