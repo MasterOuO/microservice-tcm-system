@@ -199,7 +199,8 @@ public class DiffController {
             @RequestParam String name, 
             @RequestParam String identity,
             @RequestParam String symptoms, 
-            @RequestParam String result, 
+            @RequestParam String result,  
+            @RequestParam String voiceResult, 
             @RequestParam String other,
             @RequestParam(required = false) String tmpGraphPath) {
         
@@ -211,7 +212,7 @@ public class DiffController {
                 throw new RuntimeException("Simulated Timeout for Testing");
             }
             // 將所有參數交給 Service 處理
-            diffService.saveDiffRecord(name, identity, symptoms, result, other, tmpGraphPath);
+            diffService.saveDiffRecord(name, identity, symptoms, result, voiceResult, other, tmpGraphPath);
             
             response.put("success", true);
             response.put("message", "儲存成功");

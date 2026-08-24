@@ -234,9 +234,9 @@ public class DiffService {
 	                suggested_symptoms_List = icd11_suggester.getSuggestSymptoms(input_Symptoms_ID, getTopSyndrome(result));
 	                if (result.isEmpty()) {
 	                    String[][] sdata= {{"情緒神疲", "舌苔顏色白", "舌苔顏色黃", "舌體顏色淡白色", "舌苔質地黏膩","舌體顏色紅色"},
-	                            {"咳喘", "呼吸微弱"},
+	                            {"咳喘", "呼吸微弱","咳嗽無力","呼吸急促","口臭","聲啞"},
 	                            {"難眠", "心悸", "頭暈", "食欲低落", "大便質稀", "四肢冷", "腹痛", "發熱"},
-	                            {"脈寬度細", "脈力度弱", "脈緊度緊","脈速度快"}};
+	                            {"脈寬度細", "脈力度弱", "脈緊度緊","脈速度快","脈速度滑","脈速度沉"}};
 	                    setData(suggested_symptoms_Group_Name,sdata);
 	                }
 	                break;
@@ -392,13 +392,14 @@ public class DiffService {
 	    }
 	    
 	    @Transactional // 確保資料庫操作的完整性
-	    public void saveDiffRecord(String name, String identity, String symptoms, String result, String other, String tmpGraphPath) throws IOException {
+	    public void saveDiffRecord(String name, String identity, String symptoms, String result, String voiceResult, String other, String tmpGraphPath) throws IOException {
 	        DiffResult diff = new DiffResult();
 	        
 	        diff.setName(name);
 	        diff.setIdentity(identity);
 	        diff.setSymptom(symptoms);
 	        diff.setResult(result);
+	        diff.setVoiceResult(voiceResult);
 	        diff.setOther(other);
 	        
 	        // 處理時間格式

@@ -20,6 +20,9 @@ public class DiffResult {
 	private String result;
 	
 	@Lob
+	private String voiceResult;
+	
+	@Lob
 	private String other;
 	private String dateTime;
 	
@@ -81,6 +84,13 @@ public class DiffResult {
 		this.result = result;
 	}
 	
+	public String getVoiceResult() {
+		return voiceResult;
+	}
+	
+	public void setVoiceResult(String voiceResult) {
+		this.voiceResult = voiceResult;
+	}	
 	public String getOther() {
 		return other;
 	}
