@@ -2,13 +2,33 @@ import os
 import tempfile
 import traceback
 import librosa
+import uvicorn
+import py_eureka_client.eureka_client as eureka_client
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
-
 from whisper_service import WhisperService
 
+
+# 建立 FastAPI 實體
 app = FastAPI()
 ai_service = WhisperService()
+
+# ----------------------------------------------------
+# 1. Eureka 服務註冊 (FastAPI 生命週期 events)
+# ----------------------------------------------------
+EUREKA_SERVER = os.getenv("EUREKA_SERVER", "http://localhost:8761/eureka/")
+SERVER_PORT = 8011
+
+@app.on_event("startup")
+async def startup_event():
+    # 服務啟動時自動註冊至 Eureka
+    await eureka_client.init_async(
+        eureka_server=EUREKA_SERVER,
+        app_name="WHISPER-SERVICE",     # Eureka 上的服務名稱
+        instance_port=SERVER_PORT,
+        instance_host=os.getenv("INSTANCE_HOST", "localhost")
+    )
 
 @app.get("/", response_class=HTMLResponse)
 async def main_page():
@@ -170,7 +190,36 @@ async def process_audio(file: UploadFile = File(...)):
         traceback.print_exc()
         print("\n")
         return {"status": "error", "message": str(e)}
+    
+@app.post("/api/python/upload")
+async def process_audio(file: UploadFile = File(...)):
+    try:
+        print("\n[LOG] 收到前端傳來的語音檔案！")
+        contents = await file.read()
+        size_mb = round(len(contents) / (1024 * 1024), 2)
+        print(f"[LOG] 檔案大小: {size_mb} MB")
+
+        print("[LOG] 正在丟給 Whisper 模型推論中...")
+        transcribed_text = ai_service.transcribe_mp3(contents)
+        print(f"[LOG] 辨識成功！結果：{transcribed_text}\n")
+
+        return {
+            "status": "success",
+            "size_mb": size_mb,
+            "text": transcribed_text,
+        }
+    except Exception as e:
+        print("\n[LOG] 後端處理發生錯誤：")
+        traceback.print_exc()
+        print("\n")
+        return {"status": "error", "message": str(e)}
+    
+@app.get("/api/python/test")
+async def test():
+    return {
+        "status": "success",
+        "message": "Whisper 服務 (FastAPI) 運作正常！"
+    }
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8011)
+    uvicorn.run("app:app", host="0.0.0.0", port=SERVER_PORT, reload=True)
