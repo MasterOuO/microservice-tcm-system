@@ -10,7 +10,7 @@ import opencc
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
 from peft import PeftModel
 
-_CC = opencc.OpenCC('s2twp')  # Simplified → Traditional (Taiwan phrases)
+_CC = opencc.OpenCC('s2t')
 
 # ── 全形轉半形 ─────────────────────────────────────────────────────────────────
 
@@ -30,64 +30,21 @@ def _full2half(text: str) -> str:
             result.append(ch)
     return ''.join(result)
 
-# ── 數字轉中文 ─────────────────────────────────────────────────────────────────
-
-_ZH_DIGITS = '零一二三四五六七八九'
-
-def _section_zh(n: int) -> str:
-    """將 0–9,999 轉為中文（內部使用）。"""
-    parts, need_zero = [], False
-    for char, w in [('千', 1000), ('百', 100), ('十', 10), ('', 1)]:
-        d, n = divmod(n, w)
-        if d:
-            if need_zero:
-                parts.append('零')
-            parts.append(_ZH_DIGITS[d] + char)
-            need_zero = False
-        elif parts:
-            need_zero = True
-    return ''.join(parts)
-
-def _int_zh(n: int) -> str:
-    """將非負整數轉為中文數字。"""
-    if n == 0:
-        return '零'
-    if n < 10_000:
-        return _section_zh(n)
-    if n < 100_000_000:
-        wan, rest = divmod(n, 10_000)
-        if rest == 0:
-            return _section_zh(wan) + '萬'
-        if rest < 1_000:
-            return _section_zh(wan) + '萬零' + _section_zh(rest)
-        return _section_zh(wan) + '萬' + _section_zh(rest)
-    yi, rest = divmod(n, 100_000_000)
-    if rest == 0:
-        return _int_zh(yi) + '億'
-    if rest < 10_000_000:
-        return _int_zh(yi) + '億零' + _int_zh(rest)
-    return _int_zh(yi) + '億' + _int_zh(rest)
-
-def _num_to_zh(m: re.Match) -> str:
-    s = m.group()
-    if '.' in s:
-        left, right = s.split('.', 1)
-        int_zh = _int_zh(int(left)) if left else '零'
-        dec_zh = ''.join(_ZH_DIGITS[int(c)] for c in right)
-        return int_zh + '點' + dec_zh
-    return _int_zh(int(s))
-
 # ── 標點正則 ───────────────────────────────────────────────────────────────────
 
 # 全形轉半形後，，！？；：已變為半形，因此兩者都納入
-_PUNCT_RE = re.compile(
+__PUNCT_RE = re.compile(
     r'[。、…—～·「」『』【】《》〈〉'
     r'.,!?;"\'`@#$%^&*+=<>~_|/()\[\]{}\-\\]'
 )
 _TRAILING_RE = re.compile(
-    r'[。、…—～·「」『』【】《》〈〉'
+    r'[，。、…—～·「」『』【】《》〈〉'
     r'.,!?;"\'`@#$%^&*+=<>~_|/()\[\]{}\-\\\s]+'
     r'$'
+)
+_PUNCT_RE = re.compile(
+    r"[，。、…—～·「」『』【】《》〈〉"
+    r'.,!?;"\'`@#$%^&*+=<>~_|/()\[\]{}\-\\\s]+'
 )
 
 # ── 主函式 ─────────────────────────────────────────────────────────────────────
@@ -101,20 +58,29 @@ def normalize_text(text: str) -> str:
     text = _full2half(text)
 
     # 規則 5：'兩' → '2'（接著在規則 3 統一轉為「二」）
-    text = text.replace('兩', '2')
+    #text = text.replace('兩', '2')
 
     # 規則 4+3：先匹配小數再匹配整數，統一轉中文
-    text = re.sub(r'\d+\.\d+', _num_to_zh, text)
-    text = re.sub(r'\d+', _num_to_zh, text)
+    #text = re.sub(r'\d+\.\d+', _num_to_zh, text)
+    #text = re.sub(r'\d+', _num_to_zh, text)
 
     # 規則 2：英文轉大寫
     text = text.upper()
 
-    # 規則 1b：句尾標點移除
-    text = _TRAILING_RE.sub('', text)
-
     # 規則 1c：其餘標點轉空格（冒號 ':' 不在此 pattern，得以保留）
-    text = _PUNCT_RE.sub(' ', text)
+    #text = _PUNCT_RE.sub('，', text)
+
+    # 規則 1b：句尾標點移除
+    #text = _TRAILING_RE.sub('。', text)
+
+    text = _PUNCT_RE.sub("，", text)
+
+    # 2. 去除開頭多餘的逗號
+    text = text.lstrip("，")
+
+    # 3. 去除結尾多餘的逗號並補上句號
+    if text:
+        text = text.rstrip("，") + "。"
 
     # 整理多餘空白
     text = re.sub(r'\s+', '', text).strip()
@@ -123,27 +89,27 @@ def normalize_text(text: str) -> str:
 
 class WhisperService:
 
-  def __init__(self, model_path="./tcmWhisper7"):
+  def __init__(self, model_path="./model"):
     print("正在載入 Whisper 模型...")
 
 
-    # OpenAI 官方微型模型 
-    self.model = WhisperForConditionalGeneration.from_pretrained(
-        "openai/whisper-tiny", device_map="auto"
-    )
+    local_model_path = model_path
 
-    # 切換微調模型
-    # base_model = WhisperForConditionalGeneration.from_pretrained(
-    #     "openai/whisper-tiny",
-    #     device_map="auto"
-    # )
-    # self.model = PeftModel.from_pretrained(base_model, model_path)
+    self.model = WhisperForConditionalGeneration.from_pretrained(
+        local_model_path, 
+        device_map="auto",
+        local_files_only=True  # 確保完全離線讀取，不對外連線
+    )
 
     self.model.eval()
 
     self.processor = WhisperProcessor.from_pretrained(
-        "openai/whisper-tiny", language="zh", task="transcribe"
+        local_model_path, 
+        language="zh", 
+        task="transcribe",
+        local_files_only=True
     )
+
     self.model.config.forced_decoder_ids = (
         self.processor.get_decoder_prompt_ids(language="zh", task="transcribe")
     )
@@ -217,3 +183,53 @@ class WhisperService:
             os.remove(p)
           except Exception:
             pass
+
+
+"""
+# ── 數字轉中文 ─────────────────────────────────────────────────────────────────
+
+_ZH_DIGITS = '零一二三四五六七八九'
+
+def _section_zh(n: int) -> str:
+    將 0–9,999 轉為中文（內部使用）。
+    parts, need_zero = [], False
+    for char, w in [('千', 1000), ('百', 100), ('十', 10), ('', 1)]:
+        d, n = divmod(n, w)
+        if d:
+            if need_zero:
+                parts.append('零')
+            parts.append(_ZH_DIGITS[d] + char)
+            need_zero = False
+        elif parts:
+            need_zero = True
+    return ''.join(parts)
+
+def _int_zh(n: int) -> str:
+    將非負整數轉為中文數字。
+    if n == 0:
+        return '零'
+    if n < 10_000:
+        return _section_zh(n)
+    if n < 100_000_000:
+        wan, rest = divmod(n, 10_000)
+        if rest == 0:
+            return _section_zh(wan) + '萬'
+        if rest < 1_000:
+            return _section_zh(wan) + '萬零' + _section_zh(rest)
+        return _section_zh(wan) + '萬' + _section_zh(rest)
+    yi, rest = divmod(n, 100_000_000)
+    if rest == 0:
+        return _int_zh(yi) + '億'
+    if rest < 10_000_000:
+        return _int_zh(yi) + '億零' + _int_zh(rest)
+    return _int_zh(yi) + '億' + _int_zh(rest)
+
+def _num_to_zh(m: re.Match) -> str:
+    s = m.group()
+    if '.' in s:
+        left, right = s.split('.', 1)
+        int_zh = _int_zh(int(left)) if left else '零'
+        dec_zh = ''.join(_ZH_DIGITS[int(c)] for c in right)
+        return int_zh + '點' + dec_zh
+    return _int_zh(int(s))
+"""
