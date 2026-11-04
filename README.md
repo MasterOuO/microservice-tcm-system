@@ -28,7 +28,7 @@
   └── **[Web UI](https://github.com/MasterOuO/microservice-tcm-system/tree/admin-ui)**：提供醫師與行政人員操作之使用者介面
 
 * **容器化環境與部署 (Containerization)**
-  └── **[Docker / Docker Compose](https://github.com/MasterOuO/microservice-tcm-system/tree/docker)**：全系統服務打包與環境變數配置（請參閱 [docker 分支](https://github.com/MasterOuO/microservice-tcm-system/tree/docker)）
+  └── **[Docker / Docker Compose](https://github.com/MasterOuO/microservice-tcm-system/tree/docker)**：全系統服務打包與環境變數配置
 ---
 
 ## 🛠️ 技術棧 (Tech Stack)
