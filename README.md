@@ -18,7 +18,7 @@
   └── **[API Gateway](https://github.com/MasterOuO/microservice-tcm-system/tree/api-gateway)**：系統統一入口，負責 Request 路由轉發與全域驗證
 * **後端微服務群 (Backend Services)**
 
-  ├── **[Differentination Service](https://github.com/MasterOuO/microservice-tcm-system/tree/differentiation)**：處理中醫門診斷核心業務，判斷病人的症狀
+  ├── **[TCM Core Service](https://github.com/MasterOuO/microservice-tcm-system/tree/differentiation)**：處理中醫門診斷核心業務，判斷病人的症狀
 
   ├── **[Medicinal Service](https://github.com/MasterOuO/microservice-tcm-system/tree/medicinal)**：處理中藥材庫存、藥性與處方管理
   
