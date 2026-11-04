@@ -2,6 +2,7 @@
 
 > 本模組為中醫資訊系統（TCM Microservice System）的**中心化服務總線與註冊中心**，基於 Spring Cloud Netflix Eureka 建置。負責全系統微服務實體的動態註冊、健康狀態監控與服務發現，並作為外部/既有業務模組無縫接入系統的核心橋樑。
 
+
 ---
 
 ## 🛠️ 核心功能與系統設計 (Key Features & Design)
@@ -20,3 +21,5 @@
 * **Build Tool:** Maven
 
 ---
+
+[回到總覽](https://github.com/MasterOuO/microservice-tcm-system/tree/main)
